@@ -4,6 +4,3 @@ author:
   name: Adrian Lost
   email: landofthelost10350@gmail.com
 description: "City-building and Empire-expanding game. Collect resources, train soldiers, build buildings, research, or really, do whatever you want."
-
-# Build settings
-remote_theme: jekyll/minima
