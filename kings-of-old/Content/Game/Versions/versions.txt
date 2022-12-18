@@ -1,0 +1,51 @@
+VERSIONS LISTED HERE MAY NOT BE TESTED OR STABLE,
+DOWNLOAD AT OWN RISK. UNSTABLE VERSIONS MAY
+CAUSE CRASHES OR UNTRUE/UNRELIABLE ERROR REPORTS.
+
+REPORT ALL BUGS OR REQUESTED FEATURES TO THE DEVELOPERS
+(LostSheep Games™) AT A GITHUB ACCOUNT OR EMAIL. BOTH
+OPTIONS CAN BE FOUND ON THE SAVE CREATION PAGE.
+
+This file is not licensed for retail or reselling use.
+
+Kings of Old™ Copyright 2023 LostSheep Games, llc
+
+VERSIONS:
+
+0.1.5:
+-Added subsections of the main UI.
+-Bug fixes.
+-Stablization Fixes.
+-Added 3 Achievements.
+-Added and improved Manual Saving. [Autosave not out yet.]
+-Added Random Civ picking.
+-Added console formatting.
+-Added Building Info window.
+-Small styling changes.
+-Added buildings.
+-Added military.*1
+-Added Era Up framework. 0.1.75 will contain Era Up.
+-Changed hunter gather rate to 0.25 per three second.
+
+*1 Included: All Early Era units.
+
+**V0.1.5 is not available on the K/O/O download site. The browser 
+publication of Kings of Old 
+is updated to the newest version, whatever that may be.
+
+
+0.1.0:
+-Added base mechanics such as wood, stone, and food.
+-Added population count.
+-Added workers.
+-Added save creation system.*1
+
+*1 Included: Err messages, king/kingdom names, basic javascript 
+components, and CSS styling.
+Note: Saving is not actually supported yet. I've just added it 
+for preparation and
+professionalism.
+
+**V0.1.0 is not available on the K/O/O download site. The browser 
+publication of Kings of Old 
+is updated to the newest version, whatever that may be.**

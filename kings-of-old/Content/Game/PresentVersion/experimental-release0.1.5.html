@@ -1,0 +1,2330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kings of Old | V0.1.5 SR</title>
+    <script src="Jquery/jquery-1.10.2.min.js"></script>
+    <script src="Jquery/jquery-ui-1.10.4.js"></script>
+    <link href="Jquery/jquery-ui-1.10.4:CSS.css" rel="stylesheet">
+    <link rel="stylesheet" href="Icons/css/fontawesome.min.css">
+    <link rel="stylesheet" href="Icons/css/fontawesome.css">
+    <link rel="stylesheet" href="Icons/css/all.css">
+    <script>
+        //onload console commands
+        setTimeout(console.log.bind(console, '%cKings of Old v0.1.5 BETA -- LOSTSHEEP GAMES IS NOT RESPOSIBLE FOR ANY AND ALL ISSUES WITH GAME STORAGE, CREATION, OR FUNCTION AFTER THE CODE IS EDITED WITH GOOGLE DEVTOOLS,  OR CHEAT CODES ARE ENTERED IN THE CONSOLE. PROCEED AT OWN RISK.', 'background-color: transparent; color: hotpink;'));
+        setTimeout(console.log.bind(console, '', ''));
+    </script>
+</head>
+
+</html>
+<script>
+
+    $(document).ready(function () {
+        const KingdomVarsGet = window.location.search;
+        const urlParams = new URLSearchParams(KingdomVarsGet);
+        king = urlParams.get('king');
+        kingdom = urlParams.get('kingdom');
+        god = urlParams.get('god');
+        save = urlParams.get('save');
+        civ = urlParams.get('civ');
+        autosave = urlParams.get('autosave');
+        achieve = urlParams.get('achieve');
+        difficulty = urlParams.get('diff');
+
+        woodCount = 0;
+        stoneCount = 0;
+        foodCount = 0;
+        population = 0;
+        buildings = 0;
+
+        //kingdomClasses
+        earlyKingdom = 1;
+        middleKingdom = 0;
+        moreMiddleKingdom = 0;
+        lateKingdom = 0;
+        laterKingdom = 0;
+
+        kingdomClass = undefined;
+        leaderClass = undefined;
+
+        //RSS Add
+        woodAdd = 1;
+        stoneAdd = 1;
+        foodAdd = 1;
+
+        //RSS AddIncrement
+        foodIncrement = 0;
+        woodIncrement = 0;
+        stoneIncrement = 0;
+
+        //Citizens
+        woodWorkers = 0;
+        stoneWorkers = 0;
+        foodWorkers = 0;
+        unemployed = 0;
+
+        //Caps
+        populationCap = 5;
+        woodCap = 150;
+        foodCap = 250;
+        stoneCap = 100;
+        hunterCap = 10;
+        lumberCap = 20;
+        minerCap = 20;
+        woodenWonderCap = 1;
+        gatheringCap = 5;
+        barrackCap = 10;
+
+        //Special
+        researchBuilding = false;
+        militaryEnabled = false;
+        newReasearch = false;
+        fortification = 0;
+
+        //Buildings
+        tents = 0;
+        huts = 0;
+        shacks = 0;
+        houses = 0;
+        huntersCabins = 0;
+        lumberHuts = 0;
+        minerShacks = 0;
+        barracks = 0;
+        gathering = 0;
+        woodpit = 0;
+        stoneShed = 0;
+        foodCave = 0;
+        woodenWonder = 0;
+
+        //Achievements !!IMPORTANT!!
+        overBoard = false;
+        firstAchievement = false;
+        welcome = false;
+        achievements = 0;
+
+        //EraUp Conditions
+        eraUp = false;
+
+        //Random Civ Declaring
+        if (civ == "Random") {
+            var RandomNumber = Math.floor(Math.random() * 7);
+
+            if (RandomNumber == 0) {
+                civ = 'England';
+            }
+            if (RandomNumber == 1) {
+                civ = 'Ottoman Empire';
+            }
+            if (RandomNumber == 2) {
+                civ = 'Delhi Sultanate';
+            }
+            if (RandomNumber == 3) {
+                civ = 'France';
+            }
+            if (RandomNumber == 4) {
+                civ = 'Russia';
+            }
+            if (RandomNumber == 5) {
+                civ = 'Greece';
+            }
+            if (RandomNumber == 6) {
+                civ = 'America';
+            }
+        };
+
+        if (earlyKingdom = 1) {
+            kingdomClass = "Tribal Village";
+            leaderClass = "Chieftain";
+            $('head').append('<link href="Images/Misc./earlyAgeFavicon.png" rel="shortcut icon" type="image/x-icon" />');
+        }
+        /*window.onload=function(){
+            if (civ == 'England') {
+                var EnglishPeacetime = document.getElementById('EnglishPeacetime');
+                EnglishPeacetime.loop = true;
+                EnglishPeacetime.play();
+            }
+        };
+        $('.MUSIC-OFF').click(function () {
+            var EnglishPeacetime = document.getElementById('EnglishPeacetime');
+            EnglishPeacetime.pause();
+            EnglishPeacetime.loop = false;
+        });*/
+
+        $(".wood-gather").click(function () {
+            woodCount = woodCount + woodAdd;
+        });
+        $(".stone-gather").click(function () {
+            stoneCount = stoneCount + stoneAdd;
+        });
+        $(".food-gather").click(function () {
+            foodCount = foodCount + foodAdd;
+        });
+        $(".worker-recruit").click(function () {
+            if (foodCount >= 10) {
+                population = population + 1;
+                unemployed = unemployed + 1;
+                foodCount = foodCount - 10;
+            }
+        });
+        $(".hadd").click(function () {
+            if (unemployed >= 1) {
+                foodWorkers = foodWorkers + 1;
+                unemployed = unemployed - 1;
+            }
+        });
+        $(".hsubtract").click(function () {
+            if (foodWorkers >= 1) {
+                foodWorkers = foodWorkers - 1;
+                unemployed = unemployed + 1;
+            }
+        });
+        $(".ladd").click(function () {
+            if (unemployed >= 1) {
+                woodWorkers = woodWorkers + 1;
+                unemployed = unemployed - 1;
+            }
+        });
+        $(".lsubtract").click(function () {
+            if (woodWorkers >= 1) {
+                woodWorkers = woodWorkers - 1;
+                unemployed = unemployed + 1;
+            }
+        });
+        $(".madd").click(function () {
+            if (unemployed >= 1) {
+                stoneWorkers = stoneWorkers + 1;
+                unemployed = unemployed - 1;
+            }
+        });
+        $(".msubtract").click(function () {
+            if (stoneWorkers >= 1) {
+                stoneWorkers = stoneWorkers - 1;
+                unemployed = unemployed + 1;
+            }
+        });
+        //TENT
+        $("#TprogressBar").hide();
+        $(".buildTent").click(function () {
+            if (woodCount >= 5) {
+                $("#TprogressBar").show();
+                woodCount = woodCount - 5;
+                var Fast = new Audio('Audio/fast.mp3');
+                Fast.play();
+                var i = 0;
+                function Tmove() {
+                    if (i == 0) {
+                        i = 1;
+                        var elem = document.getElementById("Tbar");
+                        var width = 1;
+                        var id = setInterval(frame, 10);
+                        function frame() {
+                            if (width >= 100) {
+                                tents = tents + 1;
+                                populationCap = populationCap + 5;
+                                buildings = buildings + 1;
+                                clearInterval(id);
+                                Fast.pause();
+                                i = 0;
+                                $("#TprogressBar").hide();
+                            } else {
+                                width++;
+                                elem.style.width = width + "%";
+                            }
+                        }
+                    }
+                }
+                Tmove();
+            }
+        });
+        //TENT END
+
+        //BARRACKS
+        $("#BprogressBar").hide();
+        $(".buildBarracks").click(function () {
+            if (woodCount >= 50) {
+                woodCount = woodCount - 50;
+                $("#BprogressBar").show();
+                var Medium = new Audio('Audio/medium.mp3');
+                Medium.play();
+                var i = 0;
+                function Bmove() {
+                    if (i == 0) {
+                        i = 1;
+                        var elem = document.getElementById("Bbar");
+                        var width = 1;
+                        var id = setInterval(frame, 55);
+                        function frame() {
+                            if (width >= 100) {
+                                Medium.pause();
+                                barracks = barracks + 1;
+                                militaryEnabled = true;
+                                buildings = buildings + 1;
+                                clearInterval(id);
+                                i = 0;
+                                $("#BprogressBar").hide();
+                            } else {
+                                width++;
+                                elem.style.width = width + "%";
+                            }
+                        }
+                    }
+                }
+                Bmove();
+            }
+        });
+        //BARRACKS END
+
+        //HUNTERS CABIN
+        $("#HCprogressBar").hide();
+        $(".buildHC").click(function () {
+            if (woodCount >= 35) {
+                $("#HCprogressBar").show();
+                woodCount = woodCount - 35;
+                stoneCount = stoneCount - 10;
+                var Medium = new Audio('Audio/medium.mp3');
+                Medium.play();
+                var i = 0;
+                function HCmove() {
+                    if (i == 0) {
+                        i = 1;
+                        var elem = document.getElementById("HCbar");
+                        var width = 1;
+                        var id = setInterval(frame, 35);
+                        function frame() {
+                            if (width >= 100) {
+                                huntersCabins = huntersCabins + 1;
+                                hunterCap = hunterCap + 10;
+                                buildings = buildings + 1;
+                                foodCap = foodCap + 50;
+                                Medium.pause();
+                                clearInterval(id);
+                                i = 0;
+                                $("#HCprogressBar").hide();
+                            } else {
+                                width++;
+                                elem.style.width = width + "%";
+                            }
+                        }
+                    }
+                }
+                HCmove();
+            }
+        });
+        //HUNTERS CABIN END
+
+        //LUMBER HUT
+        $("#LHprogressBar").hide();
+        $(".buildLH").click(function () {
+            if (woodCount >= 35) {
+                woodCount = woodCount - 35;
+                var Medium = new Audio('Audio/medium.mp3');
+                Medium.play();
+                var i = 0;
+                $("#LHprogressBar").show();
+                function LHmove() {
+                    if (i == 0) {
+                        i = 1;
+                        var elem = document.getElementById("LHbar");
+                        var width = 1;
+                        var id = setInterval(frame, 35);
+                        function frame() {
+                            if (width >= 100) {
+                                Medium.pause();
+                                lumberHuts = lumberHuts + 1;
+                                woodCap = woodCap + 100;
+                                lumberCap = lumberCap + 10;
+                                buildings = buildings + 1;
+                                clearInterval(id);
+                                i = 0;
+                                $("#LHprogressBar").hide();
+                            } else {
+                                width++;
+                                elem.style.width = width + "%";
+                            }
+                        }
+                    }
+                }
+                LHmove();
+            }
+        });
+        //LUMBER HUT END
+
+        //MINING SHACK
+        $("#MSprogressBar").hide();
+        $(".buildMS").click(function () {
+            if (woodCount >= 35) {
+                woodCount = woodCount - 35;
+                var Medium = new Audio('Audio/medium.mp3');
+                Medium.play();
+                var i = 0;
+                $("#MSprogressBar").show();
+                function MSmove() {
+                    if (i == 0) {
+                        i = 1;
+                        var elem = document.getElementById("MSbar");
+                        var width = 1;
+                        var id = setInterval(frame, 35);
+                        function frame() {
+                            if (width >= 100) {
+                                Medium.pause();
+                                minerShacks = minerShacks + 1;
+                                stoneCap = stoneCap + 50;
+                                minerCap = minerCap + 10;
+                                buildings = buildings + 1;
+                                clearInterval(id);
+                                i = 0;
+                                $("#MSprogressBar").hide();
+                            } else {
+                                width++;
+                                elem.style.width = width + "%";
+                            }
+                        }
+                    }
+                }
+                MSmove();
+            }
+        });
+        //MINING SHACK END
+
+        //GATHERING PLACE
+        $("#GPprogressBar").hide();
+        $(".buildGP").click(function () {
+            if (woodCount >= 25) {
+                woodCount = woodCount - 250;
+                var i = 0;
+                var Slow = new Audio('Audio/slow.mp3');
+                Slow.play();
+                $("#GPprogressBar").show();
+                function GPmove() {
+                    if (i == 0) {
+                        i = 1;
+                        var elem = document.getElementById("GPbar");
+                        var width = 1;
+                        var id = setInterval(frame, 85);
+                        function frame() {
+                            if (width >= 100) {
+                                Slow.pause();
+                                gathering = gathering + 1;
+                                researchBuilding = true;
+                                buildings = buildings + 1;
+                                clearInterval(id);
+                                i = 0;
+                                $("#GPprogressBar").hide();
+                            } else {
+                                width++;
+                                elem.style.width = width + "%";
+                            }
+                        }
+                    }
+                }
+                GPmove();
+            }
+        });
+        //GATHERING PLACE END
+
+        //WOOD PIT
+        $("#WPprogressBar").hide();
+        $(".buildwoodPit").click(function () {
+            if (woodCount >= 10)
+                woodCount = woodCount - 10;
+            var Medium = new Audio('Audio/medium.mp3');
+            Medium.play();
+            var i = 0;
+            $("#WPprogressBar").show();
+            function WPmove() {
+                if (i == 0) {
+                    i = 1;
+                    var elem = document.getElementById("WPbar");
+                    var width = 1;
+                    var id = setInterval(frame, 65);
+                    function frame() {
+                        if (width >= 100) {
+                            Medium.pause();
+                            woodpit = woodpit + 1;
+                            woodCap = woodCap + 150;
+                            buildings = buildings + 1;
+                            clearInterval(id);
+                            i = 0;
+                            $("#WPprogressBar").hide();
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
+            }
+            WPmove();
+        });
+        //WOOD PIT END
+
+        //FOOD CAVE
+        $("#FCprogressBar").hide();
+        $(".buildfoodCave").click(function () {
+            if (woodCount >= 10)
+                woodCount = woodCount - 10;
+            var Slow = new Audio('Audio/slow.mp3');
+            Slow.play();
+            var i = 0;
+            $("#FCprogressBar").show();
+            function WPmove() {
+                if (i == 0) {
+                    i = 1;
+                    var elem = document.getElementById("FCbar");
+                    var width = 1;
+                    var id = setInterval(frame, 85);
+                    function frame() {
+                        if (width >= 100) {
+                            Slow.pause();
+                            foodCave = foodCave + 1;
+                            foodCap = foodCap + 250;
+                            buildings = buildings + 1;
+                            clearInterval(id);
+                            i = 0;
+                            $("#FCprogressBar").hide();
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
+            }
+            FCmove();
+        });
+        //FOOD CAVE END
+
+        //STONE SHED
+        $("#SSprogressBar").hide();
+        $(".buildstoneShed").click(function () {
+            if (woodCount >= 10)
+                woodCount = woodCount - 10;
+            stoneCount = stoneCount - 5;
+            var Medium = new Audio('Audio/medium.mp3');
+            Medium.play();
+            var i = 0;
+            $("#SSprogressBar").show();
+            function WPmove() {
+                if (i == 0) {
+                    i = 1;
+                    var elem = document.getElementById("SSbar");
+                    var width = 1;
+                    var id = setInterval(frame, 65);
+                    function frame() {
+                        if (width >= 100) {
+                            Medium.pause();
+                            stoneShed = stoneShed + 1;
+                            stoneCap = stoneCap + 150;
+                            buildings = buildings + 1;
+                            clearInterval(id);
+                            i = 0;
+                            $("#SSprogressBar").hide();
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
+            }
+            SSmove();
+        });
+        //STONE SHED END
+
+        //WOODEN WONDER
+        $("#WWprogressBar").hide();
+        $(".buildWW").click(function () {
+            if (woodCount >= 1500 && stoneCount >= 150) {
+                woodCount = woodCount - 1500;
+                stoneCount = stoneCount - 150;
+                var Slow = new Audio('Audio/slow.mp3');
+                Slow.play();
+                var i = 0;
+                $("#WWprogressBar").show();
+                function WWmove() {
+                    if (i == 0) {
+                        i = 1;
+                        var elem = document.getElementById("WWbar");
+                        var width = 1;
+                        var id = setInterval(frame, 150);
+                        function frame() {
+                            if (width >= 100) {
+                                Slow.pause();
+                                newResearch = true;
+                                buildings = buildings + 1;
+                                woodenWonder = woodenWonder + 1;
+                                clearInterval(id);
+                                i = 0;
+                                $("#WWprogressBar").hide();
+                            } else {
+                                width++;
+                                elem.style.width = width + "%";
+                            }
+                        }
+                    }
+                }
+                WWmove();
+            }
+        });
+        //WOODEN WONDER END
+
+        //APPENDING ALL INFO !!IMPORTANT!!
+        function append() {
+
+            //WOOD
+            $("#WCount").remove();
+            $("#WlabelDiv").append("<label for = 'woodGather' id = 'WCount'>Wood: " + woodCount + "</label>");
+            //WOODEND
+
+            //STONE
+            $("#SCount").remove();
+            $("#SlabelDiv").append("<label for = 'stoneGather' id = 'SCount'>Stone: " + stoneCount + "</label>");
+            //STONEEND
+
+            //FOOD
+            $("#FCount").remove();
+            $("#FlabelDiv").append("<label for = 'foodGather' id = 'FCount'>Food: " + foodCount + "</label>");
+            //FOODEND
+
+            //FREELOADERS
+            $("#UEM").remove();
+            $("#unemployedWrap").append("<p id = 'UEM'>Unemployed: " + unemployed + "</p>");
+            //FREELOADERSEND
+
+            //HUNTERS
+            $("#HNT").remove();
+            $("#hunterWrap").append("<p id = 'HNT'>Hunters: " + foodWorkers + "</p>");
+            //HUNTEREND
+
+            //LUMBERJACKS
+            $("#LBJ").remove();
+            $("#ljWrap").append("<p id = 'LBJ'>Lumberjacks: " + woodWorkers + "</p>");
+            //LUMBERJACKS
+
+            //MINERS
+            $("#MIN").remove();
+            $("#minerWrap").append("<p id = 'MIN'>Miners: " + stoneWorkers + "</p>");
+            //MINERSEND
+
+            //HC
+            $("#HC").remove();
+            $("#builtHC").append("<label id = 'HC' for = 'huntersCabin'>Hunter's Cabins: " + huntersCabins + "</label>");
+            //HCEND
+
+            //TENT
+            $("#TENTS").remove();
+            $("#builtTents").append("<label id = 'TENTS' for = 'tent'>Tents: " + tents + "</label>");
+            //TENTEND
+
+            //BARRACK
+            $("#BAR").remove();
+            $("#builtBarracks").append("<label id = 'BAR' for = 'barracks'>Barracks: " + barracks + "</label>");
+            //BARRACKEND
+
+            //GATHERING
+            $("#GatheringPlace").remove();
+            $("#builtGP").append("<label id = 'GatheringPlace' for = 'GP'>Gathering Places: " + gathering + "</label>");
+            //GATHERINGEND
+
+            //LUMBERHUT
+            $("#LS").remove();
+            $("#builtLH").append("<label id = 'LS' for = 'lumberHuts'>Lumberjack's Huts: " + lumberHuts + "</label>");
+            //LUMBERHUTEND
+
+            //MININGSHACK
+            $("#MH").remove();
+            $("#builtMS").append("<label id = 'MH' for = 'miningShacks'>Miner's Shacks: " + minerShacks + "</label>");
+            //MININGSHACKEND
+
+            //WOODENWONDER
+            $("#WOW").remove();
+            $("#builtWW").append("<label id = 'WOW' for = 'WW'>Wooden Wonders: " + woodenWonder + "</label>");
+            //WOODENWONDEREND
+
+            //WOODPIT
+            $("#WP").remove();
+            $("#builtwoodPits").append("<label id = 'WP' for = 'woodpit'>Wood Pits: " + woodpit + "</label>");
+            //WOODPITEND
+
+            //STONESHED
+            $("#SS").remove();
+            $("#builtstoneSheds").append("<label id = 'SS' for = 'stoneshed'>Stone Sheds: " + stoneShed + "</label>");
+            //STONESHEDEND
+
+            //FOODCAVE
+            $("#FC").remove();
+            $("#builtfoodCaves").append("<label id = 'FC' for = 'foodcave'>Food Caves: " + foodCave + "</label>");
+            //FOODCAVEEND
+        }
+        var interval = self.setInterval(function () { append() }, 10);
+
+        //RATE OF RSS ADDING AND RSS CAPS
+        function RatesandCaps() {
+            foodIncrement = foodWorkers / 4;
+            stoneIncrement = stoneWorkers / 2;
+            woodIncrement = woodWorkers;
+
+            //ATTRIBUTE ASSIGNMENT
+            $(".buildTent").attr("title", "Population building.");
+            $(".buildTent").css("cursor", "pointer");
+            $(".buildHC").attr("title", "Gives hunters more space.");
+            $(".buildHC").css("cursor", "pointer");
+            $(".buildMS").attr("title", "Gives miners more space.");
+            $(".buildMS").css("cursor", "pointer");
+            $(".buildLH").attr("title", "Gives lumberjack more room.");
+            $(".buildLH").css("cursor", "pointer");
+            $(".buildstoneShed").attr("title", "Miners lug stone into it.");
+            $(".buildstoneShed").css("cursor", "pointer");
+            $(".buildfoodCave").attr("title", "Hunters keep meat in it.");
+            $(".buildfoodCave").css("cursor", "pointer");
+            $(".buildwoodPit").attr("title", "Lumberjacks throw wood in it.");
+            $(".buildwoodPit").css("cursor", "pointer");
+            if (gathering >= gatheringCap) {
+                $(".buildGP").attr("disabled", true);
+                $(".buildGP").attr("title", "Only five Gathering Places are available.");
+                $(".buildGP").css("cursor", "not-allowed");
+            } else {
+                $(".buildGP").removeAttr("disabled", true);
+                $(".buildGP").attr("title", "Technology building.");
+                $(".buildGP").css("cursor", "pointer");
+            }
+            if (woodenWonder == woodenWonderCap) {
+                $(".buildWW").attr("disabled", true);
+                $(".buildWW").attr("title", "Already Era'd up.");
+                $(".buildWW").css("cursor", "not-allowed");
+            } else {
+                $(".buildWW").removeAttr("disabled", true);
+                $(".buildWW").attr("title", "Era up!");
+                $(".buildWW").css("cursor", "pointer");
+            }
+            if (barracks >= barrackCap) {
+                $(".buildBarracks").attr("disabled", true);
+                $(".buildBarracks").attr("title", "C'mon man. You don't need any more than that.");
+                $(".buildBarracks").css("cursor", "not-allowed");
+            } else {
+                $(".buildBarracks").removeAttr("disabled", true);
+                $(".buildBarracks").attr("title", "Enables military/Enables recruiting more military units at the same time.");
+                $(".buildBarracks").css("cursor", "pointer");
+            }
+            if (population >= populationCap) {
+                $(".worker-recruit").attr("disabled", true);
+                $(".worker-recruit").attr("title", "Population capacity reached!");
+                $(".worker-recruit").css("cursor", "not-allowed");
+            } else {
+                $(".worker-recruit").removeAttr("disabled", true);
+                $(".worker-recruit").attr("title", "Recruit a worker.");
+                $(".worker-recruit").css("cursor", "pointer");
+            }
+            if (foodWorkers >= hunterCap) {
+                $(".hadd").attr("disabled", true);
+                $(".hadd").attr("title", "Hunters are too cramped!");
+                $(".hadd").css("cursor", "not-allowed");
+            } else {
+                $(".hadd").removeAttr("disabled", true);
+                $(".hadd").attr("title", "Assign a hunter.");
+                $(".hadd").css("cursor", "pointer");
+            }
+            if (woodWorkers >= lumberCap) {
+                $(".ladd").attr("disabled", true);
+                $(".ladd").attr("title", "Lumberjacks are too cramped!");
+                $(".ladd").css("cursor", "not-allowed");
+            } else {
+                $(".ladd").removeAttr("disabled", true);
+                $(".ladd").attr("title", "Assign a lumberjack.");
+                $(".ladd").css("cursor", "pointer");
+            }
+            if (stoneWorkers >= minerCap) {
+                $(".madd").attr("disabled", true);
+                $(".madd").attr("title", "Miners are too cramped!");
+                $(".madd").css("cursor", "not-allowed");
+            } else {
+                $(".madd").removeAttr("disabled", true);
+                $(".madd").attr("title", "Assign a miner.");
+                $(".madd").css("cursor", "pointer");
+            }
+            if (woodCount >= woodCap) {
+                $(".wood-gather").attr("disabled", true);
+                $(".wood-gather").attr("title", "Wood cap reached.");
+                $(".wood-gather").css("cursor", "not-allowed");
+            } else {
+                $(".wood-gather").removeAttr("disabled", true);
+                $(".wood-gather").attr("title", "Gather wood.");
+                $(".wood-gather").css("cursor", "pointer");
+            }
+            if (foodCount >= foodCap) {
+                $(".food-gather").attr("disabled", true);
+                $(".food-gather").attr("title", "Food cap reached.");
+                $(".food-gather").css("cursor", "not-allowed");
+            } else {
+                $(".food-gather").removeAttr("disabled", true);
+                $(".food-gather").attr("title", "Gather food.");
+                $(".food-gather").css("cursor", "pointer");
+            }
+            if (stoneCount >= stoneCap) {
+                $(".stone-gather").attr("disabled", true);
+                $(".stone-gather").attr("title", "Food cap reached.");
+                $(".stone-gather").css("cursor", "not-allowed");
+            } else {
+                $(".stone-gather").removeAttr("disabled", true);
+                $(".stone-gather").attr("title", "Gather food.");
+                $(".stone-gather").css("cursor", "pointer");
+            }
+        }
+        var interval2 = self.setInterval(function () { RatesandCaps() }, 10);
+
+        //ADDING RSS
+        function resourceAdd() {
+            if (woodCount >= woodCap) {
+                woodCount = woodCount + 0;
+                woodCount = woodCap;
+            } else {
+                woodCount = woodCount + woodIncrement;
+            }
+            if (foodCount >= foodCap) {
+                foodCount = foodCount + 0;
+                foodCount = foodCap;
+            } else {
+                foodCount = foodCount + foodIncrement;
+            }
+            if (stoneCount >= stoneCap) {
+                stoneCount = stoneCount + 0;
+                stoneCount = stoneCap;
+            } else {
+                stoneCount = stoneCount + stoneIncrement;
+            }
+        }
+        var interval3 = self.setInterval(function () { resourceAdd() }, 3000);
+
+        //KINGDOM
+        function appendKINGDOMInfo() {
+            $(".civData").append("<h1 class = 'kingdomName'>The " + kingdomClass + " of " + kingdom);
+            $(".civData").append("<h3 class = 'kingName'>Ruled by " + leaderClass + " " + king);
+            document.title = "Kings of Old | " + save;
+        }
+        appendKINGDOMInfo();
+
+        function autoLoad() {
+            setTimeout(console.log.bind(console, '%cSearching for save file...', 'background-color: transparent; color: hotpink;'));
+            setTimeout(console.log.bind(console, '', ''));
+            SAVELOADSYS();
+        };
+        autoLoad();
+        if (autosave == "yes") {
+            function autoSave() {
+                setTimeout(console.log.bind(console, '%cCreating save file....', 'background-color: transparent; color: hotpink;'));
+                setTimeout(console.log.bind(console, '', ''));
+                SAVESYS();
+            }
+            var interval4 = self.setInterval(function () { autoSave() }, 120000);
+        }
+
+        //SAVING !!IMPORTANT!!
+        function SAVESYS() {
+            //CAUTION! MESSING WITH THIS CODE MAY RESULT IN YOUR SAVE FILE BEING CORRUPTED
+            //OR UNABLE TO BE CREATED. PROCEED WITH CAUTION.
+            const people = [
+                population,
+                woodWorkers,
+                stoneWorkers,
+                foodWorkers,
+                unemployed
+            ]
+            const resources = [
+                foodCount,
+                woodCount,
+                stoneCount
+            ]
+            const buildings = [
+                tents,
+                huts,
+                shacks,
+                houses,
+                huntersCabins,
+                lumberHuts,
+                minerShacks,
+                barracks,
+                gathering,
+                woodpit,
+                foodCave,
+                stoneShed,
+                woodenWonder
+            ]
+            const caps = [
+                populationCap,
+                woodCap,
+                foodCap,
+                stoneCap,
+                hunterCap,
+                lumberCap,
+                minerCap,
+                woodenWonderCap,
+                gatheringCap,
+                barrackCap
+            ]
+            const session = [
+                king,
+                kingdom,
+                god,
+                save,
+                civ,
+                autosave,
+                achieve,
+                difficulty
+            ]
+
+            setTimeout(console.log.bind(console, '%cNew Save File Created.', 'background-color: transparent; color: hotpink;'));
+            setTimeout(console.log.bind(console, '', ''));
+            window.localStorage.setItem("populationData", JSON.stringify(people));
+            window.localStorage.setItem("resourceData", JSON.stringify(resources));
+            window.localStorage.setItem("buildingData", JSON.stringify(buildings));
+            window.localStorage.setItem("sessionData", JSON.stringify(session));
+            window.localStorage.setItem("capData", JSON.stringify(caps));
+        }
+        function SAVELOADSYS() {
+            //CAUTION! MESSING WITH THIS CODE MAY RESULT IN YOUR SAVE FILE BEING CORRUPTED
+            //OR UNABLE TO BE CREATED. PROCEED WITH CAUTION.
+            setTimeout(console.log.bind(console, '%cSave File Loaded.', 'background-color: transparent; color: hotpink;'));
+            setTimeout(console.log.bind(console, '', ''));
+            var retrievedData1 = localStorage.getItem("populationData");
+            var retrievedData2 = window.localStorage.getItem("resourceData");
+            var retrievedData3 = window.localStorage.getItem("buildingData");
+            var retrievedData4 = window.localStorage.getItem("sessionData");
+            var retrievedData5 = window.localStorage.getItem("capData");
+            var POPULATION_EXTRACTION = JSON.parse(retrievedData1) || [];
+            var RESOURCE_EXTRACTION = JSON.parse(retrievedData2) || [];
+            var BUILDING_EXTRACTION = JSON.parse(retrievedData3) || [];
+            var SESSION_EXTRACTION = JSON.parse(retrievedData4) || [];
+            var CAP_EXTRACTION = JSON.parse(retrievedData5) || [];
+
+            population = POPULATION_EXTRACTION[0];
+            unemployed = POPULATION_EXTRACTION[4];
+            woodWorkers = POPULATION_EXTRACTION[1];
+            stoneWorkers = POPULATION_EXTRACTION[2];
+            foodWorkers = POPULATION_EXTRACTION[3];
+
+            foodCount = RESOURCE_EXTRACTION[0];
+            woodCount = RESOURCE_EXTRACTION[1];
+            stoneCount = RESOURCE_EXTRACTION[2];
+
+            king = SESSION_EXTRACTION[0];
+            kingdom = SESSION_EXTRACTION[1];
+            god = SESSION_EXTRACTION[2];
+            save = SESSION_EXTRACTION[3];
+            civ = SESSION_EXTRACTION[4];
+            autosave = SESSION_EXTRACTION[5];
+            achieve = SESSION_EXTRACTION[6];
+            difficulty = SESSION_EXTRACTION[7];
+
+            tents = BUILDING_EXTRACTION[0];
+            huts = BUILDING_EXTRACTION[1];
+            shacks = BUILDING_EXTRACTION[2];
+            houses = BUILDING_EXTRACTION[3];
+            huntersCabins = BUILDING_EXTRACTION[4];
+            lumberHuts = BUILDING_EXTRACTION[5];
+            minerShacks = BUILDING_EXTRACTION[6];
+            barracks = BUILDING_EXTRACTION[7];
+            gathering = BUILDING_EXTRACTION[8];
+            woodpit = BUILDING_EXTRACTION[9];
+            foodCave = BUILDING_EXTRACTION[10];
+            stoneShed = BUILDING_EXTRACTION[11];
+            woodenWonder = BUILDING_EXTRACTION[12];
+
+            populationCap = CAP_EXTRACTION[0];
+            woodCap = CAP_EXTRACTION[1];
+            foodCap = CAP_EXTRACTION[2];
+            stoneCap = CAP_EXTRACTION[3];
+            hunterCap = CAP_EXTRACTION[4];
+            lumberCap = CAP_EXTRACTION[5];
+            minerCap = CAP_EXTRACTION[6];
+            woodenWonderCap = CAP_EXTRACTION[7];
+            gatheringCap = CAP_EXTRACTION[8];
+            barrackCap = CAP_EXTRACTION[9];
+
+            function appendSaveInfo() {
+                $(".kingdomName").remove();
+                $(".kingName").remove();
+                $(".civData").append("<h1 class = 'kingdomName'>The " + kingdomClass + " of " + kingdom);
+                $(".civData").append("<h3 class = 'kingName'>Ruled by " + leaderClass + " " + king);
+                document.title = "Kings of Old | " + save;
+            }
+            appendSaveInfo();
+
+            //console.log(POPULATION_EXTRACTION);
+            //console.log(RESOURCE_EXTRACTION);
+            //console.log(BUILDING_EXTRACTION);
+            //console.log(CAP_EXTRACTION);
+        }
+        $(".SAVE").click(function () {
+            SAVESYS();
+        });
+        $(".OPEN-SAVE").click(function () {
+            SAVELOADSYS();
+        });
+        $(".CLEAR").click(function(){
+            clearSave();
+        });
+        function achievementsCheck() {
+            if (barracks >= barrackCap) {
+                overBoard = true;
+            }
+            if (achievements == 1) {
+                firstAchievement = true;
+            }
+            $(document).ready(function () {
+                welcome = true;
+            });
+        };
+        var interval4 = self.setInterval(function () { achievementsCheck() }, 10);
+        function achievementsGive() {
+
+        };
+        function clearSave() {
+            window.localStorage.clear();
+            location.replace("saveCreator.html");
+        }
+    });
+</script>
+<div class="civData">
+    <style>
+        .civData {
+            position: absolute;
+            top: -60px;
+            font-size: 40px;
+            font-family: 'Verdana';
+        }
+
+        .kingName {
+            top: 105px;
+            position: absolute;
+        }
+    </style>
+</div>
+<div class="console">
+    <div id="CON-TITLE">
+        <h1 id="CON-TIT">Console Log</h1>
+        <style>
+            #CON-TITLE {
+                position: absolute;
+                font-family: 'Verdana';
+                background-color: lightgrey;
+                height: 75px;
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                width: 100%;
+            }
+
+            #CON-TIT {
+                position: absolute;
+                left: 75px;
+                top: -7px;
+            }
+
+            .console {
+                border: 4px solid black;
+                border-radius: 5px;
+                width: 400px;
+                height: 475px;
+                background-color: white;
+                position: absolute;
+                left: 1010px;
+                top: 2900px;
+            }
+
+            #CON-BORDER {
+                width: 100%;
+                height: 4px;
+                position: relative;
+                top: 75px;
+                background-color: black;
+            }
+        </style>
+    </div>
+    <div id="CON-BORDER"></div>
+</div>
+<div id="boringRSSwrap">
+    <table class="boringRSS">
+        <tbody>
+            <tr>
+                <div id="border-1"></div>
+                <th>
+                    <style>
+                        #boringRSSwrap {
+                            width: 500px;
+                            position: relative;
+                            top: 250px;
+                        }
+
+                        .RSS-TITLE {
+                            font-family: 'Verdana';
+                            font-size: 50px;
+                            top: -25px;
+                        }
+
+                        #border-1 {
+                            height: 5px;
+                            width: 550px;
+                            left: -10px;
+                            border-top-right-radius: 10px;
+                            border-bottom-right-radius: 10px;
+                            position: relative;
+                            top: 90px;
+                            background-color: black;
+                        }
+
+                        h1 {
+                            position: relative;
+                        }
+
+                        table {
+                            position: relative;
+                        }
+                    </style>
+                    <h1 class="RSS-TITLE">Basic Resources</h1>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="woodWrap">
+                        <style>
+                            .woodWrap {
+                                font-size: 25px;
+                                position: relative;
+                                top: 0px;
+                                left: 20px;
+                            }
+
+                            .wood-gather {
+                                font-size: 20px;
+                                border-radius: 7px;
+                                outline: none;
+                                position: relative;
+                                top: -45px;
+                                margin-left: 45px;
+                                width: 100px;
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                                left: 125px;
+                                border: 2px solid black;
+                                font-family: 'Verdana';
+                                user-select: none;
+                            }
+
+                            #WlabelDiv {
+                                font-weight: bold;
+                                user-select: none;
+                                font-family: 'Verdana';
+                            }
+                        </style>
+                        <div id="woodGatherWrap">
+                            <div id="WlabelDiv"></div>
+                            <button class='wood-gather' value='Wood' name='woodGather'>Gather</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="stoneWrap">
+                        <style>
+                            .stoneWrap {
+                                font-size: 25px;
+                                position: relative;
+                                top: 0px;
+                                left: 20px;
+                            }
+
+                            .stone-gather {
+                                font-size: 20px;
+                                border-radius: 7px;
+                                outline: none;
+                                position: relative;
+                                top: -45px;
+                                margin-left: 45px;
+                                width: 100px;
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                                left: 125px;
+                                border: 2px solid black;
+                                font-family: 'Verdana';
+                                user-select: none;
+                            }
+
+                            #SlabelDiv {
+                                font-weight: bold;
+                                user-select: none;
+                                font-family: 'Verdana';
+                            }
+                        </style>
+                        <div id="stoneGatherWrap">
+                            <div id="SlabelDiv"></div>
+                            <button class="stone-gather" value="Stone" name="stoneGather">Gather</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="foodWrap">
+                        <style>
+                            .foodWrap {
+                                font-size: 25px;
+                                position: relative;
+                                top: 0px;
+                                left: 20px;
+                            }
+
+                            .food-gather {
+                                font-size: 20px;
+                                border-radius: 7px;
+                                outline: none;
+                                position: relative;
+                                top: -45px;
+                                margin-left: 45px;
+                                width: 100px;
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                                left: 125px;
+                                border: 2px solid black;
+                                font-family: 'Verdana';
+                                user-select: none;
+                            }
+
+                            #FlabelDiv {
+                                font-weight: bold;
+                                user-select: none;
+                                font-family: 'Verdana';
+                            }
+                        </style>
+                        <div id="foodGatherWrap">
+                            <div id="FlabelDiv"></div>
+                            <button class="food-gather" value="Food" name="foodGather">Gather</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="workerWrap">
+    <table class="workers">
+        <tbody>
+            <tr>
+                <div id="border-2"></div>
+                <th>
+                    <style>
+                        h1,
+                        h3,
+                        h2,
+                        h4 {
+                            position: relative;
+                            user-select: none;
+                        }
+
+                        #workerWrap {
+                            width: 500px;
+                            position: relative;
+                            top: 250px;
+                        }
+
+                        .WRK-TITLE {
+                            font-family: 'Verdana';
+                            font-size: 50px;
+                            top: -25px;
+                            left: -10px;
+                        }
+
+                        #border-2 {
+                            height: 5px;
+                            width: 550px;
+                            left: -10px;
+                            border-top-right-radius: 10px;
+                            border-bottom-right-radius: 10px;
+                            position: relative;
+                            top: 140px;
+                            background-color: black;
+                        }
+
+                        body {
+                            -ms-overflow-style: none;
+                            scrollbar-width: none;
+                            overflow-y: scroll;
+                            height: 250vh;
+                            overflow-x: hidden;
+                        }
+
+                        body::-webkit-scrollbar {
+                            display: none;
+                        }
+
+                        .WRK-TITLE {
+                            top: 20px;
+                            font-family: 'Verdana';
+                        }
+
+                        .worker-recruit {
+                            font-size: 20px;
+                            border-radius: 7px;
+                            outline: none;
+                            position: relative;
+                            top: 38px;
+                            margin-left: 10px;
+                            width: 100px;
+                            padding-top: 5px;
+                            padding-bottom: 7px;
+                            left: 125px;
+                            border: 2px solid black;
+                            font-family: 'Verdana';
+                            user-select: none;
+                        }
+
+                        #workerRecruitWrap {
+                            font-size: 25px;
+                            font-family: 'Verdana';
+                            padding-left: 20px;
+                            left: 20px;
+                        }
+
+                        #PlabelDiv {
+                            position: absolute;
+                            top: 185px;
+                            font-weight: 600;
+                        }
+
+                        #ljWrap,
+                        #minerWrap,
+                        #hunterWrap,
+                        #unemployedWrap {
+                            position: relative;
+                            top: 40px;
+                            font-family: 'Verdana';
+                            font-size: 25px;
+                            padding-left: 50px;
+                            font-weight: bold;
+                        }
+
+                        .madd,
+                        .msubtract,
+                        .lsubtract,
+                        .ladd,
+                        .hsubtract,
+                        .hadd {
+                            position: relative;
+                            left: 250px;
+                            top: 65px;
+                            font-size: 19px;
+                            font-family: 'Verdana';
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            padding-left: 7px;
+                            padding-right: 7px;
+                            margin-left: 10px;
+                        }
+
+                        button {
+                            background-color: lightgrey;
+                            user-select: none;
+                            margin: 10px;
+                        }
+
+                        #after-button {
+                            color: grey;
+                            position: relative;
+                            left: 270px;
+                            top: -7px;
+                        }
+                    </style>
+                    <h1 class=WRK-TITLE>Workers</h1>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="workerWrap">
+                        <div id="workerRecruitWrap">
+                            <div id="PlabelDiv"><label for="workerRecruit">Citizens:</label></div>
+                            <button class="worker-recruit" value="Workers" name="workerRecruit">Recruit</button>
+                            <div id="after-button"><label for="workerRecruit">10 food to recruit.</label></div>
+                        </div>
+                        <div id="jobWrap">
+                            <div id="unemployedWrap">
+                            </div>
+                            <div id="ljWrap">
+                                <button class="lsubtract"><i class="fa-solid fa-angle-left"></i></button>
+                                <button class="ladd"><i class="fa-solid fa-angle-right"></i></button>
+                            </div>
+                            <div id="minerWrap">
+                                <button class="msubtract"><i class="fa-solid fa-angle-left"></i></button>
+                                <button class="madd"><i class="fa-solid fa-angle-right"></i></button>
+                            </div>
+                            <div id="hunterWrap">
+                                <button class="hsubtract"><i class="fa-solid fa-angle-left"></i></button>
+                                <button class="hadd"><i class="fa-solid fa-angle-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="settingWrap">
+    <table id="settings">
+        <tbody>
+            <tr>
+                <th>
+                    <style>
+                        .settingWrap {
+                            width: 100vw;
+                            height: 430px;
+                            border-top: 5px solid black;
+                            background-color: transparent;
+                            left: -1vw;
+                            padding-left: 50px;
+                            top: 1750px;
+                            border-radius: 7px;
+                            position: relative;
+                        }
+
+                        .SET-TITLE {
+                            font-family: 'Verdana';
+                            font-size: 50px;
+                            position: relative;
+                            top: -20px;
+                            left: -60px;
+                        }
+
+                        .SAVE {
+                            cursor: pointer;
+                            width: 145px;
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            position: relative;
+                            left: -330px;
+                            top: 0px;
+                            font-size: 19px;
+                            margin-left: 0px;
+                            padding-bottom: 3px;
+                            font-family: 'Verdana';
+                        }
+
+                        .OPEN-SAVE {
+                            font-size: 19px;
+                            width: 145px;
+                            cursor: pointer;
+                            left: -330px;
+                            top: 0px;
+                            position: relative;
+                            margin-left: 0px;
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            padding-bottom: 3px;
+                            font-family: 'Verdana';
+                        }
+
+                        .EFFECT-ON {
+                            cursor: pointer;
+                            width: 145px;
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            position: relative;
+                            left: -330px;
+                            top: 25px;
+                            font-size: 19px;
+                            margin-left: 0px;
+                            padding-bottom: 3px;
+                            font-family: 'Verdana';
+                        }
+
+                        .EFFECT-OFF {
+                            font-size: 19px;
+                            width: 145px;
+                            cursor: pointer;
+                            left: -330px;
+                            top: 25px;
+                            position: relative;
+                            margin-left: 0px;
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            padding-bottom: 3px;
+                            font-family: 'Verdana';
+                        }
+
+                        .MUSIC-ON {
+                            cursor: pointer;
+                            width: 145px;
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            position: relative;
+                            left: 100px;
+                            top: -304px;
+                            font-size: 19px;
+                            margin-left: 0px;
+                            padding-bottom: 3px;
+                            font-family: 'Verdana';
+                        }
+
+                        .MUSIC-OFF {
+                            font-size: 19px;
+                            width: 145px;
+                            cursor: pointer;
+                            left: 100px;
+                            top: -304px;
+                            position: relative;
+                            margin-left: 0px;
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            padding-bottom: 3px;
+                            font-family: 'Verdana';
+                        }
+
+                        .DOWNLOAD {
+                            cursor: pointer;
+                            width: 160px;
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            position: relative;
+                            left: -330px;
+                            top: 50px;
+                            font-size: 19px;
+                            margin-left: 0px;
+                            padding-bottom: 3px;
+                            font-family: 'Verdana';
+                        }
+
+                        .CLEAR {
+                            cursor: pointer;
+                            width: 160px;
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            position: relative;
+                            left: -330px;
+                            top: 50px;
+                            font-size: 19px;
+                            margin-left: 0px;
+                            padding-bottom: 3px;
+                            font-family: 'Verdana';
+                        }
+
+                        #SAVE-TITLE {
+                            font-family: 'Verdana';
+                            font-size: 30px;
+                            top: -50px;
+                            left: -20px;
+                        }
+
+                        #EFFECTS-TITLE {
+                            font-family: 'Verdana';
+                            font-size: 30px;
+                            top: -25px;
+                            left: -20px;
+                        }
+
+                        #DOWNLOAD-TITLE {
+                            font-family: 'Verdana';
+                            font-size: 30px;
+                            top: -0px;
+                            left: -20px;
+                        }
+
+                        #MUSIC-TITLE {
+                            font-family: 'Verdana';
+                            font-size: 30px;
+                            top: -353px;
+                            left: 400px;
+                            padding-left: 10px;
+                        }
+
+                        a {
+                            color: black;
+                        }
+
+                        #littleGuy {
+                            position: relative;
+                            left: 0vw;
+                            top: -250vh;
+                            transform: rotateY(180deg);
+                        }
+                    </style>
+                    <h1 class="SET-TITLE">Settings</h1>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <h3 id="SAVE-TITLE">Manual Saving-</h5>
+                </td>
+                <td>
+                    <button class="SAVE" value="localStorageTrigger">Manual Save</button>
+                    <button class="OPEN-SAVE" value="localStorageRead">Manual Load</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3 id="EFFECTS-TITLE">CSS Effects-</h3>
+                </td>
+                <td>
+                    <button class="EFFECT-ON" value="CSSeffectsTrigger" title="Turn on CSS Effects">Turn On</button>
+                    <button class="EFFECT-OFF" value="CSSeffectsOffTrigger" disabled title="Coming soon!">Turn
+                        Off</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3 id="DOWNLOAD-TITLE">Save Data-</h3>
+                </td>
+                <td>
+                    <button class="DOWNLOAD" value="downloadSaveTrigger" title="Coming soon!" href="" download=""
+                        disabled>Download File</button>
+                    <button class="CLEAR" value="clearSaveTrigger" title="Clear all save data">Clear Save</button>
+                </td>
+            </tr>
+            <tr>
+                <div class="musicWrap">
+                    <td>
+                        <h3 id="MUSIC-TITLE">Music and Sound-</h3>
+                        <style>
+                            .musicWrap {
+                                position: relative;
+                                top: -75px;
+                            }
+                        </style>
+                    </td>
+                    <td>
+                        <button class="MUSIC-ON" value="musicOnTrigger" title="Turn music on">Turn On</button>
+                        <button class="MUSIC-OFF" value="musicOffTrigger" title="Turn music off">Turn Off</button>
+                    </td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="buildingWrap">
+    <table class="buildngs">
+        <tbody>
+            <tr>
+                <div id="border-3"></div>
+                <th>
+                    <h1 class="BLD-TITLE">Buildings<div id="buildingInfo"><i class="fa-solid fa-circle-question"></i>
+                        </div>
+                    </h1>
+                    <div id="buildingInfoPanel"></div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#buildingInfoPanel').hide();
+                            $("#buildingInfo").click(function () {
+                                $('#buildingInfoPanel').show();
+                            });
+                        });
+                    </script>
+                    <style>
+                        .buildingWrap {
+                            width: 500px;
+                            position: relative;
+                            top: -50px;
+                        }
+
+                        #buildingInfoPanel {
+                            width: 500px;
+                            height: 1200px;
+                            top: -5px;
+                            position: absolute;
+                            z-index: 14;
+                            left: 460px;
+                            border-radius: 10px;
+                            border: 2px solid black;
+                            background-color: lightgrey;
+                        }
+
+                        #buildingInfo {
+                            position: absolute;
+                            left: 1025px;
+                            top: -5px;
+                            z-index: 15;
+                            cursor: pointer;
+                        }
+
+                        .BLD-TITLE {
+                            font-family: 'Verdana';
+                            font-size: 50px;
+                            top: -25px;
+                            left: -550px;
+                            position: relative;
+                        }
+
+                        #border-3 {
+                            height: 5px;
+                            width: 550px;
+                            left: -10px;
+                            border-top-right-radius: 10px;
+                            border-bottom-right-radius: 10px;
+                            position: relative;
+                            top: 90px;
+                            background-color: black;
+                        }
+                    </style>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <div id="tent">
+                        <button class="buildTent" name="tent">Build</button>
+                        <div id="builtTents"></div>
+                        <div id="afterTent">
+                            5 wood to build.
+                            <!--<img src="Images/CM Era/Tent.png"
+                                style="width: 100px; height: 75px; position: absolute; top: -25px;">-->
+                            <style>
+                                #afterTent {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    font-family: 'Verdana';
+                                }
+                            </style>
+                        </div>
+                        <div id="TprogressBar">
+                            <div id="Tbar"></div>
+                            <style>
+                                .buildBarracks,
+                                .buildfoodCave,
+                                .buildGP,
+                                .buildHC,
+                                .buildLH,
+                                .buildMS,
+                                .buildstoneShed,
+                                .buildTent,
+                                .buildwoodPit,
+                                .buildWW {
+                                    margin-left: 225px;
+                                }
+
+                                #afterBarracks,
+                                #afterFC,
+                                #afterGP,
+                                #afterHC,
+                                #afterLH,
+                                #afterMS,
+                                #afterSS,
+                                #afterTent,
+                                #afterWP,
+                                #afterWW {
+                                    margin-left: 510px;
+                                }
+
+                                #TprogressBar {
+                                    width: 500px;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #Tbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: green;
+                                }
+
+                                #tent {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                .buildTent {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #builtTents {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="barracks">
+                        <button class="buildBarracks" name="barracks">Build</button>
+                        <div id="builtBarracks"></div>
+                        <div id="afterBarracks">50 wood to build.</div>
+                        <div id="BprogressBar">
+                            <div id="Bbar"></div>
+                            <style>
+                                .buildBarracks {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #barracks {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                #builtBarracks {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+
+                                #afterBarracks {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    font-family: 'Verdana';
+                                }
+
+                                #BprogressBar {
+                                    width: 500px;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #Bbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: green;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="huntersCabin">
+                        <button class="buildHC" name="huntersCabin">Build</button>
+                        <div id="builtHC"></div>
+                        <div id="afterHC">35 wood and 10 stone to build.</div>
+                        <div id="HCprogressBar">
+                            <div id="HCbar"></div>
+                            <style>
+                                .buildHC {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #huntersCabin {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                #builtHC {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+
+                                #afterHC {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    font-family: 'Verdana';
+                                }
+
+                                #HCprogressBar {
+                                    width: 500px;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #HCbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: green;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="minerShacks">
+                        <button class="buildMS" name="miningShacks">Build</button>
+                        <div id="builtMS"></div>
+                        <div id="afterMS">35 wood to build.</div>
+                        <div id="MSprogressBar">
+                            <div id="MSbar"></div>
+                            <style>
+                                .buildMS {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #minerShacks {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                #builtMS {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+
+                                #afterMS {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    font-family: 'Verdana';
+                                }
+
+                                #MSprogressBar {
+                                    width: 100%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #MSbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: grey;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="lumberHuts">
+                        <button class="buildLH" name="lumberHuts">Build</button>
+                        <div id="builtLH"></div>
+                        <div id="afterLH">35 wood to build.</div>
+                        <div id="LHprogressBar">
+                            <div id="LHbar"></div>
+                            <style>
+                                .buildLH {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #lumberHuts {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                #builtLH {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+
+                                #afterLH {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    font-family: 'Verdana';
+                                }
+
+                                #LHprogressBar {
+                                    width: 100%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #LHbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: grey;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="gatheringPlace">
+                        <button class="buildGP" name="GP">Build</button>
+                        <div id="builtGP"></div>
+                        <div id="afterGP">250 wood to build.</div>
+                        <div id="GPprogressBar">
+                            <div id="GPbar"></div>
+                            <style>
+                                .buildGP {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #gatheringPlace {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                #builtGP {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+
+                                #afterGP {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    font-family: 'Verdana';
+                                }
+
+                                #GPprogressBar {
+                                    width: 100%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #GPbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: grey;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="woodPit">
+                        <button class="buildwoodPit" name="woodpit">Build</button>
+                        <div id="builtwoodPits"></div>
+                        <div id="afterWP">10 wood to build.</div>
+                        <div id="WPprogressBar">
+                            <div id="WPbar"></div>
+                            <style>
+                                .buildwoodPit {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #woodPit {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                #builtwoodPits {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+
+                                #afterWP {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    font-family: 'Verdana';
+                                }
+
+                                #WPprogressBar {
+                                    width: 100%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #WPbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: grey;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="stoneShed">
+                        <button class="buildstoneShed" name="stoneshed">Build</button>
+                        <div id="builtstoneSheds"></div>
+                        <div id="afterSS">10 wood and 5 stone to build.</div>
+                        <div id="SSprogressBar">
+                            <div id="SSbar"></div>
+                            <style>
+                                .buildstoneShed {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #stoneShed {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                #builtstoneSheds {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+
+                                #afterSS {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    font-family: 'Verdana';
+                                }
+
+                                #SSprogressBar {
+                                    width: 100%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #SSbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: grey;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="foodCave">
+                        <button class="buildfoodCave" name="foodcave">Build</button>
+                        <div id="builtfoodCaves"></div>
+                        <div id="afterFC">10 wood to build.</div>
+                        <div id="FCprogressBar">
+                            <div id="FCbar"></div>
+                            <style>
+                                .buildfoodCave {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #foodCave {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                #builtfoodCaves {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+
+                                #afterFC {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    font-family: 'Verdana';
+                                }
+
+                                #FCprogressBar {
+                                    width: 100%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #FCbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: grey;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="woodenWonder">
+                        <button class="buildWW" name="WW">Build</button>
+                        <div id="builtWW"></div>
+                        <div id="afterWW">1500 wood and 150 stone to build. [ERA UP CONDITIONS MUST ALSO BE MET]</div>
+                        <div id="WWprogressBar">
+                            <div id="WWbar"></div>
+                            <style>
+                                .buildWW {
+                                    font-size: 20px;
+                                    border-radius: 7px;
+                                    outline: none;
+                                    position: relative;
+                                    top: 42px;
+                                    width: 100px;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    left: 125px;
+                                    border: 2px solid black;
+                                    font-family: 'Verdana';
+                                    user-select: none;
+                                }
+
+                                #woodenWonder {
+                                    font-size: 25px;
+                                    position: relative;
+                                    top: -50px;
+                                    left: 20px;
+                                }
+
+                                #builtWW {
+                                    font-weight: bold;
+                                    user-select: none;
+                                    font-family: 'Verdana';
+                                }
+
+                                #afterWW {
+                                    color: grey;
+                                    position: relative;
+                                    top: -32px;
+                                    width: 850px;
+                                    font-family: 'Verdana';
+                                }
+
+                                #WWprogressBar {
+                                    width: 100%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: lightgrey;
+                                }
+
+                                #WWbar {
+                                    width: 1%;
+                                    height: 15px;
+                                    border-radius: 3px;
+                                    background-color: grey;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="littleGuy">
+    <!-- <img src="Images/CM Era/BasicCavemen/basicCaveman.png" draggable="false" style="width: 100px; height: 100px;"> -->
+    <div id="audios">
+        <div id="EnglishAudios">
+            <audio id="EnglishPeacetime" src="Audio/EnglishPeacetime.mp3" style="display: none;"></audio>
+        </div>
+    </div>
+    <style>
+        #littleGuy {
+            position: relative;
+            top: -275vh;
+        }
+    </style>
+</div>
