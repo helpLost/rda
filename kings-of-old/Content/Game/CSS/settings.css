@@ -1,0 +1,227 @@
+/* Global Settings */
+.settingWrap {
+    width: 101vw;
+    height: 600px;
+    border-top: 3px solid black;
+    background-color: #E3E2E2;
+    left: -1vw;
+    font-family: sans-serif;
+    top: 1550px;
+    position: relative;
+}
+
+.SETtitleWrap {
+    width: 180px;
+    font-size: 75px;
+    position: relative;
+    margin-left: 20px;
+    font-weight: bold;
+    top: -60px;
+}
+
+/* Manual Systems */
+.manualWrap {
+    position: relative;
+    width: 350px;
+    top: -75px;
+    margin-left: 25px;
+}
+
+#SAVE-TITLE {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.SAVE {
+    border: 2px solid black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+    top: -15px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.SAVE:hover {
+    background-color: #E3E2E2;
+}
+
+.OPEN-SAVE {
+    border: 2px solid black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+    top: -15px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.OPEN-SAVE:hover {
+    background-color: #E3E2E2;
+}
+
+/* CSS Effects */
+.cssWrap {
+    position: relative;
+    width: 350px;
+    top: -75px;
+    margin-left: 25px;
+}
+
+#EFFECTS-TITLE {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.EFFECT-ON {
+    border: 2px solid black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+    top: -15px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.EFFECT-ON:hover {
+    background-color: #E3E2E2;
+}
+
+.EFFECT-OFF {
+    border: 2px solid black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+    top: -15px;
+    border-radius: 2px;
+    cursor: not-allowed;
+}
+
+/* Save Data */
+.dataWrap {
+    position: relative;
+    width: 350px;
+    top: -75px;
+    margin-left: 25px;
+}
+
+#DATA-TITLE {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.DOWNLOAD {
+    border: 2px solid black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+    top: -15px;
+    border-radius: 2px;
+    cursor: not-allowed;
+}
+
+.CLEAR {
+    border: 2px solid black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+    top: -15px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.CLEAR:hover {
+    background-color: #E3E2E2;
+}
+
+/* Music and Sound */
+.soundWrap {
+    position: relative;
+    width: 350px;
+    top: -532px;
+    left: 410px;
+    margin-left: 25px;
+}
+
+#SOUND-TITLE {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.SOUND-ON {
+    border: 2px solid black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+    top: -15px;
+    border-radius: 2px;
+    cursor: not-allowed;
+}
+
+.SOUND-OFF {
+    border: 2px solid black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+    top: -15px;
+    border-radius: 2px;
+    cursor: not-allowed;
+}
+/* Console */
+.consoleWrap {
+    overflow: hidden;
+    height: 650px;
+    width: 400px;
+    background-color: white;
+    font-family: 'Arial';
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px lightgrey;
+    position: relative;
+    left: 1015px;
+    top: -160px;
+    user-select: none;
+}
+#CONSOLE-TITLE {
+    font-size: 30px;
+    position: relative;
+    top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.titleWrap {
+    height: 75px;
+    background-color: white;
+    top: -30px;
+    position: relative;
+}
+#entries {
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 20px;
+    position: relative;
+    top: -10px;
+}
