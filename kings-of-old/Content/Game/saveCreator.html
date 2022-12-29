@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="  crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b3dcbaf5bd.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" href = "Icons/css/fontawesome.min.css">
+    <link rel = "stylesheet" href = "Icons/css/fontawesome.css">
+    <link rel = "stylesheet" href = "Icons/css/all.css">
+    <script src = "Jquery/jquery-3.5.1.min.js"></script>
+    <link rel = "icon" href = "Images/Misc./earlyAgeFavicon.png">
+    <title>Kings of Old | New Save</title>
+    <style>
+        p {color:black;font-family:'Verdana';font-size:15px;}
+        
+        body, html {height:100%;}
+        
+        div.wrap {height:100%; overflow:hidden; position: absolute;}
+       
+        body {overflow: hidden; background-color:darkblue;}
+        
+        a {color: darkblue;}
+        
+        a:hover {color: blue;}
+
+        #message p {
+            position: relative;
+            margin-left:20px;
+            margin-right:20px;
+            color: darkblue;
+            top: 25px;
+            font-weight: bold;
+        }
+
+        #message-wrap {
+            top: 575px;
+            left: 365px;
+            position: relative;
+            border: 4px solid darkblue;
+            width: 500px;
+            height: 185px;
+            color: darkblue;
+            border-radius: 10px;
+            user-select:none;
+        }
+        
+        .icon {
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            font-size: 25px;
+            font-family: 'Verdana';
+            font-weight: bold;
+            user-select: none;
+        }
+
+        #civMessage p {
+            user-select: none;
+            position:relative;
+            margin-left:20px;
+            margin-right:20px;
+            color: darkblue;
+            top: 25px;
+            font-weight: bold;
+        }
+
+        #civBonuses-wrap {
+            position:relative;
+            width: 220px;
+            height: 470px;
+            color: darkblue;
+            border-radius: 10px;
+            border: 4px solid darkblue;
+            top: -170px;
+            left: 645px;
+        }
+
+        #contactMessage p {
+            position: relative;
+            margin-left:20px;
+            margin-right:20px;
+            color: darkblue;
+            top: 25px;
+            font-weight: bold;
+        }
+
+        #contact-wrap {
+            position:relative;
+            width: 220px;
+            height: 470px;
+            color: darkblue;
+            border-radius: 10px;
+            border: 4px solid darkblue;
+            top: -648px;
+            left: 365px;
+        }
+
+        #border {
+            height: 100vh;
+            width: 4px;
+            background-color: darkblue;
+            position: relative;
+            left: 530px;
+            top: -421px;
+            z-index: 2;
+        }
+
+        #appMessage p {
+            position: relative;
+            margin-left:20px;
+            margin-right:20px;
+            color: darkblue;
+            top: 25px;
+            font-weight: bold;
+            user-select: none;
+        }
+
+        #app-wrap {
+            position:relative;
+            width:2.72in;
+            height: 735px;
+            color: darkblue;
+            border-radius: 10px;
+            border: 4px solid darkblue;
+            top: -1125px;
+            left: 35px;
+        }
+
+        #menuCollapse {
+            border: none;
+            position: absolute;
+            top: 0px;
+            background-color:cornflowerblue;
+            color:darkblue;
+            font-size: 30px;
+            left: -30px;
+            border-bottom-left-radius: 10px;
+            cursor: pointer;
+        }
+
+        #left {
+            position: absolute;
+            left: 37.5vw;
+            top: 0vh;
+            height: 100vh;
+            width: 62.5vw;
+            background-color:cornflowerblue;
+            z-index: 1;
+            animation-name: none;
+            animation-duration: 0.5s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        #left.collapsed {
+            position: absolute;
+            left: 100vw;
+            top: 0vh;
+            height: 100vh;
+            width: 62.5vw;
+            background-color:cornflowerblue;
+            z-index: 1;
+            animation-name: collapse;
+            animation-duration: 0.5s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        .civ {
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        .autosave {
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        select {
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-family: 'Verdana';
+            color:cornflowerblue;
+            border: 1px solid cornflowerblue;
+            background-color:navy;
+        }
+
+        .achieve {
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        .diff {
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        input {
+            border-radius: 2px;
+            padding: 5px;
+            cursor:text;
+            margin-bottom: 10px;
+            color:cornflowerblue;
+            border: 1px solid cornflowerblue;
+            background-color:navy;
+        }
+
+        label {
+            position: relative;
+            top: -3px;
+        }
+
+        .flip {
+            transform: rotateY(180deg);
+            transition-duration: 0.2s;
+        }
+
+        .errorMsg {
+            color: darkred;
+        }
+
+        .errorBox {
+            border: 2px solid darkred;
+        }
+
+        @keyframes collapse {
+            0% {left:37.5vw;}
+            100% {left:100vw;}
+        }
+
+        #nameFrame {
+            color:cornflowerblue;
+            font-family:'Verdana';
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#width_tmp_option").html($('#civ option:selected').text());
+            $('#civ').width($("#width_tmp_select").width());
+
+            $('#civ').change(function () {
+                $("#width_tmp_option").html($('#civ option:selected').text());
+                $(this).width($("#width_tmp_select").width());
+            });
+
+            $("#width_tmp_option").html($('#auto option:selected').text());
+            $('#auto').width($("#width_tmp_select").width());
+
+            $('#auto').change(function () {
+                $("#width_tmp_option").html($('#auto option:selected').text());
+                $(this).width($("#width_tmp_select").width());
+            });
+
+            $("#width_tmp_option").html($('#achieve option:selected').text());
+            $('#achieve').width($("#width_tmp_select").width());
+
+            $('#achieve').change(function () {
+                $("#width_tmp_option").html($('#achieve option:selected').text());
+                $(this).width($("#width_tmp_select").width());
+            });
+
+            $("#width_tmp_option").html($('#diff option:selected').text());
+            $('#diff').width($("#width_tmp_select").width());
+
+            $('#diff').change(function () {
+                $("#width_tmp_option").html($('#diff option:selected').text());
+                $(this).width($("#width_tmp_select").width());
+            });
+
+            window.addEventListener("keydown", function(e) {
+                // space, page up, page down and arrow keys:
+                if([32, 33, 34, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+                    e.preventDefault();
+                }
+            }, false);
+
+            var C = undefined;
+
+                    $('#menuCollapse').click(function() {
+                        C = $(this).data('clicks');
+                        if (!C) {
+                            $( "#left" ).toggleClass( "collapsed" );
+                            $( "#flipcon" ).toggleClass( "flip" );
+                        } else {
+                            $( "#left" ).toggleClass( "collapsed" );
+                            $( "#flipcon" ).toggleClass( "flip" );
+                        }
+                        $(this).data("clicks", !C);
+                    });
+        });
+        
+        /*
+        **DISCLAIMER**
+        FROM HERE ONWARDS IN THIS SCRIPT FILE, THIS JAVASCRIPT CODE WAS TAKEN FROM 
+        https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/JavaScript_Examples.html
+        AND CHANGED TO FIT MY PURPOSES AS I SAW FIT. I AM IN NO WAY ATTEMPTING TO TAKE OWNERSHIP
+        OF THIS CODE.
+        */
+
+        window.onload = init;
+
+        function init() {
+            document.getElementById("nameFrame").onsubmit = validateForm;
+            document.getElementById("king").focus();
+        }
+
+        function validateForm(theForm) {
+            with (theForm) {
+                return (isNotEmpty(king, "Please enter your name, mighty King.", elmNameError)
+                    && isNotEmpty(kingdom, "You must name your kingdom to be successful!", elmKingdomError)
+                    && isNotEmpty(god, "We must worship somebody, my lord! (until v2.5 :0)", elmGodError)
+                    && isNotEmpty(save, "The Creator has tasked you with naming the universe, you must not fail now!", elmSaveError)
+                );
+            }
+        }
+
+        function postValidate(isValid, errMsg, errElm, inputElm) {
+            if (!isValid) {
+                if (errElm !== undefined && errElm !== null
+                    && errMsg !== undefined && errMsg !== null) {
+                    errElm.innerHTML = errMsg;
+                }
+
+                if (inputElm !== undefined && inputElm !== null) {
+                    inputElm.classList.add("errorBox");
+                    inputElm.focus();
+                }
+            } else {
+                if (errElm !== undefined && errElm !== null) {
+                    errElm.innerHTML = "";
+                }
+                if (inputElm !== undefined && inputElm !== null) {
+                    inputElm.classList.remove("errorBox");
+                }
+            }
+        }
+
+        function isNotEmpty(inputElm, errMsg, errElm) {
+            var isValid = (inputElm.value.trim() !== "");
+            postValidate(isValid, errMsg, errElm, inputElm);
+            return isValid;
+        }
+    </script>
+</head>
+
+<body>
+    <div class = "wrap"></div>
+    <form action="experimental-release0.1.5.html" id="nameFrame" method="get">
+        <h1>New Civilization</h1>
+        <table>
+            <tr>
+                <td><label for="king">King (Username):<span class="required" style="color: blue;">*</span></label>
+                </td>
+                <td><input type="text" id="king" name="king" maxlength="15" autocomplete="off"></td>
+                <td id="elmNameError" class="errorMsg">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label for="kingdom">Kingdom:<span class="required" style="color: blue;">*</span></label></td>
+                <td><input type="text" id="kingdom" name="kingdom" maxlength="10" autocomplete="off"></td>
+                <td id="elmKingdomError" class="errorMsg">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label for="god">Deity:<span class="required" style="color: blue;">*</span></label></td>
+                <td><input type="text" id="god" name="god" maxlength="15" autocomplete="off"></td>
+                <td id="elmGodError" class="errorMsg">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label for="save">Save Name:<span class="required" style="color:blue;">*</span></label></td>
+                <td><input type="text" id="save" name="save" maxlength="10" autocomplete="off"></td>
+                <td id="elmSaveError" class="errorMsg">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label for="civ">Civilization:</label></td>
+                <td><select class="civ" name="civ" id="civ">
+                        <option value="Random" selected>Random</option>
+                        <option value="England">England</option>
+                        <option value="Ottoman">Ottoman Empire</option>
+                        <option value="Delhi Sultanate">Delhi Sultanate</option>
+                        <option value="France">France</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Greece">Greece</option>
+                        <option value="America">America</option>
+                    </select>
+                    <select style="display:none;visibility:hidden;" id="width_tmp_select">
+                        <option id="width_tmp_option"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="autosave">Autosave?</label></td>
+                <td><select id="auto" name="autosave" class="autosave">
+                        <option id="yes" selected value="yes">Yep</option>
+                        <option id="no" value="no">Nope</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><label for="achieve">Achievements?</label></td>
+                <td><select id="achieve" name="achieve" class="achieve">
+                        <option id="yep" selected value="yes">Yep</option>
+                        <option id="nop" value="no">Nope</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><label for="diff">Difficulty:</label></td>
+                <td><select id="diff" name="diff" class="diff">
+                        <option id="easy" value="easy">Easy</option>
+                        <option id="normal" selected value="normal">Normal</option>
+                        <option id="hard" value="hard">Hard</option>
+                        <option id="harder" value="harder">Harder</option>
+                        <option id="nightmare" value="nightmare">Nightmare</option>
+                    </select></td>
+            </tr>
+        </table>
+        <input type="submit" value="Create" style="position: relative; top: 15px; font-size: 18px; padding: 5px;">
+    </form>
+
+    <div id = "left">
+        <div id = "message-wrap">
+            <div class = "icon"><i class="fa-solid fa-circle-info"></i>  Info</div>
+            <div id = "message">
+                <p>LostSheep is strongly adverse to adding in-app purchases to our games. Therefore, we are a completely donation-funded organization. If you have any money to spare, even if it's nothing but a cent, please take the time to donate. The donations help fund and protect us, so we can continue to make games for everyone to enjoy. More info <a href = "Donation/donations.html" target="_blank">here</a>.</p>
+            </div>
+        </div>
+        <div id = "civBonuses-wrap">
+            <div class = "icon"><i class="fa-solid fa-circle-info"></i>  Tip</div>
+            <div id = "civMessage">
+                <p>Each civilization has it's different perks and drawbacks. These can often have enormous effect on the gameplay and fun of the game. If you're new, (coming from people who play video games ourselves), LostSheep reccomends that you at least scan briefly over the different effects. Potential speedrunners, you're gonna want to take a long look at this. (Our favorite civilization is the Delhi Sultanate!) More info <a href = "Civs/civBonuses.html" target="_blank">here</a>.</p>
+            </div>
+        </div>
+        <div id = "contact-wrap">
+            <div class = "icon"><i class = "fa-solid fa-circle-info"></i>  Questions?</div>
+            <div id = "contactMessage">
+                <p>As you play Kings of Old, you may encounter bugs, forgotten dev tools, useless features, or really anything. If you find anything like that, or want a feature added, want to fix some of our spaghetti mess of code (we WILL credit you), or even want to join our team, don't hesitate to email us. We would love to hear from you, and you have our word we will to answer every single email sent our way. Contact options <a href = "Contact/contact.html" target="_blank">here</a>.</p>
+            </div>
+        </div>
+        <div id = "app-wrap">
+            <div class = "icon"><i class = "fa-solid fa-circle-info"></i>  Info</div>
+            <div id = "appMessage">
+                <p>As you start becoming better at the game, you may want a better experience. Faster updates, faster loading, better saves, mod support, etc. And while Kings of Old is still in beta, we at LostSheep think that an app is a vital part of any successful game. This browser-based version is always going to be here, for accessiblity reasons, but an app might be a nice change of pace for those who need or want it. The downsides, however, are that it's either a .dmg file, or a .exe file, depending on what operating system you're on. This means that in some school districts or home computers, it won't be available. The app is also vulnerable to malaware, malfunctions, and crashes. (Currently, the app is not available. LostSheep has more important things to work on with this game, such as making it bigger and better. It's coming soon, though!) More info <a href = "App/appinfo.html" target="_blank">here</a>.</p>
+            </div>
+        </div>
+        <button id = "menuCollapse"><div id = "flipcon"><i class="fa-solid fa-angle-right"></i></div></button>
+    </div>
+</body>
+
+</html>
