@@ -1,0 +1,20 @@
+.civData {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    top: -25px;
+    left: 0px;
+    background-color: transparent;
+    width: 750px;
+    padding-left: 10px;
+}
+#kingdomWrap {
+    font-size: 28px;
+    font-family: 'Arial';
+}
+#kingWrap {
+    font-size: 20px;
+    font-family: 'Arial';
+    position: relative;
+    top: -15px;
+}

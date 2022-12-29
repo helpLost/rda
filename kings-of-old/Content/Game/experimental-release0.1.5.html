@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <div id="faviconDiv">
+    </div>
+    <title>Kings of Old | V0.1.5 SR</title>
+    <!-- My Stuff -->
+    <!-- Scripts -->
+    <script src="JS/kings-of-old.js"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="CSS/all.css">
+    <link rel="stylesheet" href="CSS/civData.css">
+    <link rel="stylesheet" href="CSS/rssTabs.css">
+    <link rel="stylesheet" href="CSS/peopleTabs.css">
+    <link rel="stylesheet" href="CSS/settings.css">
+    <link rel="stylesheet" href="CSS/buildingTabs.css">
+    <!-- Online Resources -->
+    <!-- Jquery -->
+    <script src="Jquery/jquery-1.10.2.min.js"></script>
+    <script src="Jquery/jquery-ui-1.10.4.js"></script>
+    <link href="Jquery/jquery-ui-1.10.4:CSS.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="Icons/css/fontawesome.min.css">
+    <link rel="stylesheet" href="Icons/css/fontawesome.css">
+    <link rel="stylesheet" href="Icons/css/all.css">
+</head>
+
+<body>
+    <!-- Village Data -->
+    <div class="civData">
+        <!-- Kingdom Name -->
+        <div id="kingdomWrap"></div>
+        <!-- King Name-->
+        <div id="kingWrap"></div>
+        <!-- Civilization Name -->
+        <!--<div class = "civWrap"></div>-->
+    </div>
+    <!-- Console -->
+    <div class="consoleWrap">
+        <div class="titleWrap">
+            <p id="CONSOLE-TITLE">Game Events</p>
+        </div>
+        <table id="entries">
+            <tbody>
+                <tr id="entr1">
+                    <td id="time"></td>
+                    <td id="log"></td>
+                    <td id="amount"></td>
+                </tr>
+                <tr id="entr2">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr3">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr4">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr5">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr6">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr7">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr8">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr9">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr10">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr11">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr12">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr13">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr14">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr15">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr16">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr17">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr18">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr19">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr20">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Tabs -->
+    <div class="IMPtabWrap">
+        <div id="IMPToverlayBar"></div>
+        <div id="IMPBoverlayBar"></div>
+        <!-- Resources -->
+        <div class="resource">
+            <button id="resourceTitle" onmousedown="selection('resource')" class="selector selected nborder">Resources
+            </button>
+            <div id="resourcePage" style="display: block;">
+                <!-- Normal Resources -->
+                <div class="regularWrap">
+                    <p class="regularTitle">Regular</p>
+                    <!-- Wood -->
+                    <div class="woodWrap">
+                        <div id="woodGatherWrap">
+                            <div id="WlabelDiv">Wood: 0</div>
+                            <button id="woodGather" class='wood-gather' value='Wood' name='woodGather'
+                                onmousedown="colorAnimation('woodGather'); AddResource('wood')">Gather</button>
+                            <div id="afterWood"></div>
+                        </div>
+                    </div>
+                    <!-- Stone -->
+                    <div class="stoneWrap">
+                        <div id="stoneGatherWrap">
+                            <div id="SlabelDiv">Stone: 0</div>
+                            <button id="stoneGather" class="stone-gather" value="Stone" name="stoneGather"
+                                onmousedown="colorAnimation('stoneGather'); AddResource('stone');">Gather</button>
+                            <div id="afterStone"></div>
+                        </div>
+                    </div>
+                    <!-- Food -->
+                    <div class="foodWrap">
+                        <div id="foodGatherWrap">
+                            <div id="FlabelDiv">Food: 0</div>
+                            <button id="foodGather" class="food-gather" value="Food" name="foodGather"
+                                onmousedown="colorAnimation('foodGather'); AddResource('food')">Gather</button>
+                            <div id="afterFood"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Special Resources -->
+                <div class="specialWrap">
+                    <p class="specialTitle">Special</p>
+                    <!-- Ore -->
+                    <div class="oreWrap">
+                        <div id="oreGatheredWrap">
+                            <div id="OlabelDiv" name="ore">Ore: 0</div>
+                        </div>
+                        <div id="afterOre"></div>
+                    </div>
+                    <!-- Hide -->
+                    <div class="hideWrap">
+                        <div id="hideGatheredWrap">
+                            <div id="HlabelDiv" name="hide">Hide: 0</div>
+                        </div>
+                        <div id="afterHide"></div>
+                    </div>
+                    <!-- Roots -->
+                    <div class="rootsWrap">
+                        <div id="rootGatheredWrap">
+                            <div id="RlabelDiv" name="roots">Roots: 0</div>
+                        </div>
+                        <div id="afterRoots"></div>
+                    </div>
+                    <!-- Cotton -->
+                    <div class="cottonWrap">
+                        <div id="cottonGatheredWrap">
+                            <div id="ClabelDiv" name="cotton">Cotton: 0</div>
+                        </div>
+                        <div id="afterCotton"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Research -->
+        <div class="research">
+            <button id="researchTitle" onmousedown="selection('research')" class="border unselected">Research
+            </button>
+            <div id="researchPage" style="display: none;">
+                <div id="no-research">Research not available. Get people thinking in the Gathering Place first.</div>
+                <div id="researchWrap"></div>
+            </div>
+        </div>
+        <!-- Relics and Deities -->
+        <div class="relics">
+            <button id="relicTitle" onmousedown="selection('relic')" class="border unselected">Religion</button>
+            <div id="relicPage" style="display: none;">
+                <div id="no-god">Worship not available in current version.</div>
+            </div>
+        </div>
+    </div>
+    <!-- Population / People -->
+    <div class="PPLtabWrap">
+        <div id="PPLToverlayBar"></div>
+        <div id="PPLBoverlayBar"></div>
+        <!-- Workers -->
+        <div class="worker">
+            <button id="workerTitle" class="selector selected nborder"
+                onmousedown="selection2('worker')">Workers</button>
+            <div id="workerPage" style="display: block;">
+                <!-- Recruit -->
+                <div id="workerRecruitWrap">
+                    <div id="PlabelDiv"><label for="workerRecruit">Citizens: 0</label></div>
+                    <button class="worker-recruit" id="workerRecruit" value="Workers" name="workerRecruit"
+                        onmousedown="colorAnimation('workerRecruit'); addWorker()">Recruit</button>
+                    <div id="after-button" class="after"><label for="workerRecruit"><i>10 food to recruit.</i></label>
+                    </div>
+                </div>
+                <!-- Jobs -->
+                <div id="jobWrap">
+                    <!-- Unemployed -->
+                    <div id="UEMWrap">
+                        <div id="UNlabelDiv">
+                            <p id="UNCount">Unemployed: 0</p>
+                        </div>
+                    </div>
+                    <!-- LumberJacks -->
+                    <div id="ljWrap">
+                        <div id="LJlabelDiv">
+                            <p id='LJCount'>Lumberjacks: 0</p>
+                        </div>
+                        <button id="l1" class="lsubtract"><i class="fa-solid fa-angle-left"
+                                onmousedown="colorAnimation('l1'); removeSpecialized('wood', 0);"></i></button>
+                        <button id="l2" class="ladd"><i class="fa-solid fa-angle-right"
+                                onmousedown="colorAnimation('l2'); addSpecialized('wood')"></i></button>
+                    </div>
+                    <!-- Miners -->
+                    <div id="minerWrap">
+                        <div id="MlabelDiv">
+                            <p id="MCount">Miners: 0</p>
+                        </div>
+                        <button id="m1" class="msubtract"><i class="fa-solid fa-angle-left"
+                                onmousedown="colorAnimation('m1'); removeSpecialized('stone', 1);"></i></button>
+                        <button id="m2" class="madd"><i class="fa-solid fa-angle-right"
+                                onmousedown="colorAnimation('m2'); addSpecialized('stone')"></i></button>
+                    </div>
+                    <!-- Hunters -->
+                    <div id="hunterWrap">
+                        <div id="HUlabelDiv">
+                            <p id="HCount">Hunters: 0</p>
+                        </div>
+                        <button id="h1" class="hsubtract"><i class="fa-solid fa-angle-left"
+                                onmousedown="colorAnimation('h1'); removeSpecialized('food', 2);"></i></button>
+                        <button id="h2" class="hadd" onmousedown="colorAnimation('h2'); addSpecialized('food')"><i
+                                class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="soldier">
+            <button id="soldierTitle" class="selector unselected border"
+                onmousedown="selection2('soldier')">Army</button>
+            <div id="soldierPage" style="display: none;">
+                <div id="no-soldier">Army not available. Build a barracks first.</div>
+            </div>
+        </div>
+        <div class="conquest">
+            <button id="conquestTitle" class="selector unselected border"
+                onmousedown="selection2('conquest')">Conquest</button>
+            <div id="conquestPage" style="display: none;">
+                <div id="no-conquest">Conquest not unlocked. Focus on surviving for now.</div>
+            </div>
+        </div>
+    </div>
+    <!-- Settings -->
+    <div class="settingWrap">
+        <!-- Settings -->
+        <div class="titleWrap">
+            <p id="SET-TITLE">Settings</p>
+        </div>
+        <div class="manualWrap">
+            <p id="SAVE-TITLE">Manual Systems:</p>
+            <style>
+            </style>
+            <div class="buttonWrap">
+                <button class="sbutton" value="localStorageTrigger" onmousedown="settingsAni(this)"
+                    title="Manually Save File.">Manual Save</button>
+                <button class="sbutton" value="localStorageRead" onmousedown="settingsAni(this)"
+                    title="Manually Load File.">Manual Load</button>
+            </div>
+        </div>
+        <div class="cssWrap">
+            <p id="EFFECTS-TITLE">CSS Effects:</p>
+            <div class="buttonWrap">
+                <button class="sbutton" value="CSSeffectsTrigger" title="Turn on CSS Effects."
+                    onmousedown="settingsAni(this)">Turn On</button>
+                <button class="sbutton" value="CSSeffectsOffTrigger" disabled title="Coming soon!"
+                    onmousedown="settingsAni(this)">Turn Off</button>
+            </div>
+        </div>
+        <div class="dataWrap">
+            <p id="DATA-TITLE">Save Data:</p>
+            <div class="buttonWrap">
+                <button class="sbutton" value="downloadSaveTrigger" title="Coming soon!" href="" download=""
+                    disabled>Download File</button>
+                <button class="sbutton" value="clearSaveTrigger" title="Clear all save data">Clear Save</button>
+            </div>
+        </div>
+        <div class="soundWrap">
+            <p id="SOUND-TITLE">Music and Sound:</p>
+            <div class="buttonWrap">
+                <button class="sbutton" value="musicOnTrigger" title="Coming Soon!" disabled>Turn
+                    On</button>
+                <button class="sbutton" value="musicOffTrigger" title="Coming Soon!" disabled>Turn
+                    Off</button>
+            </div>
+        </div>
+    </div>
+    <!-- Building / Fortifying -->
+    <div class="BLDtabWrap">
+        <div class="building">
+            <button id="buildingTitle" onmousedown="selection3('building')"
+                class="selector selected nborder">Building</button>
+            <div id="buildingPage" style="display: block;">
+                <div id="tent">
+                    <button class="buildTent" name="tent">Build</button>
+                    <div id="builtTents"></div>
+                    <div id="afterTent">15 wood to build.</div>
+                </div>
+                <div id="barracks">
+                    <button class="buildBarracks" name="barracks">Build</button>
+                    <div id="builtBarracks"></div>
+                    <div id="afterBarracks">175 wood to build.</div>
+                </div>
+                <div id="huntersCabin">
+                    <button class="buildHC" name="huntersCabin">Build</button>
+                    <div id="builtHC"></div>
+                    <div id="afterHC">90 wood and 30 stone to build.</div>
+                </div>
+                <div id="minerShacks">
+                    <button class="buildMS" name="miningShacks">Build</button>
+                    <div id="builtMS"></div>
+                    <div id="afterMS">32 stone and 35 wood to build.</div>
+                </div>
+                <div id="lumberHuts">
+                    <button class="buildLH" name="lumberHuts">Build</button>
+                    <div id="builtLH"></div>
+                    <div id="afterLH">3 hide and 35 wood to build.</div>
+                </div>
+                <div id="gatheringPlace">
+                    <button class="buildGP" name="GP">Build</button>
+                    <div id="builtGP"></div>
+                    <div id="afterGP">250 wood and 10 hide to build.</div>
+                </div>
+                <div id="woodPit">
+                    <button class="buildwoodPit" name="woodpit">Build</button>
+                    <div id="builtwoodPits"></div>
+                    <div id="afterWP">48 wood to build.</div>
+                </div>
+                <div id="stoneShed">
+                    <button class="buildstoneShed" name="stoneshed">Build</button>
+                    <div id="builtstoneSheds"></div>
+                    <div id="afterSS">50 wood and 42 stone to build.</div>
+                </div>
+                <div id="foodCave">
+                    <button class="buildfoodCave" name="foodcave">Build</button>
+                    <div id="builtfoodCaves"></div>
+                    <div id="afterFC">35 wood and 55 stone to build.</div>
+                </div>
+            </div>
+        </div>
+        <div class="upgrading">
+            <button id="upgradingTitle" onmousedown="selection3('upgrade')"
+                class="selector unselected border">Upgrades</button>
+            <div id="upgradingPage" style="display: none;">
+
+            </div>
+        </div>
+        <div class="fortifying">
+            <button id="fortifyingTitle" onmousedown="selection3('fortification')"
+                class="selector unselected border">Fortify</button>
+            <div id="fortifyingPage" style="display: none;">
+            </div>
+        </div>
+        <div class="wonders">
+            <button id="wonderTitle" class="selector unselected border"
+                onmousedown="selection3('wonders')">Wonders</button>
+            <div id="wonderPage" style="display: none;">
+                <div id="woodenWonder">
+                    <button class="buildWW" name="WW">Build</button>
+                    <div id="builtWW"></div>
+                    <div id="afterWW">1500 wood and 250 stone to build.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
