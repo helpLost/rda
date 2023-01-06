@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <div id="faviconDiv">
+    </div>
+    <div id="titleDiv">
+        <title>Rising Dawns</title>
+    </div>
+    <!-- My Stuff -->
+    <!-- Scripts -->
+    <script src="JS/newDawn.js"></script>
+    <script>
+        document.getElementById("titleDiv").innerHTML = "<title>Rising Dawns | " + version + "</title>";
+    </script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="CSS/all.css">
+    <link rel="stylesheet" href="CSS/civData.css">
+    <link rel="stylesheet" href="CSS/rssTabs.css">
+    <link rel="stylesheet" href="CSS/peopleTabs.css">
+    <link rel="stylesheet" href="CSS/settings.css">
+    <link rel="stylesheet" href="CSS/buildingTabs.css">
+    <!-- Online Resources -->
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="Icons/css/fontawesome.min.css">
+    <link rel="stylesheet" href="Icons/css/fontawesome.css">
+    <link rel="stylesheet" href="Icons/css/all.css">
+</head>
+
+<body>
+    <!-- Village Data -->
+    <div class="civData">
+        <!-- Kingdom Name -->
+        <div id="kingdomWrap"></div>
+        <!-- King Name-->
+        <div id="kingWrap"></div>
+        <!-- Civilization Name -->
+        <div id="civWrap"></div>
+    </div>
+    <!-- Console -->
+    <div class="consoleWrap">
+        <div class="titleWrap">
+            <p id="CONSOLE-TITLE">Game Events</p>
+        </div>
+        <table id="entries">
+            <tbody>
+                <tr id="entr1">
+                    <td id="time"></td>
+                    <td id="log"></td>
+                    <td id="amount"></td>
+                </tr>
+                <tr id="entr2">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr3">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr4">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr5">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr6">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr7">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr8">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr9">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr10">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr11">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr12">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr13">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr14">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr15">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr16">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr17">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr18">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr19">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr20">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Tabs -->
+    <div class="IMPtabWrap">
+        <div id="IMPToverlayBar"></div>
+        <div id="IMPBoverlayBar"></div>
+        <!-- Resources -->
+        <div class="resource">
+            <button id="resourceTitle" onmousedown="selection('resource')" class="selector selected nborder">Resources
+            </button>
+            <div id="resourcePage" style="display: block;">
+                <!-- Normal Resources -->
+                <div class="regularWrap">
+                    <p class="regularTitle">Regular</p>
+                    <!-- Wood -->
+                    <div class="woodWrap">
+                        <div id="woodGatherWrap">
+                            <div id="WlabelDiv">Wood: 0</div>
+                            <button id="woodGather" class='wood-gather' value='Wood' name='woodGather'
+                                onmousedown="colorAnimation('woodGather'); AddResource('wood');">Gather</button>
+                            <div id="afterWood"></div>
+                        </div>
+                    </div>
+                    <!-- Stone -->
+                    <div class="stoneWrap">
+                        <div id="stoneGatherWrap">
+                            <div id="SlabelDiv">Stone: 0</div>
+                            <button id="stoneGather" class="stone-gather" value="Stone" name="stoneGather"
+                                onmousedown="colorAnimation('stoneGather'); AddResource('stone');">Gather</button>
+                            <div id="afterStone"></div>
+                        </div>
+                    </div>
+                    <!-- Food -->
+                    <div class="foodWrap">
+                        <div id="foodGatherWrap">
+                            <div id="FlabelDiv">Food: 0</div>
+                            <button id="foodGather" class="food-gather" value="Food" name="foodGather"
+                                onmousedown="colorAnimation('foodGather'); AddResource('food')">Gather</button>
+                            <div id="afterFood"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Special Resources -->
+                <div class="specialWrap">
+                    <p class="specialTitle">Special</p>
+                    <!-- Ore -->
+                    <div class="oreWrap">
+                        <div id="oreGatheredWrap">
+                            <div id="OlabelDiv" name="ore">Ore: 0</div>
+                        </div>
+                        <div id="afterOre"></div>
+                    </div>
+                    <!-- Hide -->
+                    <div class="hideWrap">
+                        <div id="hideGatheredWrap">
+                            <div id="HlabelDiv" name="hide">Hide: 0</div>
+                        </div>
+                        <div id="afterHide"></div>
+                    </div>
+                    <!-- Roots -->
+                    <div class="rootsWrap">
+                        <div id="rootGatheredWrap">
+                            <div id="RlabelDiv" name="roots">Roots: 0</div>
+                        </div>
+                        <div id="afterRoots"></div>
+                    </div>
+                    <!-- Cotton -->
+                    <div class="cottonWrap">
+                        <div id="cottonGatheredWrap">
+                            <div id="ClabelDiv" name="cotton">Cotton: 0</div>
+                        </div>
+                        <div id="afterCotton"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Research -->
+        <div class="research">
+            <button id="researchTitle" onmousedown="selection('research')" class="border unselected">Research
+            </button>
+            <div id="researchPage" style="display: none;">
+                <div id="no-research">Research not available. Get people thinking in the Gathering Place first.</div>
+                <div id="researchWrap">
+                    <!-- Tier 1 -->
+                    <div id="stationaryWrap">
+                        <button id="stationaryResearch" class="researchButton"
+                            onmousedown="colorAnimation('stationaryResearch'); changeState('stationary')">Research</button>
+                        <div id="stationaryTitle" class="title">Settle</div>
+                        <div id="stationaryDescription" class="description">Settle down, and gain the benefits and
+                            drawbacks of stationary life, for the rest of the game. Exclusive research is unlocked.
+                            Costs 600 food and 250 wood.
+                            <br>
+                            <br>
+                            <strong>Pros:</strong> Increased worker resource production, less chance to be attacked by
+                            animals, less
+                            resources needed to build, and exclusive fortifications are unlocked.
+                            <br>
+                            <br>
+                            <strong>Cons:</strong> Increased chance to be attacked by another civilization, increased
+                            chance for
+                            sickness, and increased resources needed to fortify.
+                        </div>
+                    </div>
+                    <div id="nomadicWrap">
+                        <button id="nomadicResearch" class="researchButton"
+                            onmousedown="colorAnimation('nomadicResearch'); changeState('nomadic')">Research</button>
+                        <div id="nomadicTitle" class="title">Continue</div>
+                        <div id="nomadicDescription" class="description">Continue onward, and just keep going. You gain
+                            the benefits and drawbacks of nomadic life for the rest of the game. Exclusive research is
+                            unlocked. Costs 750 food.
+                            <br>
+                            <br>
+                            <strong>Pros:</strong> Less resources needed to recruit people, less chance to be attacked
+                            by another civilization, less resources to fortify, and exclusive buildings are unlocked.
+                            <br>
+                            <br>
+                            <strong>Cons:</strong> Less fortifications available, increased chance to be attacked by an
+                            animal, more likely for a disease to kill a citizen, medicine is slower to unlock, and siege
+                            engines are never available.
+                        </div>
+                    </div>
+                    <!-- Tier 2 -->
+                    <div id="fireWrap">
+                        <button id="fireResearch" class="researchButton"
+                            onmousedown="colorAnimation('fireResearch');">Research</button>
+                        <div id="fireTitle" class="title">Fire</div>
+                        <div id="fireDescription" class="description">Food intake is increased by 65%, and your
+                            chance to be attacked by animals is decreased, but chance to be attacked by another
+                            civilization is increased. Costs 350 wood, 300 stone, and 500 food. <span
+                                class="exclusive">Exclusive</span>
+                        </div>
+                    </div>
+                    <div id="ATWrap">
+                        <button id="ATResearch" class="researchButton"
+                            onmousedown="colorAnimation('ATResearch');">Research</button>
+                        <div id="ATTitle" class="title">Advanced Tools</div>
+                        <div id="ATDescription" class="description">Advanced tools such as hoes, shovels, and axes
+                            revolutionize the resource-gathering field. Increases resource gathering rate, and
+                            drastically decreases chance for lumberjacks to be eaten by wolves and hunters to be taken
+                            by barbarians. Costs 345 stone, 160 ore, and 750 food.</div>
+                    </div>
+                    <div id="shelterWrap">
+                        <button id="shelterResearch" class="researchButton"
+                            onmousedown="colorAnimation('shelterResearch');">Research</button>
+                        <div id="shelterTitle" class="title">Shelter</div>
+                        <div id="shelterDescription" class="description">Convert all tents to wooden huts, which have 10
+                            capacity compared to the tent's 5. Costs 340 food and 400 wood. <span
+                                class="exclusive">Exclusive</span>
+                        </div>
+                    </div>
+                    <!-- Tier 3 -->
+                    <div id="AWWrap" style="display: none;">
+                        <button id="AWResearch" class="researchButton"
+                            onmousedown="colorAnimation('AWResearch');">Research</button>
+                        <div id="LCTitle" class="title">Advanced Weapons</div>
+                        <div id="LCDescription" class="description">Advanced weapons made of stone further revolutionize
+                            the battlefield, and allow the training of "Spearmen", a very early heavy soldier with high
+                            damage and medium armor, but very high cost. Costs 320 wood, 175 stone, and 500 food.<span
+                                class="exclusive">Exclusive</span>
+                        </div>
+                    </div>
+                    <div id="longerClubsWrap" style="display: none;">
+                        <button id="LCResearch" class="researchButton"
+                            onmousedown="colorAnimation('LCResearch');">Research</button>
+                        <div id="LCTitle" class="title">Better Clubs</div>
+                        <div id="LCDescription" class="description">Discover woods that can make longer and stronger
+                            clubs, which increase the attack of Clubbers, Spearmen, and Honorary Clubbers by 25 and
+                            their range by
+                            2. Costs 400 wood and 350 food.
+                        </div>
+                    </div>
+                    <div id="agricultureWrap" style="display: none;">
+                        <button id="agricultureResearch" class="researchButton"
+                            onmousedown="colorAnimation('agricultureResearch');">Research</button>
+                        <div id="AGTitle" class="title">Agriculture</div>
+                        <div id="AGDescription" class="description">Discover farming, which allows the "Farmer" worker
+                            to be recruited for the first time. Farmers have less of a chance to be taken by barbarians
+                            than Hunters, collect more food, and have limited defense possiblities, but they also
+                            require a building to be assigned to, and they cannot produce food during Winter. Costs 650
+                            food, 400 stone, and 100 wood. <span class="exclusive">Exclusive</span>
+                        </div>
+                    </div>
+                    <div id="basicAgricultureWrap" style="display: none;">
+                        <button id="BagricultureResearch" class="researchButton"
+                            onmousedown="colorAnimation('agricultureResearch');">Research</button>
+                        <div id="BAGTitle" class="title">Basic Agriculture</div>
+                        <div id="BAGDescription" class="description"> <span class="exclusive">Exclusive</span>
+                        </div>
+                    </div>
+                    </div>
+                    <div id="fortificationSWrap" style="display: none;">
+                        <button id="FSResearch" class="researchButton"
+                            onmousedown="colorAnimation('FSResearch');">Research</button>
+                        <div id="FSTitle" class="title">Fortifications</div>
+                        <div id="FSDescription" class="description">Unlock the Fortification tab, which enables you to
+                            build walls and palisades of different types, a new research topic, outposts, and some
+                            pretty serious military and defense advancements. Costs 500 stone, 750 wood, and 350 food. <span class = "exclusive">Exclusive</span>
+                        </div>
+                    </div>
+                    <div id="fortificationNWrap" style="display: none;">
+                        <button id="FNResearch" class="researchButton"
+                            onmousedown="colorAnimation('FNResearch');">Research</button>
+                        <div id="FNTitle" class="title">Fortifications</div>
+                        <div id="FNDescription" class="description">
+                        </div>
+                    </div>
+                    <!-- Tier 4 -->
+                    <div class="IRWrap" style="display: none;">
+                        <button id="Research" class="researchButton"
+                            onmousedown="colorAnimation('Research');">Research</button>
+                        <div id="Title" class="title"></div>
+                        <div id="Description" class="description">
+                        </div>
+                    </div>
+                    <div class="calendarWrap" style="display: none;">
+                        <button id="Research" class="researchButton"
+                            onmousedown="colorAnimation('Research');">Research</button>
+                        <div id="Title" class="title"></div>
+                        <div id="Description" class="description">
+                        </div>
+                    </div>
+                    <div class="rangedWeaponsWrap" style="display: none;">
+                        <button id="Research" class="researchButton"
+                            onmousedown="colorAnimation('Research');">Research</button>
+                        <div id="Title" class="title"></div>
+                        <div id="Description" class="description">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Relics and Deities -->
+        <div class="relics">
+            <button id="relicTitle" onmousedown="selection('relic')" class="border unselected">Religion</button>
+            <div id="relicPage" style="display: none;">
+                <div id="no-god">Worship not available in current version.<div id="versionLabel"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Population / People -->
+    <div class="PPLtabWrap">
+        <div id="PPLToverlayBar"></div>
+        <div id="PPLBoverlayBar"></div>
+        <!-- Workers -->
+        <div class="worker">
+            <button id="workerTitle" class="selector selected nborder"
+                onmousedown="selection2('worker')">Workers</button>
+            <div id="workerPage" style="display: block;">
+                <!-- Recruit -->
+                <div id="workerRecruitWrap">
+                    <div id="PlabelDiv"><label for="workerRecruit">Citizens: 0</label></div>
+                    <button class="worker-recruit" id="workerRecruit" value="Workers" name="workerRecruit"
+                        onmousedown="colorAnimation('workerRecruit'); addWorker()">Recruit</button>
+                    <div id="after-button" class="after"><label for="workerRecruit"><i>10 food to recruit.</i></label>
+                    </div>
+                </div>
+                <!-- Jobs -->
+                <div id="jobWrap">
+                    <!-- Unemployed -->
+                    <div id="UEMWrap">
+                        <div id="UNlabelDiv">
+                            <p id="UNCount">Unemployed: 0</p>
+                        </div>
+                    </div>
+                    <!-- LumberJacks -->
+                    <div id="ljWrap">
+                        <div id="LJlabelDiv">
+                            <p id='LJCount'>Lumberjacks: 0</p>
+                        </div>
+                        <button id="l1" class="lsubtract"><i class="fa-solid fa-angle-left"
+                                onmousedown="colorAnimation('l1'); removeSpecialized('wood', 0);"></i></button>
+                        <button id="l2" class="ladd"><i class="fa-solid fa-angle-right"
+                                onmousedown="colorAnimation('l2'); addSpecialized('wood')"></i></button>
+                    </div>
+                    <!-- Miners -->
+                    <div id="minerWrap">
+                        <div id="MlabelDiv">
+                            <p id="MCount">Miners: 0</p>
+                        </div>
+                        <button id="m1" class="msubtract"><i class="fa-solid fa-angle-left"
+                                onmousedown="colorAnimation('m1'); removeSpecialized('stone', 1);"></i></button>
+                        <button id="m2" class="madd"><i class="fa-solid fa-angle-right"
+                                onmousedown="colorAnimation('m2'); addSpecialized('stone')"></i></button>
+                    </div>
+                    <!-- Hunters -->
+                    <div id="hunterWrap">
+                        <div id="HUlabelDiv">
+                            <p id="HCount">Hunters: 0</p>
+                        </div>
+                        <button id="h1" class="hsubtract"><i class="fa-solid fa-angle-left"
+                                onmousedown="colorAnimation('h1'); removeSpecialized('food', 2);"></i></button>
+                        <button id="h2" class="hadd" onmousedown="colorAnimation('h2'); addSpecialized('food')"><i
+                                class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="soldier">
+            <button id="soldierTitle" class="selector unselected border"
+                onmousedown="selection2('soldier')">Army</button>
+            <div id="soldierPage" style="display: none;">
+                <div id="no-soldier">Army not available. Build a barracks first.</div>
+            </div>
+        </div>
+        <div class="conquest">
+            <button id="conquestTitle" class="selector unselected border"
+                onmousedown="selection2('conquest')">Conquest</button>
+            <div id="conquestPage" style="display: none;">
+                <div id="no-conquest">Conquest not unlocked. Focus on surviving for now.</div>
+            </div>
+        </div>
+    </div>
+    <!-- Settings -->
+    <div class="settingWrap">
+        <!-- Settings -->
+        <div class="titleWrap">
+            <p id="SET-TITLE">Settings</p>
+        </div>
+        <div class="manualWrap">
+            <p id="SAVE-TITLE">Manual Systems:</p>
+            <style>
+            </style>
+            <div class="buttonWrap">
+                <button id="sbutton" class="sbutton" value="localStorageTrigger"
+                    onmousedown="colorAnimation('sbutton'); Save()" title="Manually Save File.">Manual Save</button>
+                <button id="slbutton" class="sbutton" value="localStorageRead"
+                    onmousedown="colorAnimation('slbutton'); Load()" title="Manually Load File.">Manual Load</button>
+            </div>
+        </div>
+        <div class="cssWrap">
+            <p id="EFFECTS-TITLE">CSS Effects:</p>
+            <div class="buttonWrap">
+                <button id="cbutton" class="sbutton" value="CSSeffectsTrigger" title="Turn on CSS Effects."
+                    onmousedown="colorAnimation('cbutton')">Turn On</button>
+                <button id="cnbutton" class="sbutton" value="CSSeffectsOffTrigger" disabled title="Coming soon!"
+                    onmousedown="colorAnimation('cnbutton')">Turn Off</button>
+            </div>
+        </div>
+        <div class="dataWrap">
+            <p id="DATA-TITLE">Save Data:</p>
+            <div class="buttonWrap">
+                <button class="sbutton" value="downloadSaveTrigger" title="Coming soon!" href="" download=""
+                    disabled>Download File</button>
+                <button id="scbutton" class="sbutton" value="clearSaveTrigger" title="Clear all save data"
+                    onmousedown="colorAnimation('scbutton'); Clear()">Clear Save</button>
+            </div>
+        </div>
+        <div class="soundWrap">
+            <p id="SOUND-TITLE">Music and Sound:</p>
+            <div class="buttonWrap">
+                <button id="ssbutton" class="sbutton" value="musicOnTrigger" title="Coming Soon!" disabled
+                    onmousedown="colorAnimation('ssbutton')">Turn
+                    On</button>
+                <button id="ssnbutton" class="sbutton" value="musicOffTrigger" title="Coming Soon!" disabled
+                    onmousedown="colorAnimation('ssnbutton')">Turn
+                    Off</button>
+            </div>
+        </div>
+    </div>
+    <!-- Building / Fortifying -->
+    <div class="BLDtabWrap">
+        <div id="BLDToverlayBar"></div>
+        <div id="BLDBoverlayBar"></div>
+        <div class="building">
+            <button id="buildingTitle" onmousedown="selection3('building')"
+                class="selector selected nborder">Building</button>
+            <div id="buildingPage" style="display: block;">
+                <div id="tent">
+                    <button id="tentBuild" class="buildTent" name="tent"
+                        onmousedown="colorAnimation('tentBuild'); addBuilding('1')">Build</button>
+                    <div id="builtTents">Tents: 0</div>
+                    <div id="afterTent" class="after"><i>15 wood and 5 hide to build.</i></div>
+                </div>
+                <div id="barracks">
+                    <button id="barracksbuild" class="buildBarracks" name="barracks"
+                        onmousedown="colorAnimation('barracksbuild'); addBuilding('2')">Build</button>
+                    <div id="builtBarracks">Barracks: 0</div>
+                    <div id="afterBarracks" class="after"><i>175 wood and 15 hide to build</i>.</div>
+                </div>
+                <div id="huntersCabin">
+                    <button id="buildHC" class="buildHC" name="huntersCabin"
+                        onmousedown="colorAnimation('buildHC'); addBuilding('3')">Build</button>
+                    <div id="builtHC">Hunter's Cabins: 0</div>
+                    <div id="afterHC" class="after"><i>90 wood and 30 stone to build.</i></div>
+                </div>
+                <div id="minerShacks">
+                    <button id="buildMS" class="buildMS" name="miningShacks"
+                        onmousedown="colorAnimation('buildMS'); addBuilding('4')">Build</button>
+                    <div id="builtMS">Miner Shacks: 0</div>
+                    <div id="afterMS" class="after"><i>32 stone and 35 wood to build.</i></div>
+                </div>
+                <div id="lumberHuts">
+                    <button id="buildLH" class="buildLH" name="lumberHuts"
+                        onmousedown="colorAnimation('buildLH'); addBuilding('5')">Build</button>
+                    <div id="builtLH">Lumber Huts: 0</div>
+                    <div id="afterLH" class="after"><i>5 hide and 35 wood to build.</i></div>
+                </div>
+                <div id="gatheringPlace">
+                    <button id="buildGP" class="buildGP" name="GP"
+                        onmousedown="colorAnimation('buildGP'); addBuilding('6')">Build</button>
+                    <div id="builtGP">Gathering Places: 0</div>
+                    <div id="afterGP" class="after"><i>250 wood and 10 hide to build.</i></div>
+                </div>
+                <div id="woodPit">
+                    <button id="WPbuild" class="buildwoodPit" name="woodpit"
+                        onmousedown="colorAnimation('WPbuild'); addBuilding('7')">Build</button>
+                    <div id="builtwoodPits">Woodpits: 0</div>
+                    <div id="afterWP" class="after"><i>48 wood and 5 hide to build.</i></div>
+                </div>
+                <div id="stoneShed">
+                    <button id="SSbuild" class="buildstoneShed" name="stoneshed"
+                        onmousedown="colorAnimation('SSbuild'); addBuilding('8')">Build</button>
+                    <div id="builtstoneSheds">Stone Sheds: 0</div>
+                    <div id="afterSS" class="after"><i>50 wood and 42 stone to build.</i></div>
+                </div>
+                <div id="foodCave">
+                    <button id="buildFC" class="buildfoodCave" name="foodcave"
+                        onmousedown="colorAnimation('buildFC'); addBuilding('9')">Build</button>
+                    <div id="builtfoodCaves">Food Caves: 0</div>
+                    <div id="afterFC" class="after"><i>35 wood and 55 stone to build.</i></div>
+                </div>
+            </div>
+        </div>
+        <div class="upgrading">
+            <button id="upgradingTitle" onmousedown="selection3('upgrade')"
+                class="selector unselected border">Upgrades</button>
+            <div id="upgradingPage" style="display: none;">
+                <div id="no-upgrade">Building upgrades not available in current age.</div>
+            </div>
+        </div>
+        <div class="fortifying">
+            <button id="fortifyingTitle" onmousedown="selection3('fortification')"
+                class="selector unselected border">Fortify</button>
+            <div id="fortifyingPage" style="display: none;">
+                <div id="no-fortify">Fortification not available. Research 'Fortification' in the Gathering Place first.
+                </div>
+            </div>
+        </div>
+        <div class="wonders">
+            <button id="wonderTitle" class="selector unselected border"
+                onmousedown="selection3('wonders')">Wonders</button>
+            <div id="wonderPage" style="display: none;">
+                <div id="no-wonders">No wonders yet built or available.</div>
+                <div id="woodenWonder" style="display: none;">
+                    <button class="buildWW" name="WW">Build</button>
+                    <div id="builtWW"></div>
+                    <div id="afterWW">1500 wood and 250 stone to build.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
