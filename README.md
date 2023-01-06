@@ -10,8 +10,8 @@ Thank you for playing!
 >
 **KEEP IN MIND:**
 >
-Rising Dawns only has one programmer, one musician, one artist, and 2 playtesters at the moment. _Please_ give us time to fix bugs and issues or add f
-eatures, unless it is extremely urgent.
+Rising Dawns only has one programmer, one musician, one artist, and 2 playtesters at the moment. _Please_ give us time to fix bugs and issues or add 
+features, unless it is extremely urgent.
 
 ## Project Outline
 
