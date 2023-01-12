@@ -1,0 +1,391 @@
+/* Tabs */
+#IMPToverlayBar {
+    background-color: white;
+    position: absolute;
+    z-index: 5;
+    width: 750px;
+    height: 30px;
+    top: 243px;
+    left: 18px;
+    box-shadow: 4px 4px 6px white;
+}
+#IMPBoverlayBar {
+    background-color: white;
+    position: absolute;
+    z-index: 5;
+    width: 750px;
+    height: 30px;
+    box-shadow: -4px -4px 6px white;
+    top: 711.5px;
+    left: 18px;
+}
+#resourceTitle,
+#researchTitle,
+#relicTitle {
+    font-size: 20px;
+    font-family: 'Arial';
+    font-weight: bold;
+    width: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    user-select: none;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+#resourceTitle {
+    top: -12px;
+    left: -12px;
+}
+
+#researchTitle {
+    left: -12px;
+    top: -12px;
+}
+
+#relicTitle {
+    left: -12px;
+    top: -12px;
+}
+
+.resource {
+    height: 49px;
+    width: 146px;
+    position: relative;
+    top: -695px;
+    left: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: grey;
+    border: 2px solid transparent;
+}
+
+.research {
+    position: relative;
+    left: 160px;
+    top: -748px;
+    height: 49px;
+    width: 146px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: grey;
+    border: 2px solid transparent;
+}
+
+.relics {
+    position: relative;
+    left: 310px;
+    top: -801px;
+    height: 49px;
+    width: 146px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: grey;
+    border: 2px solid transparent;
+}
+
+/* Added Classes */
+.selected {
+    background-color: white;
+    cursor:default;
+}
+
+.border {
+    border-bottom: 1px solid grey;
+}
+
+.nborder {
+    border-bottom: 1px solid white;
+}
+
+.unselected {
+    background-color: #EFEDED;
+}
+
+.after {
+    color: grey;
+}
+
+/* Pages */
+#resourcePage,
+#researchPage,
+#relicPage {
+    background-color: white;
+    width: 800px;
+    height: 500px;
+    border: 0px solid black;
+    box-shadow: 5px 5px 5px lightgrey;
+    z-index: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#resourcePage {
+    position: absolute;
+    top: 42px;
+    left: -2px;
+}
+
+#researchPage {
+    position: absolute;
+    top: 42px;
+    left: -152px;
+}
+
+#relicPage {
+    position: absolute;
+    top: 42px;
+    left: -302px;
+}
+
+#no-god {
+    color: grey;
+    font-weight: bold;
+    position: relative;
+    top: 45px;
+    left: 15px;
+    font-family: 'Arial';
+    font-size: 20px;
+}
+
+#no-research {
+    color: grey;
+    font-weight: bold;
+    position: relative;
+    top: 45px;
+    left: 15px;
+    font-family: 'Arial';
+    font-size: 20px;
+}
+
+/* Resources */
+.regularTitle {
+    font-size: 32px;
+    font-family: 'Arial';
+    font-weight: bold;
+    position: relative;
+    left: 20px;
+    user-select: none;
+    top: 10px;
+}
+
+.woodWrap,
+.stoneWrap,
+.foodWrap {
+    font-family:sans-serif;
+    font-size: 25px;
+    position: relative;
+    left: 40px;
+    top: 30px;
+}
+.wood-gather,
+.stone-gather,
+.food-gather {
+    font-family: 'Arial';
+    border: 1px solid black;
+    padding: 3px;
+    position: relative;
+    left: 130px;
+    font-size: 24px;
+    top: -46px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px grey;
+    background-color: #EFEDED; 
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#afterWood,
+#afterStone,
+#afterFood {
+    position: relative;
+    left: 250px;
+    top: -88px;
+    user-select: none;
+}
+#afterOre,
+#afterHide,
+#afterRoots,
+#afterCotton {
+    position: relative;
+    left: 160px;
+    user-select: none;
+    top: -30px;
+}
+.specialTitle {
+    font-size: 32px;
+    font-family: 'Arial';
+    font-weight: bold;
+    position: relative;
+    left: 20px;
+    top: -35px;
+    user-select: none;
+}
+
+.oreWrap,
+.hideWrap,
+.rootsWrap,
+.cottonWrap {
+    font-family: 'Arial';
+    font-size: 25px;
+    padding-bottom: 60px;
+    position: relative;
+    left: 40px;
+    top: -10px;
+}
+/* Research */
+.description {
+    font-family:sans-serif;
+    font-size: 25px;
+    position: relative;
+    left: 40px;
+    padding-bottom: 25px;
+    top: 0px;
+    width: 500px;
+}
+.title {
+    font-size: 32px;
+    font-family: 'Arial';
+    font-weight: bold;
+    position: relative;
+    left: 20px;
+    top: -20px;
+    user-select: none;
+}
+.researchButton {
+    font-family: 'Arial';
+    border: 1px solid black;
+    padding: 3px;
+    position: relative;
+    top: 27px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px grey;
+    background-color: #EFEDED;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#stationaryResearch {
+    left: 125px;
+}
+#nomadicResearch {
+    left: 180px;
+}
+#fireResearch {
+    left: 100px;
+}
+#SshelterResearch {
+    left: 150px;
+}
+#NshelterResearch {
+    left: 150px;
+}
+#ATResearch {
+    left: 290px;
+}
+#AWResearch {
+    left: 340px;
+}
+#LCResearch {
+    left: 225px;
+}
+#AGResearch {
+    left: 205px;
+}
+#BAGResearch {
+    left: 300px;
+}
+#FSResearch, #FNResearch {
+    left: 235px;
+}
+#IRResearch {
+    left: 160px;
+}
+#CAResearch {
+    left: 170px;
+}
+#RWResearch {
+    left: 300px;
+}
+#ESResearch {
+    left: 390px;
+}
+#NAGResearch {
+    left: 330px;
+}
+#stationaryTitle {
+    width: 75px;
+}
+#nomadicTitle {
+    width: 75px;
+}
+#fireTitle {
+    width: 75px;
+}
+#SshelterTitle {
+    width: 75px;
+}
+#NshelterTitle {
+    width: 75px;
+}
+#ATTitle {
+    width: 300px;
+}
+#LCTitle {
+    width: 210px;
+}
+#AWTitle {
+    width: 325px;
+}
+#AGTitle {
+    width: 75px;
+}
+#BAGTitle {
+    width: 275px;
+}
+#FSTitle {
+    width: 75px;
+}
+#FNTitle {
+    width: 75px;
+}
+#nomadicDescription {
+    padding-bottom: 50px;
+}
+#SshelterDescription {
+    padding-bottom: 50px;
+}
+#NshelterDescription {
+    padding-bottom: 50px;
+}
+#FSDescription {
+    padding-bottom: 50px;
+}
+#FNDescription {
+    padding-bottom: 50px;
+}
+#NAGDescription {
+    padding-bottom: 50px;
+}
+#versionLabel {
+    position: relative;
+    left: 400px;
+    top: -24px;
+}
+.exclusive {
+    font-weight: bold;
+    color: grey;
+    font-family: system-ui;
+}
