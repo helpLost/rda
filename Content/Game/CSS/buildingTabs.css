@@ -1,0 +1,594 @@
+/* Tabs */
+#BLDToverlayBar {
+    background-color: white;
+    position: relative;
+    z-index: 5;
+    width: 1100px;
+    height: 30px;
+    top: -205px;
+    left: 18px;
+    box-shadow: 4px 4px 6px white;
+}
+
+#BLDBoverlayBar {
+    background-color: white;
+    position: relative;
+    z-index: 5;
+    width: 1100px;
+    height: 30px;
+    box-shadow: -4px -4px 6px white;
+    top: 310px;
+    left: 18px;
+}
+
+#buildingTitle,
+#upgradingTitle,
+#fortifyingTitle,
+#wonderTitle,
+#achievementsTitle {
+    font-size: 20px;
+    font-family: 'Arial';
+    font-weight: bold;
+    width: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    user-select: none;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+#buildingTitle,
+#upgradingTitle,
+#fortifyingTitle,
+#wonderTitle,
+#achievementsTitle {
+    top: -12px;
+    left: -12px;
+}
+
+.building {
+    height: 49px;
+    width: 146px;
+    position: relative;
+    top: -310px;
+    left: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: grey;
+    border: 2px solid transparent;
+}
+
+.upgrading {
+    position: relative;
+    left: 160px;
+    top: -363px;
+    height: 49px;
+    width: 146px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: grey;
+    border: 2px solid transparent;
+}
+
+.fortifying {
+    position: relative;
+    left: 310px;
+    top: -416px;
+    height: 49px;
+    width: 146px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: grey;
+    border: 2px solid transparent;
+}
+
+.wonders {
+    position: relative;
+    left: 460px;
+    top: -469px;
+    height: 49px;
+    width: 146px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: grey;
+    border: 2px solid transparent;
+}
+
+.achievements {
+    position: relative;
+    left: 610px;
+    top: -522px;
+    height: 49px;
+    width: 146px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: grey;
+    border: 2px solid transparent;
+}
+
+/* Pages */
+#buildingPage,
+#upgradingPage,
+#fortifyingPage,
+#wonderPage,
+#achievementsPage {
+    background-color: white;
+    width: 1405px;
+    height: 575px;
+    border: 0px solid black;
+    box-shadow: 5px 5px 5px lightgrey;
+    z-index: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#buildingPage {
+    position: absolute;
+    top: 43px;
+    left: -2px;
+}
+
+#upgradingPage {
+    position: absolute;
+    top: 43px;
+    left: -152px;
+}
+
+#fortifyingPage {
+    position: absolute;
+    top: 43px;
+    left: -302px;
+}
+
+#wonderPage {
+    position: absolute;
+    top: 43px;
+    left: -452px;
+}
+
+#achievementsPage {
+    position: absolute;
+    top: 43px;
+    left: -602px;
+}
+
+#no-fortify {
+    color: grey;
+    font-weight: bold;
+    position: relative;
+    top: 45px;
+    left: 15px;
+    font-family: 'Arial';
+    font-size: 20px;
+}
+
+#no-upgrade {
+    color: grey;
+    font-weight: bold;
+    position: relative;
+    top: 45px;
+    left: 15px;
+    font-family: 'Arial';
+    font-size: 20px;
+}
+
+#no-wonders {
+    color: grey;
+    font-weight: bold;
+    position: relative;
+    top: 45px;
+    left: 15px;
+    font-family: 'Arial';
+    font-size: 20px;
+}
+
+/* Buildings */
+#tent,
+#barracks,
+#huntersCabin,
+#minerShacks,
+#lumberHuts,
+#gatheringPlace,
+#woodPit,
+#stoneShed,
+#foodCave {
+    font-family: sans-serif;
+    font-size: 25px;
+    position: relative;
+    left: 40px;
+    top: 0px;
+}
+
+#afterTent,
+#afterBarracks,
+#afterHC,
+#afterMS,
+#afterLH,
+#afterGP,
+#afterWP,
+#afterSS,
+#afterFC {
+    position: relative;
+    left: 350px;
+    top: -30px;
+    user-select: none;
+}
+
+.buildTent,
+.buildBarracks,
+.buildHC,
+.buildMS,
+.buildLH,
+.buildGP,
+.buildwoodPit,
+.buildstoneShed,
+.buildfoodCave {
+    font-family: 'Arial';
+    border: 1px solid black;
+    padding: 3px;
+    position: relative;
+    left: 250px;
+    font-size: 24px;
+    top: 43px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px grey;
+    background-color: #EFEDED;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/*-----Achievements-----*/
+.achievementTitle {
+    position: relative;
+    top: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    font-family: 'Arial';
+    left: 20px;
+    padding-bottom: 40px;
+}
+
+.imgDiv {
+    left: 20px;
+    position: relative;
+    box-shadow: 3px 3px 3px grey;
+    height: 63px;
+    width: 58px;
+}
+
+.labelDiv {
+    left: 22px;
+    position: relative;
+    font-size: 16px;
+    font-family: 'Arial';
+}
+
+#col1 {
+    height: 100px;
+    overflow-y: hidden;
+    position: relative;
+}
+
+#col2 {
+    height: 100px;
+    overflow-y: hidden;
+    position: relative;
+}
+
+#col3 {
+    height: 100px;
+    overflow-y: hidden;
+    position: relative;
+}
+#col4 {
+    height: 105px;
+    overflow-y: hidden;
+    position: relative;
+}
+#col5 {
+    height: 110px;
+    overflow-y: hidden;
+    position: relative;
+}
+#col6 {
+    height: 100px;
+    overflow-y: hidden;
+    position: relative;
+}
+
+#col7 {
+    height: 150px;
+    overflow-y: hidden;
+    position: relative;
+}
+#properCapitalist {
+    top: -113px;
+    left: 100px;
+    position: relative;
+}
+
+#climateDestruction {
+    top: -226px;
+    left: 200px;
+    position: relative;
+}
+
+#inhospitable {
+    top: -339px;
+    left: 300px;
+    position: relative;
+}
+
+#killerOfTrees {
+    top: -452px;
+    left: 400px;
+    position: relative;
+}
+
+#climateChange {
+    top: -565px;
+    left: 500px;
+    position: relative;
+}
+
+#speedrunner {
+    top: -678px;
+    left: 600px;
+    position: relative;
+}
+
+#gottaBeABug {
+    top: -791px;
+    left: 700px;
+    position: relative;
+}
+
+#tribe {
+    top: -113px;
+    left: 100px;
+    position: relative;
+}
+
+#village {
+    top: -226px;
+    left: 200px;
+    position: relative;
+}
+
+#town {
+    top: -339px;
+    left: 300px;
+    position: relative;
+}
+
+#city {
+    top: -452px;
+    left: 400px;
+    position: relative;
+}
+
+#largeCity {
+    top: -565px;
+    left: 500px;
+    position: relative;
+}
+
+#capital {
+    top: -678px;
+    left: 600px;
+    position: relative;
+}
+
+#homoErectus {
+    top: -113px;
+    left: 100px;
+    position: relative;
+}
+
+#homoBodoensis {
+    top: -226px;
+    left: 200px;
+    position: relative;
+}
+
+#advanced1 {
+    top: -339px;
+    left: 300px;
+    position: relative;
+}
+
+#advanced2 {
+    top: -452px;
+    left: 400px;
+    position: relative;
+}
+
+#advanced3 {
+    top: -565px;
+    left: 500px;
+    position: relative;
+}
+
+#advanced4 {
+    top: -678px;
+    left: 600px;
+    position: relative;
+}
+
+#advanced5 {
+    top: -791px;
+    left: 700px;
+    position: relative;
+}
+
+#advanced6 {
+    top: -904px;
+    left: 800px;
+    position: relative;
+}
+
+#educated {
+    top: -1017px;
+    left: 900px;
+    position: relative;
+}
+
+#hardened {
+    top: 10px;
+    left: 0px;
+    position: relative;
+}
+
+#stoneAge {
+    top: -103px;
+    left: 100px;
+    position: relative;
+}
+
+#copperAge {
+    top: -216px;
+    left: 200px;
+    position: relative;
+}
+
+#bronzeAge {
+    top: -329px;
+    left: 300px;
+    position: relative;
+}
+
+#silverAge {
+    top: -442px;
+    left: 400px;
+    position: relative;
+}
+
+#ironAge {
+    top: -555px;
+    left: 500px;
+    position: relative;
+}
+
+#modernAge {
+    top: -668px;
+    left: 600px;
+    position: relative;
+}
+
+#mediocrePopulation {
+    top: -781px;
+    left: 700px;
+    position: relative;
+}
+
+#mediumPopulation {
+    top: -894px;
+    left: 800px;
+    position: relative;
+}
+
+#moderatePopulation {
+    top: -1007px;
+    left: 900px;
+    position: relative;
+}
+
+#largePopulation {
+    top: 15px;
+    left: 0px;
+    position: relative;
+}
+
+#largerPopulation {
+    top: -98px;
+    left: 100px;
+    position: relative;
+}
+
+#hugePopulation {
+    top: -211px;
+    left: 200px;
+    position: relative;
+}
+
+#threat {
+    top: -113px;
+    left: 100px;
+    position: relative;
+}
+
+#warlord {
+    top: -226px;
+    left: 200px;
+    position: relative;
+}
+
+#general {
+    top: -339px;
+    left: 300px;
+    position: relative;
+}
+
+#cityLeveler {
+    top: -452px;
+    left: 400px;
+    position: relative;
+}
+
+#commander {
+    top: -565px;
+    left: 500px;
+    position: relative;
+}
+
+#nationDestroyer {
+    top: -678px;
+    left: 600px;
+    position: relative;
+}
+
+#empireCollapser {
+    top: -791px;
+    left: 700px;
+    position: relative;
+}
+
+#worldDominator {
+    top: -904px;
+    left: 800px;
+    position: relative;
+}
+
+#zealot {
+    top: -113px;
+    left: 100px;
+    position: relative;
+}
+
+#extremist {
+    top: -226px;
+    left: 200px;
+    position: relative;
+}
+
+#stronghold {
+    top: -339px;
+    left: 300px;
+    position: relative;
+}
+
+#afkKing {
+    top: -452px;
+    left: 400px;
+    position: relative;
+}
