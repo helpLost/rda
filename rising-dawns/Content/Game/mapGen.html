@@ -1,0 +1,105 @@
+<html>
+
+<body>
+    <script>
+        var waterCount = 0;
+        var bodyAmount = Math.floor(Math.random() * 6);
+        var bodyCount = 0;
+        var waterAmount = undefined;
+        var columnRight = undefined;
+        var columnLeft = undefined;
+        var variable = 0;
+        if (waterAmount == undefined) {
+            var randomNumber = Math.floor(Math.random() * 400);
+            waterAmount = randomNumber;
+            console.log(bodyAmount);
+        }
+        function defineColumn() {
+            if (columnRight == undefined) {
+                //right
+                var rcolumn = document.getElementById("borderRight");
+                var rrandomNumber = Math.floor(Math.random * 350);
+                rcolumn.style.left = rrandomNumber + "px";
+                columnRight = rrandomNumber;
+            }
+            if (columnLeft == undefined) {
+                //left
+                var lcolumn = document.getElementById("borderLeft");
+                var lrandomNumber = Math.floor(Math.random() * 1000);
+                lcolumn.style.left = lrandomNumber + "px";
+                columnLeft = lrandomNumber;
+            }
+        }
+        function defineBetween() {
+            var between = columnLeft;
+            document.getElementById("between").innerHTML = "<div id = 'betweenBit'></div>"
+            var bit = document.getElementById("betweenBit")
+            bit.style.width = between + "px";
+            bit.style.height = waterAmount + "px";
+        }
+        function createWater() {
+            for (thing(); waterCount < waterAmount; waterCount++) {
+                addWater();
+            }
+        }
+        function addWater() {
+            var pixel = document.createElement('div');
+            pixel.className = "water";
+
+            document.getElementById('borderLeft').appendChild(pixel);
+            document.getElementById('borderRight').appendChild(pixel);
+        }
+        function thing() {
+
+        }
+        window.onload = function () {
+            for (thing(); bodyCount <= bodyAmount; bodyCount++) {
+                defineColumn();
+                createWater();
+                defineBetween();
+            }
+        }
+    </script>
+    <style>
+        .earth {
+            width: 1px;
+            height: 1px;
+            background-color: darkgreen;
+        }
+
+        .water {
+            width: 1px;
+            height: 1px;
+            background-color: blue;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: green;
+        }
+
+        #borderRight {
+            position: relative;
+            width: 1px;
+        }
+
+        #borderLeft {
+            position: relative;
+            width: 1px;
+        }
+
+        #betweenBit {
+            background-color: blue;
+            position: absolute;
+        }
+    </style>
+    <div id="water">
+        <div id="borderLeft"></div>
+        <div id="between"></div>
+        <div id="borderRight"></div>
+    </div>
+    <div id="ground"></div>
+</body>
+
+</html>
