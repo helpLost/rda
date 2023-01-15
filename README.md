@@ -22,13 +22,10 @@ Season-changing background artwork is planned for v0.1.75a.
 #### NOTICE:
 **_Graphic integration is going to happen whenever I'm completely done coding all the functionality of the current game. Expect very few new features until graphic integration is began._**
 
-v0.1.58a is planned to be a major functionality change, changing almost all of the building functions and mechanics, along with adding the very first
-achievements (Seven in total).
-
 App is planned for v.1.0.0b.
 App's current planned language is C++ or C#, but that may change.
 
-Migration from Github is planned for v1.3.0b. This is when the game will _officially_ change out of the public domain, except for the versions currently
+Migration from Github is planned for v0.8.0b. This is when the game will _officially_ change out of the public domain, except for the versions currently
 uploaded to Github. Those will stay in the public domain.
 
 Getting mod support available is planned for v0.8.0a.
