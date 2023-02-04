@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <div id="faviconDiv">
+    </div>
+    <div id="titleDiv">
+        <title>Rising Dawns</title>
+    </div>
+    <!-- My Stuff -->
+    <!-- Scripts -->
+    <script src="JS/newDawn.js">
+        document.getElementById("titleDiv").innerHTML = "<title>Rising Dawns | " + version + "</title>";
+    </script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="CSS/all.css">
+    <link rel="stylesheet" href="CSS/civData.css">
+    <link rel="stylesheet" href="CSS/rssTabs.css">
+    <link rel="stylesheet" href="CSS/peopleTabs.css">
+    <link rel="stylesheet" href="CSS/settings.css">
+    <link rel="stylesheet" href="CSS/buildingTabs.css">
+    <link rel = "stylesheet" href = "CSS/enemyCounter.css"
+    <!-- Online Resources -->
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="Icons/css/fontawesome.min.css">
+    <link rel="stylesheet" href="Icons/css/fontawesome.css">
+    <link rel="stylesheet" href="Icons/css/all.css">
+</head>
+
+<body>
+    <!-- Village Data -->
+    <div class="civData">
+        <!-- Kingdom Name -->
+        <div id="kingdomWrap"></div>
+        <!-- King Name-->
+        <div id="kingWrap"></div>
+        <!-- Civilization Name -->
+        <div id="civWrap" style="user-select: none;"></div>
+    </div>
+    <!-- Console -->
+    <div class="consoleWrap">
+        <div class="titleWrap">
+            <p id="CONSOLE-TITLE">Game Events</p>
+        </div>
+        <table id="entries">
+            <tbody>
+                <tr id="entr1">
+                    <td id="time"></td>
+                    <td id="log"></td>
+                    <td id="amount"></td>
+                </tr>
+                <tr id="entr2">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr3">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr4">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr5">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr6">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr7">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr8">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr9">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr10">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr11">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr12">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr13">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr14">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr15">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr16">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr17">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr18">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr19">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="entr20">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Tabs -->
+    <div class="IMPtabWrap">
+        <div id="IMPToverlayBar"></div>
+        <div id="IMPBoverlayBar"></div>
+        <!-- Resources -->
+        <div class="resource">
+            <button id="resourceTitle" onmousedown="selection('resource')" class="selector selected nborder">Resources
+            </button>
+            <div id="resourcePage" style="display: block;">
+                <!-- Normal Resources -->
+                <div class="regularWrap">
+                    <p class="regularTitle">Regular</p>
+                    <!-- Wood -->
+                    <div class="woodWrap">
+                        <div id="woodGatherWrap">
+                            <div id="WlabelDiv">Wood: 0</div>
+                            <button id="woodGather" class='wood-gather' value='Wood' name='woodGather'
+                                onmousedown="colorAnimation('woodGather'); AddResource('wood');">Gather</button>
+                            <div id="afterWood"></div>
+                        </div>
+                    </div>
+                    <!-- Stone -->
+                    <div class="stoneWrap">
+                        <div id="stoneGatherWrap">
+                            <div id="SlabelDiv">Stone: 0</div>
+                            <button id="stoneGather" class="stone-gather" value="Stone" name="stoneGather"
+                                onmousedown="colorAnimation('stoneGather'); AddResource('stone');">Gather</button>
+                            <div id="afterStone"></div>
+                        </div>
+                    </div>
+                    <!-- Food -->
+                    <div class="foodWrap">
+                        <div id="foodGatherWrap">
+                            <div id="FlabelDiv">Food: 0</div>
+                            <button id="foodGather" class="food-gather" value="Food" name="foodGather"
+                                onmousedown="colorAnimation('foodGather'); AddResource('food')">Gather</button>
+                            <div id="afterFood"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Special Resources -->
+                <div class="specialWrap">
+                    <p class="specialTitle">Special</p>
+                    <!-- Ore -->
+                    <div class="oreWrap">
+                        <div id="oreGatheredWrap">
+                            <div id="OlabelDiv" name="ore">Ore: 0</div>
+                        </div>
+                        <div id="afterOre"></div>
+                    </div>
+                    <!-- Hide -->
+                    <div class="hideWrap">
+                        <div id="hideGatheredWrap">
+                            <div id="HlabelDiv" name="hide">Hide: 0</div>
+                        </div>
+                        <div id="afterHide"></div>
+                    </div>
+                    <!-- Roots -->
+                    <div class="rootsWrap">
+                        <div id="rootGatheredWrap">
+                            <div id="RlabelDiv" name="roots">Roots: 0</div>
+                        </div>
+                        <div id="afterRoots"></div>
+                    </div>
+                    <!-- Cotton -->
+                    <div class="cottonWrap">
+                        <div id="cottonGatheredWrap">
+                            <div id="ClabelDiv" name="cotton">Cotton: 0</div>
+                        </div>
+                        <div id="afterCotton"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Research -->
+        <div class="research">
+            <button id="researchTitle" onmousedown="selection('research')" class="border unselected">Research
+            </button>
+            <div id="researchPage" style="display: none;">
+                <div id="no-research">Research not available. Get people thinking in the Gathering Place first.</div>
+                <div id="research-done">All research in current version complete. Don't worry, more will be added later.
+                </div>
+                <div id="researchWrap">
+                    <!-- Tier 1 -->
+                    <div id="tier1wrap">
+                        <div id="stationaryWrap">
+                            <button id="stationaryResearch" class="researchButton"
+                                onmousedown="colorAnimation('stationaryResearch'); changeState('stationary')">Research</button>
+                            <div id="stationaryTitle" class="title">Settle</div>
+                            <div id="stationaryDescription" class="description">Settle down, and gain the benefits and
+                                drawbacks of stationary life, for the rest of the game. Exclusive research is unlocked.
+                                Costs 600 food and 250 wood.
+                                <br>
+                                <br>
+                                <strong>Pros:</strong> Increased worker resource production, less chance to be attacked
+                                by
+                                animals, less
+                                resources needed to build, and exclusive fortifications are unlocked.
+                                <br>
+                                <br>
+                                <strong>Cons:</strong> Increased chance to be attacked by another civilization,
+                                increased
+                                chance for
+                                sickness, and increased resources needed to fortify.
+                            </div>
+                        </div>
+                        <div id="nomadicWrap">
+                            <button id="nomadicResearch" class="researchButton"
+                                onmousedown="colorAnimation('nomadicResearch'); changeState('nomadic')">Research</button>
+                            <div id="nomadicTitle" class="title">Continue</div>
+                            <div id="nomadicDescription" class="description">Continue onward, and just keep going. You
+                                gain
+                                the benefits and drawbacks of nomadic life for the rest of the game. Exclusive research
+                                is
+                                unlocked. Costs 750 food.
+                                <br>
+                                <br>
+                                <strong>Pros:</strong> Less resources needed to recruit people, less chance to be
+                                attacked
+                                by another civilization, less resources to fortify, increased raiding spoils, and
+                                exclusive buildings are
+                                unlocked.
+                                <br>
+                                <br>
+                                <strong>Cons:</strong> Less fortifications available, increased chance to be attacked by
+                                an
+                                animal, more likely for a disease to kill a citizen, medicine is slower to unlock, and
+                                siege
+                                engines aren't available until settlement.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tier 2 -->
+                    <div id="tier2wrap">
+                        <div id="fireWrap" style="display: none;">
+                            <button id="fireResearch" class="researchButton"
+                                onmousedown="colorAnimation('fireResearch'); upgradet3(1)">Research</button>
+                            <div id="fireTitle" class="title">Fire</div>
+                            <div id="fireDescription" class="description">Food intake is increased by 65%, and your
+                                chance to be attacked by animals is decreased, but chance to be attacked by another
+                                civilization is increased. Costs 350 wood, 300 stone, and 500 food.
+                            </div>
+                        </div>
+                        <div id="ATWrap" style="display: none;">
+                            <button id="ATResearch" class="researchButton"
+                                onmousedown="colorAnimation('ATResearch'); upgradet3(2)">Research</button>
+                            <div id="ATTitle" class="title">Advanced Tools</div>
+                            <div id="ATDescription" class="description">Advanced tools such as hoes, shovels, and axes
+                                revolutionize the resource-gathering field. Increases resource gathering rate, and
+                                drastically decreases chance for lumberjacks to be eaten by wolves and hunters to be
+                                taken
+                                by barbarians. Costs 345 stone, 160 ore, and 750 food.</div>
+                        </div>
+                        <div id="SshelterWrap" style="display: none;">
+                            <button id="SshelterResearch" class="researchButton"
+                                onmousedown="colorAnimation('SshelterResearch'); upgradet3(3)">Research</button>
+                            <div id="SshelterTitle" class="title">Shelter</div>
+                            <div id="SshelterDescription" class="description">Convert all tents to "Wooden Huts", which
+                                have 10 capacity compared to the tent's 5. Costs 340 food and 400 wood. <span
+                                    class="exclusive">Exclusive</span>
+                            </div>
+                        </div>
+                        <div id="NshelterWrap" style="display: none;">
+                            <button id="NshelterResearch" class="researchButton"
+                                onmousedown="colorAnimation('NshelterResearch'); upgradet3(4)">Research</button>
+                            <div id="NshelterTitle" class="title">Shelter</div>
+                            <div id="NshelterDescription" class="description">Convert all tents to "Heavy Tents", which
+                                have 7 capacity compared to the tent's 5. They are also much less likely to be blown
+                                away by a storm. Costs 340 wood and 500 food. <span class="exclusive">Exclusive</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tier 3 -->
+                    <div id="tier3wrap">
+                        <div id="AWWrap" style="display: none;">
+                            <button id="AWResearch" class="researchButton"
+                                onmousedown="colorAnimation('AWResearch'); upgradet4(1)">Research</button>
+                            <div id="AWTitle" class="title">Advanced Weapons</div>
+                            <div id="AWDescription" class="description">Advanced weapons made of stone further
+                                revolutionize
+                                the battlefield, and allow the training of "Early Spearmen", which--as the name
+                                suggests--are a very early heavy soldier with
+                                high
+                                damage and medium armor, but very high cost. Costs 320 wood, 175 stone, and 500
+                                food. <span class="exclusive">Exclusive</span>
+                            </div>
+                        </div>
+                        <div id="longerClubsWrap">
+                            <button id="LCResearch" class="researchButton"
+                                onmousedown="colorAnimation('LCResearch'); upgradet4(2)">Research</button>
+                            <div id="LCTitle" class="title">Better Clubs</div>
+                            <div id="LCDescription" class="description">Discover woods that can make longer and stronger
+                                clubs, which increase the attack of Clubbers, Spearmen, and Honorary Clubbers by 25 and
+                                their range by
+                                2. Costs 400 wood and 350 food.
+                            </div>
+                        </div>
+                        <div id="agricultureWrap" style="display: none;">
+                            <button id="AGResearch" class="researchButton"
+                                onmousedown="colorAnimation('AGResearch'); upgradet4(3)">Research</button>
+                            <div id="AGTitle" class="title">Agriculture</div>
+                            <div id="AGDescription" class="description">Discover farming, which allows the "Farmer"
+                                worker
+                                to be recruited for the first time. Farmers have less of a chance to be taken by
+                                barbarians
+                                than Hunters, collect more food, can collect Cotton (a special resource used for early
+                                armor,
+                                some trade, and clothing), and have limited defense possibilities, but they also
+                                require a building to be assigned to, and they cannot produce food during Winter. Costs
+                                650
+                                food, 400 stone, and 100 wood. <span class="exclusive">Exclusive</span>
+                            </div>
+                        </div>
+                        <div id="basicAgricultureWrap" style="display: none;">
+                            <button id="BAGResearch" class="researchButton"
+                                onmousedown="colorAnimation('BAGResearch'); upgradet4(4)">Research</button>
+                            <div id="BAGTitle" class="title">Basic Agriculture</div>
+                            <div id="BAGDescription" class="description">Start harvesting wild berries and shrubs, which
+                                allows hunters to gather more food, and gather some food (albeit reduced) during the
+                                winter. Costs 250 wood, 400 food, and 175 stone. <span
+                                    class="exclusive">Exclusive</span>
+                            </div>
+                        </div>
+                        <div id="fortificationSWrap" style="display: none;">
+                            <button id="FSResearch" class="researchButton"
+                                onmousedown="colorAnimation('FSResearch'); upgradet4(5)">Research</button>
+                            <div id="FSTitle" class="title">Fortifications</div>
+                            <div id="FSDescription" class="description">Unlock the Fortification tab, which enables you
+                                to
+                                build walls and palisades of different types, a new research topic, outposts, and some
+                                pretty serious military and defense advancements. Costs 500 stone, 750 wood, and 350
+                                food. <span class="exclusive">Exclusive</span>
+                            </div>
+                        </div>
+                        <div id="fortificationNWrap" style="display: none;">
+                            <button id="FNResearch" class="researchButton"
+                                onmousedown="colorAnimation('FNResearch'); upgradet4(6)">Research</button>
+                            <div id="FNTitle" class="title">Fortifications</div>
+                            <div id="FNDescription" class="description">Unlock the Fortification tab, which enables you
+                                to
+                                build palisades of different types, a new research topic, different types of outposts,
+                                and
+                                some interesting military advancements. Costs 250 stone, 800 wood, and 350 food. <span
+                                    class="exclusive">Exclusive</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tier 4 -->
+                    <div id="tier4wrap">
+                        <div id="IRWrap" style="display: none;">
+                            <button id="IRResearch" class="researchButton"
+                                onmousedown="colorAnimation('IRResearch'); upgradet5(1)">Research</button>
+                            <div id="IRTitle" class="title">Irrigation</div>
+                            <div id="IRDescription" class="description">Discover irrigation, which improves
+                                <i>farmer</i>
+                                food gathering rate, and makes farms allowed to be placed even farm away from water.
+                                Costs
+                                390 food, 500 wood, and 250 stone. <span class="exclusive">Exclusive</span>
+                            </div>
+                        </div>
+                        <div id="calendarWrap">
+                            <button id="CAResearch" class="researchButton"
+                                onmousedown="colorAnimation('CAResearch'); upgradet5(2)">Research</button>
+                            <div id="CATitle" class="title">Calendar</div>
+                            <div id="CADescription" class="description">Develop a calendar, which puts the month system
+                                in
+                                place. Months give a little more organization to your civilization, and allows the
+                                formation
+                                of crop seasons and advanced growing techniques, which can increase food output tenfold.
+                                Costs 160 food, 300 stone, and 275 wood.
+                            </div>
+                        </div>
+                        <div id="rangedWeaponsWrap">
+                            <button id="RWResearch" class="researchButton"
+                                onmousedown="colorAnimation('RWResearch'); upgradet5(3)">Research</button>
+                            <div id="RWTitle" class="title">Ranged Weapons</div>
+                            <div id="RWDescription" class="description">Develop the first sling, which gives a huge
+                                early-game combat
+                                advantage against roaming barbarian raiders, and unlocks the "Slinger" soldier type.
+                                Costs
+                                500 food, 350 wood, and 275 stone.
+                            </div>
+                        </div>
+                        <div id="expandedStorageWrap">
+                            <button id="ESResearch" class="researchButton"
+                                onmousedown="colorAnimation('ESResearch'); upgradet5(4)">Research</button>
+                            <div id="ESTitle" class="title">Expanded Storehouses</div>
+                            <div id="ESDescription" class="description">New building and refrigerating techniques are
+                                discovered, which means resource storage buildings' storage is doubled, and
+                                meat doesn't spoil for much longer than would be normal. New resource-storage building
+                                upgrades are now unlocked. Costs 350 wood, 250 stone, and 225 food.
+                            </div>
+                        </div>
+                        <div id="NagricultureWrap" style="display: none;">
+                            <button id="NAGResearch" class="researchButton"
+                                onmousedown="colorAnimation('NAGResearch'); upgradet5(5)">Research</button>
+                            <div id="NAGTitle" class="title">Advanced Agriculture</div>
+                            <div id="NAGDescription" class="description">Discover farming, which allows the "Farmer"
+                                worker
+                                to be recruited for the first time. Farmers have less of a chance to be taken by
+                                barbarians
+                                than Hunters, collect more food, can collect Cotton (a special resource used for early
+                                armor,
+                                some trade, and clothing), and have limited defense possibilities, but they also
+                                require a building to be assigned to, and they cannot produce food during Winter. Costs
+                                650
+                                food, 400 stone, and 100 wood. <span class="exclusive">Exclusive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Relics and Deities -->
+        <div class="relics">
+            <button id="relicTitle" onmousedown="selection('relic')" class="border unselected">Religion</button>
+            <div id="relicPage" style="display: none;">
+                <div id="no-god">Worship not available in current version.<div id="versionLabel"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Population / People -->
+    <div class="PPLtabWrap">
+        <div id="PPLToverlayBar"></div>
+        <div id="PPLBoverlayBar"></div>
+        <!-- Workers -->
+        <div class="worker">
+            <button id="workerTitle" class="selector selected nborder"
+                onmousedown="selection2('worker')">Workers</button>
+            <div id="workerPage" style="display: block;">
+                <!-- Recruit -->
+                <div id="workerRecruitWrap">
+                    <div id="PlabelDiv"><label for="workerRecruit">Citizens: 0</label></div>
+                    <button class="worker-recruit" id="workerRecruit" value="Workers" name="worker-Recruit"
+                        onmousedown="colorAnimation('workerRecruit'); addWorker()">Recruit</button>
+                    <div id="after-button" class="after"><label for="worker-Recruit"><i>10 food to recruit.</i></label>
+                    </div>
+                </div>
+                <!-- Jobs -->
+                <div id="jobWrap">
+                    <!-- Unemployed -->
+                    <div id="UEMWrap">
+                        <div id="UNlabelDiv">
+                            <p id="UNCount">Unemployed: 0</p>
+                        </div>
+                    </div>
+                    <!-- LumberJacks -->
+                    <div id="ljWrap">
+                        <div id="LJlabelDiv">
+                            <p id='LJCount'>Lumberjacks: 0</p>
+                        </div>
+                        <button id="l1" class="lsubtract"
+                            onmousedown="colorAnimation('l1'); removeSpecialized('wood', 0);"><i
+                                class="fa-solid fa-angle-left"></i></button>
+                        <button id="l2" class="ladd" onmousedown="colorAnimation('l2'); addSpecialized('wood')"><i
+                                class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                    <!-- Miners -->
+                    <div id="minerWrap">
+                        <div id="MlabelDiv">
+                            <p id="MCount">Miners: 0</p>
+                        </div>
+                        <button id="m1" class="msubtract"
+                            onmousedown="colorAnimation('m1'); removeSpecialized('stone', 1);"><i
+                                class="fa-solid fa-angle-left"></i></button>
+                        <button id="m2" class="madd" onmousedown="colorAnimation('m2'); addSpecialized('stone')"><i
+                                class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                    <!-- Hunters -->
+                    <div id="hunterWrap">
+                        <div id="HUlabelDiv">
+                            <p id="HCount">Hunters: 0</p>
+                        </div>
+                        <button id="h1" class="hsubtract"
+                            onmousedown="colorAnimation('h1'); removeSpecialized('food', 2);"><i
+                                class="fa-solid fa-angle-left"></i></button>
+                        <button id="h2" class="hadd" onmousedown="colorAnimation('h2'); addSpecialized('food')">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Soldiers -->
+        <div class="soldier">
+            <button id="soldierTitle" class="selector unselected border"
+                onmousedown="selection2('soldier')">Militia</button>
+            <div id="soldierPage" style="display: none;">
+                <div id="no-soldier" style="display: none;">Army not available. Build a barracks first.</div>
+                <div id="soldierWrap">
+                    <div id="soldierRecruitWrap">
+                        <div id="SClabelDiv"><label for="soldierRecruit">Soldiers: 0</label></div>
+                        <button class="worker-recruit" id="soldierRecruit" value="Soldiers" name="soldierRecruit"
+                            onmousedown="colorAnimation('soldierRecruit'); addSoldier()">Recruit</button>
+                        <div id="after-soldierButton" class="after"><label for="soldierRecruit"><i>1 unemployed worker
+                                    and 5 hide to recruit.</i></label>
+                        </div>
+                    </div>
+                    <div class="soldierTypeWrap">
+                        <div class="melee">
+                            <p class="meleeTitle">Melee</p>
+                            <div id="brawlers" class="soldierType">Brawlers: 0</div>
+                            <div id="clubbers" class="soldierType">Clubbers: 0</div>
+                            <button id="c1" class="csubtract"><i class="fa-solid fa-angle-left"
+                                    onmousedown="colorAnimation('c1'); removeSpecialSoldier(1)"></i></button>
+                            <button id="c2" class="cadd"><i class="fa-solid fa-angle-right"
+                                    onmousedown="colorAnimation('c2'); assignSpecialSoldier(1)"></i></button>
+                            <div id="spearmen" class="soldierType">Spearmen: 0</div>
+                            <button id="s1" class="ssubtract"><i class="fa-solid fa-angle-left"
+                                    onmousedown="colorAnimation('s1'); removeSpecialSoldier(2)"></i></button>
+                            <button id="s2" class="sadd"><i class="fa-solid fa-angle-right"
+                                    onmousedown="colorAnimation('s2'); assignSpecialSoldier(2)"></i></button>
+                        </div>
+                        <div class="ranged">
+                            <p class="rangedTitle">Ranged</p>
+                            <div id="slingers" class="soldierType">Slingers: 0</div>
+                            <button id="sl1" class="slsubtract"><i class="fa-solid fa-angle-left"
+                                    onmousedown="colorAnimation('sl1'); removeSpecialSoldier(3)"></i></button>
+                            <button id="sl2" class="sladd"><i class="fa-solid fa-angle-right"
+                                    onmousedown="colorAnimation('sl2'); assignSpecialSoldier(3)"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="conquest">
+            <button id="conquestTitle" class="selector unselected border"
+                onmousedown="selection2('conquest')">Conquest</button>
+            <div id="conquestPage" style="display: none;">
+                <div id="no-conquest">Conquest not unlocked. Focus on surviving for now.</div>
+            </div>
+        </div>
+    </div>
+    <!-- Settings -->
+    <div class="settingWrap">
+        <!-- Settings -->
+        <div class="titleWrap">
+            <p id="SET-TITLE">Settings</p>
+        </div>
+        <div class="manualWrap">
+            <p id="SAVE-TITLE">Manual Systems:</p>
+            <style>
+            </style>
+            <div class="buttonWrap">
+                <button id="sbutton" class="sbutton" value="localStorageTrigger"
+                    onmousedown="colorAnimationSettings('sbutton'); Save()" title="Manually Save File.">Manual Save</button>
+                <button id="slbutton" class="sbutton" value="localStorageRead"
+                    onmousedown="colorAnimationSettings('slbutton'); Load()" title="Manually Load File.">Manual Load</button>
+            </div>
+        </div>
+        <div class="cssWrap">
+            <p id="EFFECTS-TITLE">CSS Effects:</p>
+            <div class="buttonWrap">
+                <button id="cbutton" class="sbutton" value="CSSeffectsTrigger" title="Turn on CSS Effects."
+                    onmousedown="colorAnimationSettings('cbutton')">Turn On</button>
+                <button id="cnbutton" class="sbutton" value="CSSeffectsOffTrigger" disabled title="Coming soon!"
+                    onmousedown="colorAnimationSettings('cnbutton')">Turn Off</button>
+            </div>
+        </div>
+        <div class="dataWrap">
+            <p id="DATA-TITLE">Save Data:</p>
+            <div class="buttonWrap">
+                <button class="sbutton" value="downloadSaveTrigger" title="Coming soon!" href="" download=""
+                    disabled>Download File</button>
+                <button id="scbutton" class="sbutton" value="clearSaveTrigger" title="Clear all save data"
+                    onmousedown="colorAnimationSettings('scbutton'); Clear()">Clear Save</button>
+            </div>
+        </div>
+        <div class="soundWrap">
+            <p id="SOUND-TITLE">Music and Sound:</p>
+            <div class="buttonWrap">
+                <button id="ssbutton" class="sbutton" value="musicOnTrigger" title="Coming Soon!" disabled
+                    onmousedown="colorAnimationSettings('ssbutton')">Turn
+                    On</button>
+                <button id="ssnbutton" class="sbutton" value="musicOffTrigger" title="Coming Soon!" disabled
+                    onmousedown="colorAnimationSettings('ssnbutton')">Turn
+                    Off</button>
+            </div>
+        </div>
+    </div>
+    <div class = "enemyCounterWrap">
+        <div id = "enemyTitle">
+            In-City Enemies
+        </div>
+        <div id = "enemies">
+            <div id = "wolves">Wolves: <div id = "wolfCount" class = "count">0</div></div>
+            <div id = "barbarians">Barbarians: <div id = "barbCount" class = "count">0</div></div>
+        </div>
+    </div>
+    <!-- Building / Fortifying -->
+    <div class="BLDtabWrap">
+        <div id="BLDToverlayBar"></div>
+        <div id="BLDBoverlayBar"></div>
+        <div class="building">
+            <button id="buildingTitle" onmousedown="selection3('building')"
+                class="selector selected nborder">Building</button>
+            <div id="buildingPage" style="display: block;">
+                <div id="tent">
+                    <button id="tentBuild" class="buildTent" name="tent"
+                        onmousedown="colorAnimation('tentBuild'); addBuilding('1')">Build</button>
+                    <div id="builtTents">Tents: 0</div>
+                    <div id="afterTent" class="after"><i>15 wood and 5 hide to build.</i></div>
+                </div>
+                <div id="barracks">
+                    <button id="barracksbuild" class="buildBarracks" name="barracks"
+                        onmousedown="colorAnimation('barracksbuild'); addBuilding('2')">Build</button>
+                    <div id="builtBarracks">Barracks: 0</div>
+                    <div id="afterBarracks" class="after"><i>175 wood and 15 hide to build</i>.</div>
+                </div>
+                <div id="huntersCabin">
+                    <button id="buildHC" class="buildHC" name="huntersCabin"
+                        onmousedown="colorAnimation('buildHC'); addBuilding('3')">Build</button>
+                    <div id="builtHC">Hunter's Cabins: 0</div>
+                    <div id="afterHC" class="after"><i>90 wood and 30 stone to build.</i></div>
+                </div>
+                <div id="minerShacks">
+                    <button id="buildMS" class="buildMS" name="miningShacks"
+                        onmousedown="colorAnimation('buildMS'); addBuilding('4')">Build</button>
+                    <div id="builtMS">Miner Shacks: 0</div>
+                    <div id="afterMS" class="after"><i>32 stone and 35 wood to build.</i></div>
+                </div>
+                <div id="lumberHuts">
+                    <button id="buildLH" class="buildLH" name="lumberHuts"
+                        onmousedown="colorAnimation('buildLH'); addBuilding('5')">Build</button>
+                    <div id="builtLH">Lumber Huts: 0</div>
+                    <div id="afterLH" class="after"><i>5 hide and 35 wood to build.</i></div>
+                </div>
+                <div id="gatheringPlace">
+                    <button id="buildGP" class="buildGP" name="GP"
+                        onmousedown="colorAnimation('buildGP'); addBuilding('6')">Build</button>
+                    <div id="builtGP">Gathering Places: 0</div>
+                    <div id="afterGP" class="after"><i>250 wood and 10 hide to build.</i></div>
+                </div>
+                <div id="woodPit">
+                    <button id="WPbuild" class="buildwoodPit" name="woodpit"
+                        onmousedown="colorAnimation('WPbuild'); addBuilding('7')">Build</button>
+                    <div id="builtwoodPits">Wood Pits: 0</div>
+                    <div id="afterWP" class="after"><i>48 wood and 5 hide to build.</i></div>
+                </div>
+                <div id="stoneShed">
+                    <button id="SSbuild" class="buildstoneShed" name="stoneshed"
+                        onmousedown="colorAnimation('SSbuild'); addBuilding('8')">Build</button>
+                    <div id="builtstoneSheds">Stone Sheds: 0</div>
+                    <div id="afterSS" class="after"><i>50 wood and 42 stone to build.</i></div>
+                </div>
+                <div id="foodCave">
+                    <button id="buildFC" class="buildfoodCave" name="foodcave"
+                        onmousedown="colorAnimation('buildFC'); addBuilding('9')">Build</button>
+                    <div id="builtfoodCaves">Food Caves: 0</div>
+                    <div id="afterFC" class="after"><i>35 wood and 55 stone to build.</i></div>
+                </div>
+            </div>
+        </div>
+        <div class="upgrading">
+            <button id="upgradingTitle" onmousedown="selection3('upgrade')"
+                class="selector unselected border">Upgrades</button>
+            <div id="upgradingPage" style="display: none;">
+                <div id="no-upgrade">Building upgrades not available in current age.</div>
+            </div>
+        </div>
+        <div class="fortifying">
+            <button id="fortifyingTitle" onmousedown="selection3('fortification')"
+                class="selector unselected border">Fortify</button>
+            <div id="fortifyingPage" style="display: none;">
+                <div id="no-fortify">Fortification not available. Research 'Fortification' in the Gathering Place first.
+                </div>
+            </div>
+        </div>
+        <div class="wonders">
+            <button id="wonderTitle" class="selector unselected border"
+                onmousedown="selection3('wonders')">Wonders</button>
+            <div id="wonderPage" style="display: none;">
+                <div id="no-wonders">No wonders yet built or available.</div>
+                <div id="woodenWonder" style="display: none;">
+                    <button class="buildWW" name="WW">Build</button>
+                    <div id="builtWW"></div>
+                    <div id="afterWW">1500 wood and 250 stone to build.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="achievements">
+            <button id="achievementsTitle" class="selector unselected border"
+                onmousedown="selection3('achievements')">Achievements</button>
+            <div id="achievementsPage" style="display: none;">
+                <div id="achievementWrap">
+                    <div id="resourcesAchievements">
+                        <p class="achievementTitle" id="resourceAchievementTitle">Resource Achievements</p>
+                        <div id="col1">
+                            <div id="TST">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="properCapitalist">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="climateDestruction">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+
+                            </div>
+                            <div id="inhospitable">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="killerOfTrees">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="climateChange">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="speedrunner">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="gottaBeABug">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="buildingAchievements">
+                        <p class="achievementTitle" id="buildingAchievementTitle">Building Achievements</p>
+                        <div id="col2">
+                            <div id="group">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="tribe">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="village">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="town">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="city">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="largeCity">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="capital">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="developmentAchievements">
+                        <p class="achievementTitle" id="developmentAchievementTitle">Developmental Achievements</p>
+                        <div id="col3">
+                            <div id="neanderthal">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="homoErectus">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="homoBodoensis">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="advanced1">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="advanced2">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="advanced3">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="advanced4">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="advanced5">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="advanced6">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="educated">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="col4">
+                            <div id="hardened">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="stoneAge">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="copperAge">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="bronzeAge">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="silverAge">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="ironAge">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="modernAge">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="mediocrePopulation">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="mediumPopulation">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+
+                            </div>
+                            <div id="moderatePopulation">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="col5">
+                            <div id="largePopulation">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="largerPopulation">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="hugePopulation">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="conquestAchievements">
+                        <p class="achievementTitle" id="conquestAchievementTitle">Conquest Achievements</p>
+                        <div id="col6">
+                            <div id="raider">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="threat">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="warlord">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="general">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="cityLeveler">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="commander">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="nationDestroyer">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="empireCollapser">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="worldDominator">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="miscellaneousAchievements">
+                        <p class="achievementTitle" id="miscellaneousAchievementTitle">Miscellaneous Achievements</p>
+                        <div id="col7">
+                            <div id="religious">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="zealot">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="extremist">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="stronghold">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                            <div id="afkKing">
+                                <div class="imgDiv">
+                                    <img class="lockedImage" src="Images/achievements/locked.png"
+                                        style="border: 2px solid black;">
+                                </div>
+                                <div class="labelDiv">
+                                    <p class="locked">Locked!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="versionlabel">
+    </div>
+</body>
+
+</html>
