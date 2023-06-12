@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--// Metadata Declaration //-->
+    <meta charset="utf-8">
+    <meta name="author" content="Adrian Lost">
+    <meta name="description"
+        content="Rising Dawns is a completely browser-operated fantasy empire builder made with a mixture of HTML5, CSS, and Javascript.">
+    <meta name="keywords"
+        content="rising dawns, rising-dawns, Rising Dawns, civbuilder, civ builder, good civbuilding games, empirebuilder, empire builder, save creator, rising dawns save creator, rising dawns start">
+    <meta name="color-scheme" content="only light">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <!--// Site Data //-->
+    <title>Rising Dawns | New Save</title>
+    <!--// Stylesheets //-->
+    <link rel="stylesheet" href="../../styles/icons/css/all.css">
+    <link rel="stylesheet" href="../../styles/save-creator.css">
+    <link rel="stylesheet" href="../../styles/globals.css">
+    <!--// Scripts // -->
+    <script src="../../scripts/game/save-creator.js" type="module"></script>
+</head>
+
+<body>
+    <div id="gameCreationForm" class="mainContainer">
+        <form action="index.html" id="createGame" method="get">
+            <div id="formText">
+                <p id="formHeader" class="formTextNode">New Civilization</p>
+                <p id="formExplanation" class="formTextNode">Create a new save. Once in the actual
+                    game, you can load a previous save if you wish.</p>
+                <div class="divide">________________________________________________________________</div>
+            </div>
+            <div id="formOptions">
+                <div id="civWrap">
+                    <p id="civTitle" class="formTextNodeChild">Your Civilization:</p>
+                    <div id="kingWrap" class="formOptionNode">
+                        <label for="king">King:</label>
+                        <input type="text" id="kingInput" name="king" maxlength="12" autocomplete="off" required>
+                    </div>
+                    <div id="kingdomWrap" class="formOptionNode">
+                        <label for="kingdom">Kingdom:</label>
+                        <input type="text" id="kingdomInput" name="kingdom" maxlength="10" autocomplete="off" required>
+                    </div>
+                </div>
+                <div id="godWrap">
+                    <div id="religionWrap">
+                        <p id="religionTitle" class="formTextNodeChild">Your Religion: </p>
+                        <div id="relgionCheckWrap" class="formOptionNode">
+                            <label for="religionCheck">Found a Religion: </label>
+                            <input type="checkbox" name="religionCheck" id="religionCheck" value="yes" checked>
+                        </div>
+                        <div id="godOptions">
+                            <select id="religionType" class="formOptionNode">
+                                <option class="chooseOption" disabled aria-disabled="true" selected>What type of
+                                    religion do
+                                    your people follow?</option>
+                                <option value="monotheistic">Monotheistic (One god)</option>
+                                <option value="polytheistic">Polytheistic (Many gods)</option>
+                                <option value="atheistic">Atheistic (No gods)</option>
+                            </select>
+                            <select id="religionWorship" class="formOptionNode">
+                                <option class="chooseOption" disabled aria-disabled="true" selected>What does your
+                                    church
+                                    worship?</option>
+                                <option value="nature">Nature (Ex. Trees, rocks)</option>
+                                <option value="science">Science</option>
+                                <option value="space">Space (Ex. Planets, stars)</option>
+                                <option value="phenomena">Phenomena (Ex. Lightning, weather)</option>
+                            </select>
+                            <select id="religionValues" class="formOptionNode">
+                                <option class="chooseOption" disabled aria-disabled="true" selected>What core value does
+                                    your religion hold?</option>
+                                <option value="ritualism">Ritualism (Your relgion practices rituals & sacrifices)
+                                </option>
+                                <option value="partyAnimals">Constant Festivities (Your church members will party often)
+                                </option>
+                                <option value="solemnitity">Solemnitity (Your religion is very isolated and serious)
+                                </option>
+                                <option value="ferverence">Ferverence (Church members will stop at nothing to convert
+                                    others)</option>
+                                <option value="scientificism">Scientificism (Your church aides in the advancement of the
+                                    sciences)
+                                </option>
+                                <option value="tribalism">Tribalism (Your church shuns science and high society)
+                                </option>
+                                <option value="generosity">Generosity (Members of your church often donate to the poor)
+                                </option>
+                            </select>
+                            <select id="religionHierarchy" class="formOptionNode">
+                                <option class="chooseOption" disabled aria-disabled="true" selected>How is your church
+                                    set
+                                    up?</option>
+                                <option value="strict">Strict Hierarchy (Your church is run strictly by religious
+                                    leaders)
+                                </option>
+                                <option value="lax">Hierarchy (Your church is run mostly by relgious leaders)</option>
+                                <option value="divided">Divided Hierarchy (Your church is split into a few hierarchical
+                                    groups)</option>
+                                <option value="anarchist">No Hierarchy (There is no church hierarchy)</option>
+                            </select>
+                            <div id="deityWrap" class="formOptionNode">
+                                <label for="god">Name Your God(s): </label>
+                                <input type="text" id="godInput" name="god" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="saveWrap" class="formOptionNode">
+                    <p id="saveTitle" class="formTextNodeChild">Your Save: </p>
+                    <div id="saveNameWrap" class="formOptionNode">
+                        <label for="save">Save Name:</label>
+                        <input type="text" id="saveInput" name="save" class="unselected" maxlength="10"
+                            autocomplete="off" required>
+                    </div>
+                    <div id="autosaveWrap" class="formOptionNode">
+                        <label for="autosave">Autosave: </label>
+                        <input type="checkbox" name="autosave" id="autosave" value="yes" checked>
+                    </div>
+                    <div id="worldTypeWrap" class="formOptionNode">
+                        <label for="fantasy">Generate Fantasy Map (Else the game map will be a map of Earth): </label>
+                        <input type="checkbox" name="fantasy" id="fantasy" value="yes" checked>
+                    </div>
+                    <div id="regionPickerWrap" class="formOptionNode">
+                        <label for="region">Region:</label>
+                        <select name="region" id="regionPicker">
+                            <option value="Random" selected>Random</option>
+                            <option value="Europe">Europe</option>
+                            <option value="SE">Southeastern Asia</option>
+                            <option value="N">Northern Asia</option>
+                            <option value="Africa">Africa</option>
+                            <option value="NA">Northern America</option>
+                            <option value="CA">Central America</option>
+                        </select>
+                    </div>
+                    <div id="difficultyPickerWrap" class="formOptionNode">
+                        <label for="difficulty">Difficulty:</label>
+                        <select id="difficultyPicker" name="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="normal" selected>Normal</option>
+                            <option value="hard">Hard</option>
+                            <option value="harder">Harder</option>
+                            <option value="nightmare">Nightmare</option>
+                        </select>
+                    </div>
+                    <div id="achievementWrap" class="formOptionNode">
+                        <label for="achievements">Achievements: </label>
+                        <input type="checkbox" name="achievements" id="achievements" value="yes" checked>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button id="submitForm">Create</button>
+    </div>
+</body>
+
+</html>

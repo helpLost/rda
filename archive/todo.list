@@ -1,0 +1,25 @@
+## TODO
+- Add more building achievements (specter stop being lazy)
+- Get naming conventions under proper control
+- Add version storing and checking logic
+- File download logic
+- Proper code documentation (adrian you f**king idiot comment your code)
+- Fix the damned console
+- Find a better place for the research tab (it's too cramped)
+- Do something with that big hole in the UI
+- More hoverwindows (to explain more things obv)
+- increaseWorkers needs to be ironed out, it's built like the corn maze I did this summer
+- Transfer the worker gather timers to clock-based ones (I.E sync them with the gametime)
+- Proper clock (day, month, season, year)
+- Make citizens consume rss (like the hoverwindows say)
+- Improve perSecond calculations and logic
+- Choose your version when creating a save
+- Improve save form logic
+- Finish the save creator
+- See if you can find an easier way to append hoverwindows to objects
+- Add apostrophes to building names
+- Look into file compression
+- Fix the special rss per second label bug
+
+## FUTURE TODO
+- Give all buildings limits per square km of land that you have

@@ -1,0 +1,92 @@
+/* Resources */
+.unselected {
+    display: none;
+}
+.selected {
+    display: block;
+}
+.current {
+    border: 1px solid grey;
+    border-bottom: 1px solid white;
+}
+.notcurrent {
+    border: 1px solid grey;
+}
+.gameTabs {
+    position: relative;
+    font-family: 'Lucida Grande', 'Lucida Sans';
+    padding: 0;
+    margin-left: 5px;
+    width: fit-content;
+    height: fit-content;
+}
+.topTabs {
+    width: fit-content;
+    height: fit-content;
+    margin-left: 10px;
+}
+.topTabOption {
+    font-size: 16px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+    margin: 0;
+    font-family: 'Lucida Grande', 'Lucida Sans';
+}
+.mainPages {
+    background-color: white;
+    box-shadow: 3px 3px 2px lightgrey;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -1px;
+    z-index: -1;
+    margin-left: 10px;
+    padding-left: 25px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 27.8vw;
+}
+.notUnlocked {
+    font-style: italic;
+}
+
+#citizenTabs {
+    position: absolute;
+    top: 72vh;
+}
+
+#optionsTabs {
+    position: absolute;
+    top: 46vh;
+    left: 71.5vw;
+}
+
+.secondaryPages {
+    background-color: white;
+    box-shadow: 3px 3px 2px lightgrey;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0px;
+    margin-left: 10px;
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-bottom: 3px;
+    width: 24.75vw;
+    height: 47.55vh;
+    overflow-y: scroll;
+}
+.fileSaverOption {
+    margin-top: 25px;
+}
+#fileSaverTitle {
+    margin-top: 0;
+    font-size: 16px;
+    margin-bottom: 3px;
+    font-weight: bold;
+    user-select: none;
+}
+.fileSaverDecoration {
+    user-select: none;
+}
