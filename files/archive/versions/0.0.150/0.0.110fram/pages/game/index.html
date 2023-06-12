@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--// Metadata //-->
+    <meta charset="utf-8">
+    <meta name="author" content="Adrian Lost">
+    <meta name="description"
+        content="Rising Dawns is a completely browser-operated fantasy empire builder made with a mixture of HTML5, CSS, and Javascript.">
+    <meta name="keywords"
+        content="rising dawns, rising-dawns, Rising Dawns, civbuilder, civ builder, good civbuilding games, empirebuilder, empire builder">
+    <meta name="color-scheme" content="only light">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <!--// Document Specs //-->
+    <title>Rising Dawns</title>
+    <!--// Scripts //-->
+    <script src="../../scripts/game/logic-hub.js" type="module"></script>
+    <script src="../../scripts/game/modules/define.js" type="module"></script>
+    <!--// Stylesheets //-->
+    <link rel="stylesheet" href="../../styles/globals.css">
+    <link rel="stylesheet" href="../../styles/interfaces.css">
+    <link rel="stylesheet" href="../../styles/tab-interfaces.css">
+    <!--/ FontAwesome /-->
+    <link rel="stylesheet" href="../../styles/icons/css/all.css">
+</head>
+
+<body>
+    <header id="topInfo">
+        <div id="civDataBox" class="civData">
+            <p id="civNameLabel" class="mainCivLabel"></p>
+            <p id="cityNameLabel" class="mainCivLabel" style="display: none;"></p>
+            <p id="kingNameLabel" class="minorCivLabel"></p>
+        </div>
+        <div id="strips" class="gameInfoContainer">
+            <div id="infoStrip" class="gameInfo">
+                <a id="faqHref" class="stripInfoHref" href="../info/faq.html">FAQ</a><span class="separation"> ·
+                </span><a id="logHref" class="stripInfoHref" href="../info/updates.html">Updates / Known Bugs</a><span
+                    class="separation"> · </span><a id="authorHref" class="stripInfoHref"
+                    href="../info/author.html">Author</a>
+            </div>
+            <div id="githubStrip" class="gameInfo">
+                <a id="repoHref" class="stripInfoHref" href="https://github.com/helpLost/rising-dawns">Visit the Github
+                    Repo</a>
+            </div>
+            <div id="gameTabStrip" class="gameInfo" style="display: none">
+                <p id="gameTabsTitle">Game Screens</p>
+                <button class="gameTab">City Management</button>
+                <button class="gameTab">Map</button>
+                <button class="gameTab">Civ Stats</button>
+            </div>
+        </div>
+    </header>
+    <main id="gameElements">
+        <div id="resourceTabs" class="gameTabs">
+            <div id="resourceTopBar" class="topTabs">
+                <button id="regular" class="topTabOption current">Normal Resources</button>
+                <button id="special" class="topTabOption notcurrent">Special Resources</button>
+                <button id="stats" class="topTabOption notcurrent">Resource Stats</button>
+            </div>
+            <div id="resourcePages" class="mainPages">
+                <div id="regularTab" class="mainPage selected">
+                    <div id="food" class="pageItem">
+                        <p id="foodCount" class="pageLabel">Food: 0</p>
+                        <p id="foodStorageLabel" class="pageStorageLabel">You can store: 0</p>
+                        <button id="foodGather" class="pageButton resourcesPageButton">Gather</button>
+                    </div>
+                    <div id="wood" class="pageItem">
+                        <p id="woodCount" class="pageLabel">Wood: 0</p>
+                        <p id="woodStorageLabel" class="pageStorageLabel">You can store: 0</p>
+                        <button id="woodGather" class="pageButton resourcesPageButton">Gather</button>
+                    </div>
+                    <div id="stone" class="pageItem">
+                        <p id="stoneCount" class="pageLabel">Stone: 0</p>
+                        <p id="stoneStorageLabel" class="pageStorageLabel">You can store: 0</p>
+                        <button id="stoneGather" class="pageButton resourcesPageButton">Gather</button>
+                    </div>
+                </div>
+                <div id="specialTab" class="mainPage unselected">
+                    <p id="hideCount" class="pageItem">Hide: 0</p>
+                    <p id="rootsCount" class="pageItem">Roots: 0</p>
+                    <p id="oreCount" class="pageItem">Ore: 0</p>
+                    <p id="herbsCount" class="pageItem">Herbs: 0</p>
+                </div>
+                <div id="statsTab" class="mainPage unselected">
+                    <p id="foodPerSecond" class="pageItem">Food Per Second: 0</p>
+                    <p id="woodPerSecond" class="pageItem">Wood Per Second: 0</p>
+                    <p id="stonePerSecond" class="pageItem">Stone Per Second: 0</p>
+                    <p id="hidePerSecond" class="pageItem">Hide Chance Per Second: 0</p>
+                    <p id="rootsPerSecond" class="pageItem">Roots Chance Per Second: 0</p>
+                    <p id="herbsPerSecond" class="pageItem">Herbs Chance Per Second: 0</p>
+                    <p id="orePerSecond" class="pageItem">Ore Chance Per Second: 0</p>
+                </div>
+            </div>
+        </div>
+        <div id="citizenTabs" class="gameTabs">
+            <div id="citizenTopBar" class="topTabs">
+                <button id="citizen" class="topTabOption current">Citzens & Jobs</button>
+                <button id="military" class="topTabOption notcurrent">Military & Conquest</button>
+                <button id="research" class="topTabOption notcurrent">Research</button>
+            </div>
+            <div id="citizenPages" class="mainPages">
+                <div id="citizenTab" class="mainPage selected">
+                    <div id="unemployed" class="pageItem">
+                        <p id="unemployedCount" class="pageLabel">Unemployed Workers: 0</p><button
+                            id="unemployedRecruit" class="pageButton">Recruit</button>
+                    </div>
+                    <div id="hunters" class="pageItem">
+                        <p id="hunterCount" class="pageLabel">Hunters: 0</p><button id="hunterDismiss"
+                            class="pageButton dismiss"><i class="fa-solid fa-angle-left"></i></button><button
+                            id="hunterRecruit" class="pageButton recruit"><i
+                                class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                    <div id="lumberjacks" class="pageItem">
+                        <p id="lumberjackCount" class="pageLabel">Wood Collectors: 0</p><button id="lumberjackDismiss"
+                            class="pageButton dismiss"><i class="fa-solid fa-angle-left"></i></button><button
+                            id="lumberjackRecruit" class="pageButton recruit"><i
+                                class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                    <div id="miners" class="pageItem">
+                        <p id="minerCount" class="pageLabel">Primitive Miners: <span class="notUnlocked">not
+                                unlocked</span></p><button id="minerDismiss" class="pageDisabledButton dismiss"
+                            disabled><i class="fa-solid fa-angle-left"></i></button><button id="minerRecruit"
+                            class="pageDisabledButton recruit" disabled><i class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                </div>
+                <div id="militaryTab" class="mainPage unselected">
+                    <p id="unit-1" class="pageItem">unit_1: <span class="notUnlocked">not unlocked</span></p>
+                    <p id="unit-2" class="pageItem">unit_2: <span class="notUnlocked">not unlocked</span></p>
+                    <p id="unit-3" class="pageItem">unit_3: <span class="notUnlocked">not unlocked</span></p>
+                    <p id="unit-4" class="pageItem">unit_4: <span class="notUnlocked">not unlocked</span></p>
+                </div>
+                <div id="researchTab" class="mainPage unselected">
+                    <i>_research</i>
+                </div>
+            </div>
+        </div>
+        <div id="buildingArea" class="gameArea"></div>
+        <div id="gameConsole" class="gameArea">
+            <p id="consoleTitle" class="elementTitle">Game Events</p>
+            <table id="logs">
+                <tr id="log0">
+                    <td id="logTime">> <i>No events to note.</i></td>
+                    <td id="logMessage"></td>
+                    <td id="logRepeat"></td>
+                </tr>
+                <tr id="log1">
+                    <td colspan="3">
+                        > <i>No events to note.</i>
+                    </td>
+                </tr>
+                <tr id="log2">
+                    <td colspan="3">
+                        > <i>No events to note.</i>
+                    </td>
+                </tr>
+                <tr id="log3">
+                    <td colspan="3">
+                        > <i>No events to note.</i>
+                    </td>
+                </tr>
+                <tr id="log4">
+                    <td colspan="3">
+                        > <i>No events to note.</i>
+                    </td>
+                </tr>
+                <tr id="log5">
+                    <td colspan="3">
+                        > <i>No events to note.</i>
+                    </td>
+                </tr>
+                <tr id="log6">
+                    <td colspan="3">
+                        > <i>No events to note.</i>
+                    </td>
+                </tr>
+                <tr id="log7">
+                    <td colspan="3">
+                        > <i>No events to note.</i>
+                    </td>
+                </tr>
+                <tr id="log8">
+                    <td colspan="3">
+                        > <i>No events to note.</i>
+                    </td>
+                </tr>
+                <tr id="log9">
+                    <td colspan="3">
+                        > <i>No events to note.</i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="optionsTabs" class="gameTabs">
+            <div id="optionsTopBar" class="topTabs">
+                <button id="achievements" class="topTabOption current">Achievements</button>
+                <button id="settings" class="topTabOption notcurrent">Settings</button>
+                <button id="saving" class="topTabOption notcurrent">Saving</button>
+            </div>
+            <div id="optionsPages" class="secondaryPages">
+                <div id="achievementsTab" class="secondaryPage selected">
+                    <i>_achievements</i>
+                </div>
+                <div id="settingsTab" class="secondaryPage unselected">
+                    <i>_settings</i>
+                </div>
+                <div id="savingTab" class="secondaryPage unselected">
+                    <div id="fileSaver">
+                        <p id="fileSaverTitle">File Options - <a id="saveFileHelpHref" class="saveGameHref"
+                                href="#">?</a></p>
+                        <div class="fileSaverOption">
+                            <span class="fileSaverDecoration">> </span><a id="saveFileHref" class="saveGameHref"
+                                href="#">Save Your Game
+                                (File)</a><br />
+                        </div>
+                        <div class="fileSaverOption">
+                            <span class="fileSaverDecoration">> </span><a id="saveBrowserHref" class="saveGameHref"
+                                href="#">Save Your
+                                Game (Browser Data)</a><br />
+                        </div>
+                        <div class="fileSaverOption">
+                            <span class="fileSaverDecoration">> </span><a id="loadFileHref" class="saveGameHref"
+                                href="#">Load a
+                                File</a><br />
+                        </div>
+                        <div class="fileSaverOption">
+                            <span class="fileSaverDecoration">> </span><a id="loadBrowserHref" class="saveGameHref"
+                                href="#">Load Browser
+                                Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
