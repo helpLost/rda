@@ -1,5 +1,5 @@
 # **Rising Dawns: Adventure**
-**Rising Dawns: Adventure is an HTML5 and Javascript based civilization/empire building game. Created for fun, enjoy!**
+**Rising Dawns: Adventure is an HTML5 and Javascript based, mostly textual civilization/empire building game. Created for fun, enjoy!**
 
 The game itself was/is created by a small dev team based in the US. Inspiration was taken from CivClicker and Age of Empires originally.
 
