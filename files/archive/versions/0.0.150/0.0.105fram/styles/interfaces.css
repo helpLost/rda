@@ -1,0 +1,104 @@
+/* All the top bits */
+#topInfo {
+    overflow: hidden;
+    height: 17vh;
+}
+/* Civ Display Box */
+#civDataBox {
+    user-select: none;
+    background-color: white;
+    box-shadow: 3px 3px 2px lightgrey;
+    width: 30vw;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#kingNameLabel {
+    font-size: 17px;
+    font-family: 'Lucida Grande', 'Lucida Sans';
+    margin: 0;
+}
+#civNameLabel {
+    font-size: 25px;
+    font-family: 'Lucida Grande', 'Lucida Sans';
+    font-weight: bold;
+    margin: 0;
+}
+/* Strips */
+.gameInfo {
+    position: absolute;
+    top: 10px;
+    left: 34.5vw;
+    background-color: white;
+    box-shadow: 3px 3px 2px lightgrey;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: fit-content;
+    font-size: 17px;
+}
+#githubStrip {
+    top: 6.8vh;
+}
+.separation {
+    font-weight: bold;
+}
+#buildingArea {
+    background-color: white;
+    box-shadow: 3px 3px 2px lightgrey;
+    width: 36vw;
+    height: 80.5vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 1px;
+    position: absolute;
+    left: 32vw;
+    top: 17vh;
+    overflow-y: scroll;
+    font-family: 'Lucida Grande', 'Lucida Sans';
+}
+.buildingOption {
+    user-select: none;
+}
+.buildStructure {
+    font-family: 'Lucida Grande', 'Lucida Sans';
+    border: 1px solid lightgrey;
+    background-color: whitesmoke;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.buildStructure:hover {
+    background-color: white;
+}
+.buildingExplanation {
+    user-select: none;
+    font-style: italic;
+    font-size: 14px;
+}
+#gameConsole {
+    background-color: white;
+    box-shadow: 3px 3px 2px lightgrey;
+    width: 25.2vw;
+    height: fit-content;
+    position: absolute;
+    left: 72.5vw;
+    top: 10px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+.elementTitle {
+    font-family: 'Lucida Grande', 'Lucida Sans';
+    font-size: 17px;
+}
+#logs {
+    font-size: 14px;
+    font-family: 'Lucida Grande', 'Lucida Sans';
+}

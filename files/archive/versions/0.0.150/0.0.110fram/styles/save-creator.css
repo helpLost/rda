@@ -1,0 +1,124 @@
+#gameCreationForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content:center;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 25px;
+}
+.formTextNode {
+    font-weight: bold;
+    text-align: center;
+}
+#formHeader {
+    font-size: 19px;
+}
+#formExplanation {
+    font-family: Georgia;
+    font-weight:normal;
+    font-style: italic;
+}
+#formText {
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    position: relative;
+    top: 15px;
+    user-select: none;
+}
+.divide {
+    text-align: center;
+    font-family: 'Lucida Grande';
+    margin: 0;
+    margin-bottom: 25px;
+    padding: 0;
+    user-select: none;
+}
+#saveWrap {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: 48.5vw;
+    height: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    position: absolute;
+    top: 450px;
+    left: 25vw;
+    text-align: center;
+}
+#submitForm {
+    position: absolute;
+    font-size: 18px;
+    font-family: 'Lucida Grande', 'Lucida Sans';
+    background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    left: 30vw;
+    border-radius: 5px;
+}
+#submitForm:hover {
+    background-color: white;
+}
+#godWrap {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: fit-content;
+    height: 30vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    position: absolute;
+    top: 219px;
+    left: 43vw;
+}
+#civWrap {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    position: relative;
+    top: 18px;
+}
+#religionWrap, #deityWrap {
+    width: 30.55vw;
+}
+#kingInput {
+    position: relative;
+    left: 35px;
+}
+#kingdomInput {
+    position: relative;
+    left: 3px;
+}
+.formOptionNode {
+    margin-top: 10px;
+    font-size: 15px;
+}
+.formTextNodeChild {
+    font-family: Georgia;
+    font-weight: bold;
+    margin-top: 0px;
+    margin: 0;
+    font-size: 17px;
+}
+select.formOptionNode {
+    font-size: 13px;
+}
+#createGame {
+    background-color: white;
+    box-shadow: 3px 3px 2px lightgrey;
+    width: 50vw;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    height: 88vh;
+    font-family: 'Lucida Grande', 'Lucida Sans';
+}
