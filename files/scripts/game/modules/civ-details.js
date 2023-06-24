@@ -185,7 +185,7 @@ export let buildings = {
 //-- Kingdom States (ie, the current age, whether or not this is a dev build, in-city enemies)
 export let states = {
     age: 'Tribal Era',
-    dev: true
+    dev: false
 }
 
 //-- Possible Events
@@ -229,7 +229,7 @@ export let events = {
     }
 }
 
-//-- Researchs
+//-- Researches
 export let completed = {
     
 }
