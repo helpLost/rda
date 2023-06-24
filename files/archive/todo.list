@@ -1,0 +1,28 @@
+## TODO
+- increaseWorkers needs to be ironed out, it's built like the corn maze I did this summer
+- Transfer the worker gather timers to clock-based ones (I.E sync them with the gametime)
+- Make citizens consume rss (like the hoverwindows say)
+- Improve perSecond calculations and logic
+- Improve save form logic
+- Finish the save creator
+- Look into save file compression
+- Fix the special rss per second label bug
+- Building timers
+--> Research
+- Events
+- Military
+- Save loading
+
+## FUTURE TODO
+- Give all buildings limits per square km of land that you have
+- Add seasons
+- Add version storing and checking logic
+- Organize
+- Proper code documentation (adrian you f**king idiot comment your code)
+- Properly fix the console spacing
+- Even more hoverwindows
+- Choose your version when creating a save
+- Research points
+- Simplify applyResearch()
+- Research durations
+- Improve research bonuses
