@@ -1,0 +1,90 @@
+html {
+  background-color: whitesmoke;
+}
+html body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+html body nav {
+  background-color: white;
+  height: 50px;
+  width: 100vw;
+  border-bottom: 1px solid lightgrey;
+}
+html body nav p {
+  margin: 0;
+  padding: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+html body nav a {
+  text-decoration: none;
+  outline: 0;
+}
+html body nav a:hover {
+  text-decoration: underline;
+}
+html body nav ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+html body nav .nav-item {
+  font-family: "Lucida Sans", "Lucida Grande";
+  color: grey;
+}
+html body nav #homeHref {
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  top: 13px;
+  left: 1vw;
+}
+html body nav .file-path-item {
+  display: inline-block;
+}
+html body nav .file-path-item a {
+  color: grey;
+}
+html body nav .file-path-item a::after {
+  display: inline-block;
+  font-weight: bold;
+  content: ">";
+}
+html body nav #filePath {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  position: absolute;
+  top: 3px;
+  left: 15vw;
+  font-size: 14.5px;
+}
+html body nav .divide {
+  content: ">";
+}
+html body nav #documentationHover {
+  position: absolute;
+  top: 13px;
+  left: 25vw;
+  font-size: 17px;
+}
+html body sidenav {
+  position: absolute;
+  top: 51px;
+  background-color: white;
+  width: 15vw;
+  height: 94.1vh;
+  border-right: 1px solid lightgrey;
+}
+html body main {
+  position: absolute;
+  top: 60px;
+  left: 15.75vw;
+  height: 90.5vh;
+  width: 83.5vw;
+}/*# sourceMappingURL=index.css.map */

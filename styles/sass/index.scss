@@ -1,0 +1,86 @@
+html {
+    background-color: whitesmoke;
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        nav {
+            background-color: white;
+            height: 50px;
+            width: 100vw;
+            border-bottom: 1px solid lightgrey;
+            p {
+                margin: 0;
+                padding: 0;
+                width: fit-content;
+                height: fit-content;
+            }
+            a {
+                text-decoration: none;
+                outline: 0;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            ol {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .nav-item {
+                font-family: 'Lucida Sans', 'Lucida Grande';
+                color: grey;
+            };
+            #homeHref {
+                font-size: 20px;
+                font-weight: bold;
+                position: relative;
+                top: 13px;
+                left: 1vw;
+            }
+            .file-path-item {
+                display: inline-block;
+            }
+            .file-path-item a {
+                color: grey;
+            }
+            .file-path-item a::after {
+                display: inline-block;
+                font-weight: bold;
+                content: '>';
+            }
+            #filePath {
+                user-select: none;
+                position: absolute;
+                top: 3px;
+                left: 15vw;
+                font-size: 14.5px;
+            }
+            .divide {
+                content: '>';
+            }
+            #documentationHover {
+                position: absolute;
+                top: 13px;
+                left: 25vw;
+                font-size: 17px;
+            }
+        }
+        sidenav {
+            position: absolute;
+            top: 51px;
+            background-color: white;
+            width: 15vw;
+            height: 94.1vh;
+            border-right: 1px solid lightgrey;
+        }
+        main {
+            position: absolute;
+            top: 60px;
+            left: 15.75vw;
+            height: 90.5vh;
+            width: 83.5vw;
+        }
+    }
+}
