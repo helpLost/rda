@@ -1,0 +1,161 @@
+{
+    "tiers": {"1": "Tribal Era","2": "Early Societal Era","3": "Middle Societal Era","4": "Greco-Roman Era","5": "The Age of Expansion","6": "The Plunge","7": "The Middle Ages","8": "Revitalization Era","9": "Contemporary Era","10": "Post-Contemporary Era"},
+    "trees": {
+        "tier_1": {
+            "row_1": {
+                "Housing": {
+                    "Description": "Discover how to build primitive structures out of wood, keeping your people a little bit safer from the elements and animals.",
+                    "Cost": "food 75,wood 85,stone 90,hide 12,ore 0,roots 5",
+                    "Gains": "A_Frames",
+                    "Duration": "2d"
+                },
+                "Water Collection": {
+                    "Description": "Start collection water straight from its source, rather than just drinking it from a stream, decreasing the risks of disease from waterborne pathogens.",
+                    "Cost": "food 85,wood 70,stone 80,hide 15,ore 2,roots 10",
+                    "Gains": "$",
+                    "Duration": "3d"
+                }
+            },
+            "row_2": {
+                "Tribal Society I": {
+                    "Description": "Encourage a closer-knit societal structure between your tribesmen, allowing the better collections of resources within your lands.",
+                    "Cost": "food 100,wood 100,stone 100,hide 75,ore 25,roots 55",
+                    "Gains": "$",
+                    "Duration": "3d"
+                },
+                "Improved Resource Preservation": {
+                    "Description": "Improve your tribe's ways of storing resources, allowing for more food to be both collected and stored in your buildings.",
+                    "Cost": "food 200,wood 110,stone 125,hide 80,ore 25,roots 60",
+                    "Gains": "Food_Houses",
+                    "Duration": "4d"
+                },
+                "Improved Water Collection": {
+                    "Description": "Discover new techniques of carrying water, such as the waterskin, which make your citizens even safer from waterborne pathogens.",
+                    "Cost": "food 140,wood 95,stone 110,hide 40,ore 50,roots 60",
+                    "Gains": "$",
+                    "Duration": "2d"
+                }
+            },
+            "row_3": {
+                "Clothing": {
+                    "Description": "Learn how to make very primitive clothing, upping the chance of your tribesmen surviving the winter months.",
+                    "Cost": "food 350,wood 150,stone 150,hide 50,ore 30,roots 45",
+                    "Gains": "$",
+                    "Duration": "5d"
+                },
+                "Improved Housing I": {
+                    "Description": "Improve your housing methods, allowing your great people to flourish even further.",
+                    "Cost": "food 370,wood 175,stone 195,hide 60,ore 70,roots 80",
+                    "Gains": "Huts",
+                    "Duration": "7d"
+                },
+                "Improved Resource Storage I": {
+                    "Description": "Discover the benefits of below-ground storage, allowing you to keep food and other materials dry and preserved for when your tribe needs them.",
+                    "Cost": "food 365,wood 200,stone 175,hide 25,ore 45,roots 50",
+                    "Gains": "Wood_Stockpiles",
+                    "Duration": "6d"
+                }
+            },
+            "row_4": {
+                "Primitive Mineral Gathering": {
+                    "Description": "Learn of versatile special rocks inlaid in the stone your tribe mines, and begin extracting them.",
+                    "Cost": "food 455,wood 452,stone 250,hide 12,ore 27,roots 25",
+                    "Gains": "#minerDismiss,#minerRecruit,Miner1s_Cabins",
+                    "Duration": "8d"
+                },
+                "Primitive Tools": {
+                    "Description": "A particularly smart tribe member discovered that properly binding your tools and improving them with ore can increase the tool's lifespan.",
+                    "Cost": "food 560,wood 380,stone 235,hide 13,ore 25,roots 29",
+                    "Gains": "$",
+                    "Duration": "5d"
+                },
+                "Improved Insulation": {
+                    "Description": "Discover the properties of dried vegetation, which allows your tribesmen to build houses that can keep them warm during the winter time.",
+                    "Cost": "food 455,wood 370,stone 250,hide 16,ore 25,roots 27",
+                    "Gains": "$",
+                    "Duration": "7d"
+                },
+                "Improved Resource Storage II": {
+                    "Description": "Discover easier and more efficent ways of refrigeration and animal protection, allowing your to keep more resources at any one time.",
+                    "Cost": "food 560,wood 405,stone 275,hide 18,ore 28,roots 25",
+                    "Gains": "Stone_Sheds",
+                    "Duration": "8d"
+                }
+            },
+            "row_5": {
+                "Improved Tools I": {
+                    "Description": "Discover how to melt down the ore a bit, making it both easier to work with and a bit stronger.",
+                    "Cost": "food 680,wood 595,stone 350,hide 20,ore 30,roots 30",
+                    "Gains": "$",
+                    "Duration": "9d"
+                },
+                "Tribal Society II": {
+                    "Description": "Due to the decreasing demand for constant work and the improving economic situation of the tribe, your tribesmen form closer bonds.",
+                    "Cost": "food 670,wood 510,stone 395,hide 18,ore 32,roots 35",
+                    "Gains": "$",
+                    "Duration": "7d"
+                },
+                "Weapons": {
+                    "Description": "Discover the virtures of the spear, allowing fending off wild animals to become easier.",
+                    "Cost": "food 680,wood 600,stone 390,hide 20,ore 33,roots 38",
+                    "Gains": "$",
+                    "Duration": "8d"
+                },
+                "The Sling": {
+                    "Description": "While pondering life one morning, a tribe member discovered elasticity, which allowed him to craft the first sling, greatly improving the tribe's safety and resource gathering prowess.",
+                    "Cost": "food 605,wood 590,stone 400,hide 20,ore 35,roots 35",
+                    "Gains": "$",
+                    "Duration": "7d"
+                }
+            },
+            "row_6": {
+                "Hunting": {
+                    "Description": "Improve food gathering techniques enough to consider it 'hunting'. Your tribesmen also now travel in groups when going on a hunt, increase the likelihood of them returning alive.",
+                    "Cost": "food 785,wood 720,stone 505,hide 27,ore 40,roots 40",
+                    "Gains": "$",
+                    "Duration": "9d"
+                },
+                "Improved Hunting Techniques": {
+                    "Description": "Further improve hunting techniques, allowing more food to be brought back per hunt.",
+                    "Cost": "food 790,wood 710,stone 505,hide 21,ore 40,roots 42",
+                    "Gains": "$",
+                    "Duration": "11d"
+                },
+                "Stronger Sling": {
+                    "Description": "Strengthen the sling, allowing the projectiles within to be flung faster and farther than ever before.",
+                    "Cost": "food 795,wood 725,stone 500,hide 30,ore 38,roots 45",
+                    "Gains": "$",
+                    "Duration": "10d"
+                }
+            },
+            "row_7": {
+                "Improved Housing II": {
+                    "Description": "Discover how to use a primitive version of pitch on the roofs of your tribe's houses, strengthening them and allowing more people to safely fit in a house.",
+                    "Cost": "food 830,wood 860,stone 525,hide 40,ore 45,roots 48",
+                    "Gains": "Strengthened_Huts",
+                    "Duration": "12d"
+                },
+                "Improved Tools II": {
+                    "Description": "Learn how to better melt ore, allowing your tribe's tools to outpreform any others in the land.",
+                    "Cost": "food 825,wood 850,stone 575,hide 30,ore 40,roots 46",
+                    "Gains": "$",
+                    "Duration": "10d"
+                },
+                "Tribal Society III": {
+                    "Description": "The more the economical climate stabilizes in your tribe, the more your tribesmen form friendships, which have allowed you to overall improve the quality of your civilization.",
+                    "Cost": "food 850,wood 900,stone 650,hide 50,ore 45,roots 52",
+                    "Gains": "Town_Centers",
+                    "Duration": "11d"
+                }
+            },
+            "row_8": {
+                "Agriculture": {
+                    "Description": "Discover the miracle of farming and cultivating, sending the need for hunters dramatically down. Your civilization is no longer tribal in nature, and can now establish yourself in the area.",
+                    "Cost": "food 1100,wood 1250,stone 750,hide 100,ore 150,roots 175",
+                    "Gains": "$",
+                    "Duration": "15d"
+                }
+            }
+        }
+    }
+}

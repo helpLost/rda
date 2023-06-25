@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kings of Old | Civilizations</title>
+    <script src="jquery-1.10.2.min.js"></script>
+    <link rel="icon" href="earlyAgeFaviconCC.png">
+    <script src="https://kit.fontawesome.com/b3dcbaf5bd.js" crossorigin="anonymous"></script>
+    <script>
+        setTimeout(console.log.bind(console, '%cWelcome to the Kings of Old Civilization Information page! This is a--hopefully--comprehesive database of all of the bonuses, nerfs, and various other important civilization information.', 'background-color: transparent; color: hotpink;'));
+        setTimeout(console.log.bind(console, '', ''));
+    </script>
+</head>
+
+<body>
+    <div id="titleWrap">
+        <div class="pageTitle">
+            <h1>Civilization Information</h1>
+            <style>
+                .pageTitle {
+                    font-family: 'Verdana';
+                    font-size: 30px;
+                    position: relative;
+                    top: -25px;
+                    text-align: center;
+                }
+
+                body {
+                    margin: none;
+                }
+
+                .pageTitle>hr {
+                    border: 2px solid black;
+                    position: relative;
+                    top: -15px;
+                }
+
+                #titleWrap {
+                    width: 101vw;
+                    background-color: darkgrey;
+                    height: 115px;
+                    position: fixed;
+                    top: 0px;
+                    left: -10px;
+                }
+
+                .collapseTitle {
+                    font-size: 40px;
+                    position: absolute;
+                    left: 15px;
+                    background-color: darkgrey;
+                    top: 98px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    border-top: 0px solid black;
+                    border-bottom: 4px solid black;
+                    border-left: 4px solid black;
+                    border-right: 4px solid black;
+                    cursor: pointer;
+                }
+
+                .flip {
+                    animation-name: flip;
+                    animation-fill-mode: forwards;
+                    animation-duration: 0.3s;
+                }
+
+                .collapsed {
+                    animation-name: collapse;
+                    animation-fill-mode: forwards;
+                    animation-duration: 0.3s;
+                }
+
+                @keyframes collapse {
+                    0% {
+                        top: 0px
+                    }
+
+                    100% {
+                        top: -117px
+                    }
+                }
+
+                @keyframes flip {
+                    0% {}
+
+                    100% {
+                        transform: rotateX(180deg);
+                    }
+                }
+            </style>
+            <script>
+                $(document).ready(function () {
+                    $(".collapseTitle").click(function () {
+                        $('div#icon').toggleClass("flip");
+                        $("div#titleWrap").toggleClass("collapsed");
+                    });
+                });
+            </script>
+            <hr>
+            <button class="collapseTitle"><div id = "icon"><i class="fa-solid fa-angle-down"></i></div></button>
+        </div>
+    </div>
+    <div id = "englandWrap">
+        <table>
+            <tbody>
+            <tr>
+                <th>
+                    <div class = "englandTitle">
+                    <h1>England</h1>
+                    </div>
+                    <style>
+                        #englandWrap > table {
+                            border: 3px solid black;
+                            top: 100px;
+                            position: relative;
+                            z-index: -1;
+                            background-color: lightgrey;
+                        }
+                        .englandTitle {
+                            font-family: 'Verdana';
+                        }
+                    </style>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <div class = ""
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

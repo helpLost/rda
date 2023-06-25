@@ -1,0 +1,49 @@
+$backgroundColor: rgb(45, 45, 45);
+$navColor: rgb(30, 30, 30);
+$textColor: rgb(225, 225, 225);
+
+$mainFontFamilies: 'Lucida Grande', 'Lucida Sans';
+$secondaryFontFamilies: Georgia, serif;
+
+html {
+    background-color: $backgroundColor;
+    // Generic Elements
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    header, main {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    a {
+        text-decoration: none;
+        color: $textColor;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    // Specific Elements
+    header#nav {
+        background-color: $navColor;
+        width: 100vw;
+        height: 50px;
+        color: $textColor;
+        font-family: $mainFontFamilies;
+    }
+    a#pageHref {
+        position: relative;
+        top: 13px;
+        left: 15px;
+        font-family: $mainFontFamilies;
+        font-size: 19px;
+    }
+    span.separation {
+        font-weight: bold;
+        font-family: Georgia, serif;
+    }
+}

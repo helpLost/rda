@@ -1,0 +1,456 @@
+$mainFont: 'Lucida Grade', 'Lucida Sans';
+$secondaryFont: Georgia, serif;
+
+$backgroundColor: whiteSmoke;
+$elementColor: white;
+
+$boxShadow: 3px 3px 2px lightgrey;
+
+body {
+    #topInfo {
+        overflow: hidden;
+
+        height: fit-content;
+        width: 51.85vw;
+
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 13px;
+        padding-bottom: 13px;
+
+        #civDataBox {
+            background-color: $elementColor;
+            box-shadow: $boxShadow;
+            border-radius: 5px;
+
+            width: 30vw;
+
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            user-select: none;
+
+            .minorCivLabel {
+                margin-bottom: 0px;
+                margin-top: 5px;
+
+                font-family: $mainFont;
+            }
+
+            #kingNameLabel {
+                margin: 0;
+
+                font-size: 17px;
+                font-family: $mainFont;
+            }
+
+            #civNameLabel {
+                margin: 0;
+
+                font-size: 25px;
+                font-family: $mainFont;
+                font-weight: bold;
+            }
+        }
+
+        #strips {
+            position: absolute;
+            top: 0px;
+            left: 33.5vw;
+
+            .gameInfo {
+                position: relative;
+                top: 10px;
+                left: 0px;
+
+                background-color: $elementColor;
+                box-shadow: $boxShadow;
+                border-radius: 5px;
+
+                width: fit-content;
+                height: fit-content;
+
+                font-size: 17px;
+
+                padding-left: 10px;
+                padding-right: 8px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                margin-top: 0px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    #gameElements {
+        width: 100vw;
+        height: 100vh;
+        .selected {
+            display: block;
+        }
+
+        .unselected {
+            display: none;
+        }
+
+        .current {
+            border: 1px solid lightgrey;
+            border-bottom: 1px solid $elementColor;
+        }
+
+        .notcurrent {
+            border: 1px solid lightgrey;
+        }
+
+        .notcurrent:hover {
+            background-color: $backgroundColor;
+        }
+
+        .notUnlocked {
+            font-style: italic;
+        }
+
+        .unlock {
+            display: none;
+        }
+
+        .unlocked {
+            display: block;
+        }
+
+        .gameTabs {
+            position: absolute;
+            font-family: $mainFont;
+            width: fit-content;
+            height: fit-content;
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-right: 13px;
+            padding-bottom: 13px;
+            margin: 0;
+
+            .topTabs {
+                width: fit-content;
+                height: fit-content;
+
+                .topTabOption {
+                    font-size: 16px;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    background-color: $elementColor;
+                    margin: 0;
+                    font-family: $mainFont;
+                }
+            }
+
+            .mainPages {
+                background-color: $elementColor;
+                box-shadow: $boxShadow;
+                margin: 0;
+                padding: 0;
+                position: relative;
+                top: 0px;
+                padding-left: 25px;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                width: 27.9vw;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+
+                #foodGather {
+                    top: 5px;
+                }
+
+                #woodGather {
+                    top: 39px;
+                }
+
+                #stoneGather {
+                    top: 74px;
+                }
+
+                #unemployedRecruit {
+                    top: 0px;
+                }
+
+                #hunterDismiss,
+                #hunterRecruit {
+                    top: 35px;
+                }
+
+                #lumberjackDismiss,
+                #lumberjackRecruit {
+                    top: 70px;
+                }
+
+                #minerDismiss,
+                #minerRecruit {
+                    top: 105px;
+                }
+
+                .recruit {
+                    left: 26vw;
+                }
+            }
+
+            .secondaryPages {
+                background-color: $elementColor;
+                box-shadow: $boxShadow;
+                margin: 0;
+                padding: 0;
+                position: relative;
+                top: 0px;
+                padding-left: 10px;
+                padding-top: 10px;
+                padding-bottom: 3px;
+                width: 24.75vw;
+                height: 334.3px;
+                overflow: hidden;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+
+                #researchTab {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0px;
+                    padding: 0px;
+                    overflow-x: hidden;
+                    -ms-overflow-style: none; // IE
+                    scrollbar-width: none; // firefox
+
+                    .researchNode {
+                        margin: 0;
+                        padding: 0;
+                        margin-top: 12px;
+                    }
+
+                    .researchTitle {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .researchDescription {
+                        font-style: italic;
+                        font-size: 14px;
+                    }
+
+                    .researchButton {
+                        background-color: $backgroundColor;
+                        border: 1px solid lightgrey;
+                        border-radius: 5px;
+                        font-size: 16px;
+                        padding-left: 8px;
+                        padding-right: 8px;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        position: relative;
+                        left: 18vw;
+                        font-family: $mainFont;
+                    }
+
+                    .researchButton:hover {
+                        background-color: $elementColor;
+                    }
+
+                    #housingResearch {
+                        top: -113px;
+                    }
+
+                    #watercollectionResearch {
+                        top: -114px;
+                    }
+                }
+                #researchTab::-webkit-scrollbar {
+                    display: none; // safari & chrome
+                }
+
+                .fileSaverOption {
+                    margin-top: 25px;
+                }
+
+                #fileSaverTitle {
+                    margin-top: 0;
+                    font-size: 16px;
+                    margin-bottom: 3px;
+                    font-weight: bold;
+                    user-select: none;
+                }
+
+                .fileSaverDecoration {
+                    user-select: none;
+                }
+            }
+
+            .centralPages {
+                background-color: $elementColor;
+                box-shadow: $boxShadow;
+                width: 36vw;
+                height: 552.5px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 1px;
+                font-family: $mainFont;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+
+            .pageItem {
+                font-size: 16px;
+
+                .pageStorageLabel {
+                    font-style: italic;
+                    font-family: $secondaryFont;
+                    position: absolute;
+                    margin-top: -35px;
+                    margin-left: 18vw;
+                }
+
+                .resourcesPageButton {
+                    left: 13vw;
+                }
+            }
+
+            .pageButton,
+            .pageDisabledButton {
+                font-family: $mainFont;
+                border: 1px solid lightgrey;
+                background-color: $backgroundColor;
+                font-size: 16px;
+                border-radius: 5px;
+                padding-left: 7px;
+                padding-right: 7px;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                z-index: 10;
+                position: absolute;
+                left: 23vw;
+            }
+
+            .pageButton:hover {
+                background-color: $elementColor;
+            }
+        }
+        #citizenTabs {
+            position: relative;
+            top: 390.6px;
+        }
+        #optionsTabs {
+            position: absolute;
+            top: 43vh;
+            left: 71.5vw;
+        }
+
+        #gameConsole {
+            position: absolute;
+            left: 72.5vw;
+            top: 10px;
+            background-color: $elementColor;
+            box-shadow: $boxShadow;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius: 5px;
+            width: 25.2vw;
+            height: 36vh;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            #consoleTitle {
+                font-family: $mainFont;
+                font-size: 17px;
+            }
+
+            #logs {
+                font-size: 14px;
+                font-family: $mainFont;
+            }
+
+            .log {
+                @mixin fit {
+                    width: fit-content;
+                    margin-right: 0px;
+                    padding-right: 0px;
+                }
+
+                margin-bottom: 5px;
+                width: 350px;
+                height: 16.8px;
+
+                .consoleTime {
+                    @include fit;
+                }
+
+                .consoleMessage {
+                    @include fit;
+                    position: relative;
+                    top: -16.8px;
+                    left: 80px;
+                }
+
+                .consoleRepeat {
+                    @include fit;
+                    position: relative;
+                    top: -33.6px;
+                    left: 325px;
+                }
+            }
+        }
+    }
+}
+#mainTabs {
+    left: 31vw;
+    top: 116px;
+
+    #buildingTab {
+        position: relative;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
+        -ms-overflow-style: none; // IE
+        scrollbar-width: none; // firefox
+
+        .buildingOption {
+            user-select: none;
+        }
+        
+        .buildingElement {
+            position: relative;
+        }
+
+        .buildStructure {
+            font-family: $mainFont;
+            border: 1px solid lightgrey;
+            background-color: $backgroundColor;
+            font-size: 16px;
+            border-radius: 5px;
+            padding-left: 7px;
+            padding-right: 7px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: -41px;
+        }
+
+        .buildStructure:hover {
+            background-color: $elementColor;
+        }
+
+        .buildingExplanation {
+            user-select: none;
+            font-style: italic;
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+    }
+
+    #buildingTab::-webkit-scrollbar {
+        display: none; // safari & chrome
+    }
+}

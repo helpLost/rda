@@ -1,0 +1,77 @@
+body {
+    background-color: whitesmoke;
+    opacity: 0.85;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1f1f1f;
+    text-decoration: underline;
+}
+
+table {
+    position: relative;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+button {
+    background-color: lightgrey;
+    user-select: none;
+    margin: 10px;
+}
+input {
+    border: 1px solid lightgrey;
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 7px;
+    font-family: Georgia;
+}
+input:hover {
+    background-color: whitesmoke;
+}
+input:focus {
+    outline: none;
+    background-color: white;
+}
+
+select {
+    border: 1px solid lightgrey;
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 7px;
+    font-family: Georgia;
+}
+select:hover {
+    background-color: whitesmoke;
+}
+select:focus {
+    outline: none;
+    background-color: white;
+}
+
+dialog {
+    position: absolute;
+    border: 1px solid lightgrey; 
+    font-size: 16px; 
+    font-family: Georgia, serif; 
+    border-radius: 5px;
+    z-index: 50; 
+    padding-left: 5px; 
+    padding-top: 4px; 
+    padding-bottom: 5px;
+    padding-right: 0px;
+}

@@ -1,0 +1,78 @@
+html {
+    background-color: whitesmoke;
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        p {
+            margin: 0;
+            padding: 0;
+            width: fit-content;
+            height: fit-content;
+        }
+        a {
+            text-decoration: none;
+            outline: 0;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            background-color: white;
+            height: 50px;
+            width: 100vw;
+            border-bottom: 1px solid lightgrey;
+            .nav-item {
+                font-family: 'Lucida Sans', 'Lucida Grande';
+                color: grey;
+            };
+            #homeHref {
+                font-size: 20px;
+                font-weight: bold;
+                position: relative;
+                top: 13px;
+                left: 1vw;
+            }
+            #links {
+                position: absolute;
+                top: 14px;
+                left: 82.5vw;
+                font-size: 17px;
+            }
+            .inner-nav-item {
+                display: inline-block;
+                user-select: none;
+            }
+            .nav-item-separation::after {
+                content: '|';
+            }
+        }
+        side-nav {
+            position: absolute;
+            top: 51px;
+            background-color: white;
+            width: 15vw;
+            height: 94.1vh;
+            border-right: 1px solid lightgrey;
+        }
+        main {
+            position: absolute;
+            top: 60px;
+            left: 15.75vw;
+            height: 90.5vh;
+            width: 83.5vw;
+        }
+        #versions {
+            width: 35vw;
+            height: 55vh;
+            position: absolute;
+            left: 32vw;
+            top: 12vh;
+            background-color: white;
+            border-radius: 5px;
+        }
+    }
+}
