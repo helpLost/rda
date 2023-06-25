@@ -191,6 +191,7 @@ export function increaseBuilding(bld, building_label, plural_label) {
                     civData.storedResources.food -= Object.values(civData.buildings.costs.tribal_era)[bld].Food;
                     civData.storedResources.wood -= Object.values(civData.buildings.costs.tribal_era)[bld].Wood;
                     civData.storedResources.stone -= Object.values(civData.buildings.costs.tribal_era)[bld].Stone;
+                    if(bld == 5) {appendResearch(0, 0)};
                 } else {
                     consoleLog("Your tribe doesn't have enough resources to build another " + Object.keys(civData.buildings.explanations.tribal_era)[bld].replace("_", " ") + ".");
                 }
