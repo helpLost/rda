@@ -68,7 +68,7 @@ window.onload = function () {
     document.getElementById("hBuild").addEventListener("click", function () { hubLogic.increaseBuilding(2, "h", "Huts") });
     document.getElementById("shBuild").addEventListener("click", function () { hubLogic.increaseBuilding(3, 'sh', "Strengthened Huts") });
     document.getElementById("taBuild").addEventListener("click", function () { hubLogic.increaseBuilding(4, "ta", "Training Areas") });
-    document.getElementById("gpBuild").addEventListener("click", function () { hubLogic.increaseBuilding(5, "gp", "Gathering Places"); hubLogic.appendResearch(0, 0) });
+    document.getElementById("gpBuild").addEventListener("click", function () { hubLogic.increaseBuilding(5, "gp", "Gathering Places") });
     document.getElementById("hqBuild").addEventListener("click", function () { hubLogic.increaseBuilding(6, "hq", "Hunter's Quarters") });
     document.getElementById("lhBuild").addEventListener("click", function () { hubLogic.increaseBuilding(7, "lh", "Lumberjack's Huts") });
     document.getElementById("mcBuild").addEventListener("click", function () { hubLogic.increaseBuilding(8, "mc", "Miner's Cabins") });
