@@ -3,7 +3,7 @@
 
 The game itself was/is created by a small dev team based in the US. Inspiration was taken from CivClicker and Age of Empires originally.
 
-_Please give credit to us specifically when reposting, remaking, or changing any part of this game for your own private purposes, although you don't have to, as all of the Rising Dawns source code is open-source and in the public domain._
+_Please give credit to us specifically when reposting, remaking, or changing any part of this game for your own private purposes, although you don't have to, as all of the Rising Dawns source code is in the public domain._
 
 ### **Thank you for playing!**
 
