@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Century Gothic';
+    src: url(../fonts/CenturyGothic.ttf);
+}
+
+@font-face {
+    font-family: 'Lucida Sans Unicode';
+    src: url(../fonts/LucidaSansUni.ttf);
+}
+
+@mixin defaultHref {
+    padding: 3px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: white;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:focus {
+        outline: 1px dashed white;
+    }
+}
+
+@mixin verticalCenter {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+$CenturyGothic: 'Century Gothic';
+$LucidaUnicode: 'Lucida Sans Unicode';
+$LucidaSans: 'Lucida Sans';

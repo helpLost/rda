@@ -1,0 +1,71 @@
+@use 'modules' as m;
+$uiElemTop: rgb(20, 20, 25);
+$uiElemBottom: rgb(10, 10, 25);
+$uiElemTopBorder: rgb(35, 35, 50);
+
+html {
+    body {
+        background-color: rgb(30, 30, 35);
+        font-family: m.$LucidaSans;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        nav {
+            height: 6.5vh;
+            width: 100vw;
+            position: relative;
+            z-index: 2;
+            background-color: $uiElemTop;
+            border-bottom: 1px solid $uiElemTopBorder;
+            text-align: center;
+            margin: auto;
+            a {
+                @include m.defaultHref;
+            }
+            #homeHref {
+                @include m.verticalCenter;
+                font-size: 19px;
+                left: 0.75vw;
+            }
+            #leftLinks {
+                @include m.verticalCenter;
+                display: inline-block;
+                left: 82.5vw;
+                font-size: 15px;
+                #authorHref {
+                    & > span::after {
+                        content: ' | '
+                    }
+                }
+            }
+        }
+        side-nav {
+            width: 13vw;
+            height: 93vh;
+            position: absolute;
+            z-index: 1;
+            top: 6.5vh;
+            background-color: $uiElemTop;
+            border-right: 1px solid $uiElemTopBorder;
+        }
+        main {
+            height: 88vh;
+            width: 81.5vw;
+            position: absolute;
+            z-index: 0;
+            top: 12vh;
+            left: 16vw;
+            a {
+                @include m.defaultHref;
+                color:grey;
+            }
+            .sectionTitle {
+                margin: 0;
+                font-size: 19px;
+                font-weight: bold;
+            }
+        }
+    }
+}
