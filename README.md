@@ -15,7 +15,7 @@ _Please give credit to us specifically when reposting, remaking, or changing any
 ---
 
 ### **TO-DO / Version Logs**
-**View the Dev to-do list in the Archive folder of the game files. You can get to the folder from an imbedded link either in the console window of the main game or from a hyperlink in the save creator. Rising Dawns' version logs can also be found here.**
+**View the Dev to-do list in the Scripts folder of the game files. You can get to the folder from an imbedded link either in the console window of the main game or from a hyperlink in the save creator. Rising Dawns' version logs can also be found here.**
 
 ---
 
